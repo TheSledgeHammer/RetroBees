@@ -1,0 +1,18 @@
+[
+{
+  "modid": "retrobees",
+  "name": "Retro Bees",
+  "description": "Adds deprecated (aka retro) bees originally in Forestry from pre-1.7",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["thesledgehammer"],
+  "credits": "Forestry, Tech Reborn and ProjectE for their mods",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": [
+      "mod_MinecraftForge"
+    ]
+}
+]

@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "retrobees:items/honeydrop_0",
+		"layer1": "retrobees:items/honeydrop_1"
+    }
+}

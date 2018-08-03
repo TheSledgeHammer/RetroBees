@@ -20,8 +20,7 @@
 /saves
 usernamecache.json
 usercache.json
-ProjectE-1.10.2-PE1.3.0.jar
-RetroBeesMC_Server.launch
-RetroBeesMC_Client.launch
+RetroBees_Server.launch
+RetroBees_Client.launch
 options.txt
 .classpath

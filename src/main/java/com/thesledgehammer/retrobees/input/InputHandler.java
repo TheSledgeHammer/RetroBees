@@ -14,5 +14,4 @@ public class InputHandler {
 			PacketHandler.INSTANCE.sendToServer(new PacketSendKey());
 		}
 	}
-
 }

@@ -1,0 +1,69 @@
+buildscript {
+	repositories {
+		jcenter()
+		mavenCentral()
+		maven {
+			name = "forge"
+			url = "http://files.minecraftforge.net/maven"
+		}
+	}
+	dependencies {
+		classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+	}
+}
+
+apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'maven'
+
+sourceCompatibility = 1.8
+targetCompatibility= 1.8
+
+repositories {
+	maven {
+		name = "Forestry"
+		url = "http://maven.ic2.player.to/"
+	}
+	maven {
+		name = "Modmuss50"
+		url = "http://maven.modmuss50.me/"
+	}
+	maven {
+		name = "Mezz JEI"
+		url = "http://dvs1.progwml6.com/files/maven"
+	}
+}
+
+minecraft {
+	version = mcversion + "-" + forgeversion
+	runDir = "run"
+	mappings = mcp_mappings
+}
+
+version = mcversion + '-' + version_major + '.' + version_minor + '.' + version_patch
+archivesBaseName = "RetroBees_" + mcversion
+group= 'thesledgehammer.retrobees'
+
+dependencies {
+	deobfProvided "mezz.jei:jei_${jei_mcversion}:${jei_version}:api"
+	deobfCompile("net.sengir.forestry:forestry_${forestry_mcversion}:${forestry_version}") {
+		transitive = false
+	}
+	deobfCompile("TechReborn:TechReborn-1.12.2:+:universal")
+	deobfCompile("RebornCore:RebornCore-1.12.2:+:universal") {
+		transitive = false
+	}
+	compile files('/lib/ProjectE-1.12-PE1.3.0.jar')
+}
+
+processResources {
+	inputs.property "version", project.version
+	inputs.property "mcversion", project.minecraft.version
+	from(sourceSets.main.resources.srcDirs) {
+		include 'mcmod.info'
+		// replace version and mcversion
+		expand 'version':project.version, 'mcversion':project.minecraft.version
+	}
+	from(sourceSets.main.resources.srcDirs) {
+		exclude 'mcmod.info'
+	}
+}

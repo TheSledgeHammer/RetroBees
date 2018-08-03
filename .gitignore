@@ -1,5 +1,4 @@
 *.git
-*.properties
 *.bin
 *.class
 *.log
@@ -7,7 +6,6 @@
 *.cfg
 *.gz
 *.settings
-*.gradle
 /bin
 /build
 /config

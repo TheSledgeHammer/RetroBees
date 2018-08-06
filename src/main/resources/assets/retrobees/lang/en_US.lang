@@ -105,6 +105,7 @@ item.honeydrop.hydrogen.name=Hydrogen Drop
 item.honeydrop.methane.name=Methane Drop
 item.honeydrop.tritium.name=Tritium Drop
 item.honeydrop.wolframium.name=Wolframium Drop
+item.honeydrop.uumatter.name=UU-Matter Drop
 
 //Flowers
 for.flowers.darkmatter=Dark Matter

@@ -35,6 +35,7 @@ for.bees.species.tungsten=Tungsten
 for.bees.species.platinum=Platnium
 for.bees.species.titanium=Titanium
 for.bees.species.iridium=Iridium
+for.bees.species.uu_matter=UU-Matter
 for.bees.species.methane=Methane
 for.bees.species.carbon=Carbon
 for.bees.species.hydrogen=Hydrogen
@@ -105,6 +106,7 @@ item.honeydrop.hydrogen.name=Hydrogen Drop
 item.honeydrop.methane.name=Methane Drop
 item.honeydrop.tritium.name=Tritium Drop
 item.honeydrop.wolframium.name=Wolframium Drop
+item.honeydrop.uumatter.name=UU-Matter Drop
 
 //Flowers
 for.flowers.darkmatter=Dark Matter

@@ -22,7 +22,7 @@ public class EmcRecipes {
 		//emcMutation.addRecipe(BeeSpecies.DARKENED, BeeSpecies.REDDENED, Config.omegaBeeValue);
 		emcMutation.addRecipe(BeeSpecies.REDDENED, BeeSpecies.DARKENED, Config.omegaBeeValue);
 		
-		//emcMutation.addRecipe(BeeSpecies.IRIDIUM, BeeSpecies.OMEGA, Config.omegaBeeValue);
+		//emcMutation.addRecipe(BeeSpecies.IRIDIUM, BeeSpecies.OMEGA, Config.uuMatterBeeValue);
 		emcMutation.addRecipe(BeeSpecies.OMEGA, BeeSpecies.IRIDIUM, Config.uuMatterBeeValue);
 	}
 }

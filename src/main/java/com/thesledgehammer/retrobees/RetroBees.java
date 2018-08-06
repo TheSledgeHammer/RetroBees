@@ -14,7 +14,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class RetroBees {
 	
 	public static final String MOD_ID = "retrobees";
-	public static final String VERSION = "1.12.2-1.0.0";
+	public static final String VERSION = "1.0.0";
 	public static final String MCVERSION = "1.12.2";
 	
 	@SidedProxy(clientSide = "com.thesledgehammer.retrobees.proxy.ClientProxy", serverSide = "com.thesledgehammer.retrobees.proxy.CommonProxy")

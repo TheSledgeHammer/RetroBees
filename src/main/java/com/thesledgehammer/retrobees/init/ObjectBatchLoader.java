@@ -1,6 +1,5 @@
 package com.thesledgehammer.retrobees.init;
 
-
 import com.thesledgehammer.retrobees.bees.BeeManagerRetroBees;
 import com.thesledgehammer.retrobees.bees.BeeSpecies;
 import com.thesledgehammer.retrobees.bees.mutation.BeeMutationFactoryEMC;

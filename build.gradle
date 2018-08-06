@@ -27,10 +27,6 @@ repositories {
 		name = "Modmuss50"
 		url = "http://maven.modmuss50.me/"
 	}
-	maven {
-		name = "Mezz JEI"
-		url = "http://dvs1.progwml6.com/files/maven"
-	}
 }
 
 minecraft {
@@ -44,7 +40,6 @@ archivesBaseName = "RetroBees_" + mcversion
 group= 'thesledgehammer.retrobees'
 
 dependencies {
-	deobfProvided "mezz.jei:jei_${jei_mcversion}:${jei_version}:api"
 	deobfCompile("net.sengir.forestry:forestry_${forestry_mcversion}:${forestry_version}") {
 		transitive = false
 	}

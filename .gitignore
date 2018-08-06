@@ -6,6 +6,7 @@
 *.cfg
 *.gz
 *.settings
+*.launch
 /bin
 /build
 /config
@@ -18,7 +19,5 @@
 /saves
 usernamecache.json
 usercache.json
-RetroBees_Server.launch
-RetroBees_Client.launch
 options.txt
 .classpath

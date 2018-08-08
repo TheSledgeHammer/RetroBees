@@ -7,6 +7,9 @@
 *.gz
 *.settings
 *.launch
+*.iml
+*.ipr
+*.iws
 /bin
 /build
 /config

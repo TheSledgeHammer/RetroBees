@@ -8,11 +8,11 @@ import com.thesledgehammer.retrobees.misc.ObjectManager;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class ClientProxy extends CommonProxy {
-	
-	
+
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {
 		super.preInit(event);
@@ -27,7 +27,12 @@ public class ClientProxy extends CommonProxy {
 		ObjectManager.ColorRegister();
 		KeyBindings.init();
 	}
-	
+
+	@Override
+	public void postInit(FMLPostInitializationEvent event) {
+
+	}
+
 	@Override
 	public void registerItem(Item item) {
 		ObjectManager.registerItemClient(item);

@@ -794,7 +794,7 @@ public enum BeeSpecies implements IBeeDefinition {
 		
 		@Override
 		protected void registerMutations() {
-			registerMutation(GOLD, GOLD, 13);
+			registerMutation(GOLD, BeeDefinition.TRICKY, 13);
 		}
 	},
 	
@@ -811,7 +811,7 @@ public enum BeeSpecies implements IBeeDefinition {
 		
 		@Override
 		protected void registerMutations() {
-			registerMutation(METHANE, METHANE, 12);
+			registerMutation(METHANE, GOLD, 12);
 		}
 	},
 	

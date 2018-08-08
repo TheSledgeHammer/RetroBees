@@ -13,6 +13,6 @@ public class OreDictionaryRegister {
 	public static void init() {
 		OreDictionary.registerOre(BEE_COMB, ModItems.BeeComb);
 		OreDictionary.registerOre(DROP_HONEY, ModItems.HoneyDrop);
-		OreDictionary.registerOre(techreborn.init.ModItems.UU_MATTER.getUnlocalizedName(), ModItems.HoneyDrop.getDrop(EnumDropType.UUMATTER, 1));
+		//OreDictionary.registerOre(techreborn.init.ModItems.UU_MATTER.getUnlocalizedName(), ModItems.HoneyDrop.getDrop(EnumDropType.UUMATTER, 1));
 	}
 }

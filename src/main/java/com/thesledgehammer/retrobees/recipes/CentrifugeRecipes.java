@@ -252,8 +252,8 @@ public class CentrifugeRecipes {
 			//UU-Matter comb
 			RecipeManagers.centrifugeManager.addRecipe(20, ModItems.BeeComb.getComb(EnumCombType.UUMATTER, 1), ImmutableMap.of(
 					ModuleApiculture.getItems().honeyDrop.getItemStack(), 0.2f,
-					ModItems.HoneyDrop.getDrop(EnumDropType.UUMATTER, 1), 0.3f,
-					new ItemStack(techreborn.init.ModItems.UU_MATTER, 1), 0.3f
+					//ModItems.HoneyDrop.getDrop(EnumDropType.UUMATTER, 1), 0.3f,
+					new ItemStack(techreborn.init.ModItems.UU_MATTER, 1), 0.15f
 					));
 		}
 	}

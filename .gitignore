@@ -22,6 +22,8 @@
 /run
 /saves
 .classpath
+RetroBees_Client.launch
+RetroBees_Server.launch
 usernamecache.json
 usercache.json
 options.txt

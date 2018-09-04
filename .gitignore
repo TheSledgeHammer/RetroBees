@@ -28,3 +28,6 @@ usernamecache.json
 usercache.json
 options.txt
 
+.idea/vcs.xml
+.idea/workspace.xml
+.idea/gradle.xml

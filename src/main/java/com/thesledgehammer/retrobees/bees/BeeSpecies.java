@@ -6,6 +6,7 @@ import java.util.Locale;
 
 import javax.annotation.Nullable;
 
+import net.minecraftforge.common.BiomeDictionary;
 import org.apache.commons.lang3.text.WordUtils;
 
 import com.thesledgehammer.retrobees.RetroBees;
@@ -50,7 +51,7 @@ public enum BeeSpecies implements IBeeDefinition {
 
 		@Override
 		protected void setAlleles(IAllele[] template) {
-			//AlleleHelper.getInstance().set(template, EnumBeeChromosome.FLOWER_PROVIDER, FlowerRegister.DARKMATTER);
+			AlleleHelper.getInstance().set(template, EnumBeeChromosome.FLOWER_PROVIDER, FlowerRegister.DARKMATTER);
 		}
 		
 		@Override
@@ -68,7 +69,7 @@ public enum BeeSpecies implements IBeeDefinition {
 
 		@Override
 		protected void setAlleles(IAllele[] template) {
-			//AlleleHelper.getInstance().set(template, EnumBeeChromosome.FLOWER_PROVIDER, FlowerRegister.REDMATTER);
+			AlleleHelper.getInstance().set(template, EnumBeeChromosome.FLOWER_PROVIDER, FlowerRegister.REDMATTER);
 		}
 
 		@Override
@@ -86,12 +87,12 @@ public enum BeeSpecies implements IBeeDefinition {
 
 		@Override
 		protected void setAlleles(IAllele[] template) {
-			//AlleleHelper.getInstance().set(template, EnumBeeChromosome.FLOWER_PROVIDER, FlowerRegister.REDMATTER);
+			AlleleHelper.getInstance().set(template, EnumBeeChromosome.FLOWER_PROVIDER, FlowerRegister.REDMATTER);
 		}
 		
 		@Override
 		protected void registerMutations() {
-			registerEMCMutation(DARKENED, REDDENED, 100);//.restrictBiomeType(BiomeDictionary.Type.NETHER).restrictBiomeType(BiomeDictionary.Type.HOT);
+			registerEMCMutation(DARKENED, REDDENED, 100).restrictBiomeType(BiomeDictionary.Type.NETHER).restrictBiomeType(BiomeDictionary.Type.HOT);
 		}
 	},
 	

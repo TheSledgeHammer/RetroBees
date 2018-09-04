@@ -10,8 +10,20 @@ import forestry.api.genetics.IAlleleFlowers;
 import forestry.api.genetics.IFlowerRegistry;
 import forestry.apiculture.flowers.FlowerRegistry;
 
+import moze_intel.projecte.api.ProjectEAPI;
+import moze_intel.projecte.api.state.PEStateProps;
+import moze_intel.projecte.api.state.enums.EnumMatterType;
+import moze_intel.projecte.gameObjs.ObjHandler;
+import moze_intel.projecte.gameObjs.blocks.MatterBlock;
+import moze_intel.projecte.gameObjs.items.ItemPE;
+import moze_intel.projecte.gameObjs.items.Matter;
 import net.minecraft.block.Block;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 public class FlowerRegister {
 	public static IFlowerRegistry flowerRegistry;
@@ -61,12 +73,16 @@ public class FlowerRegister {
 	public static IAlleleFlowers IRIDIUM_ORE;
 	public static IAlleleFlowers PYRITE_ORE;
 	public static IAlleleFlowers SHELDONITE_ORE;
-	
+
+
 	public static void initFlowers() {
 		Ores ore = new Ores();
+
 		FlowerRegistry flowerRegistry = (FlowerRegistry) FlowerManager.flowerRegistry;
-		//flowerRegistry.registerAcceptableFlower(ProjectEAPI.DarkMatter.getBlock(), FlowerDarkMatter);
-		//flowerRegistry.registerAcceptableFlower(ProjectEAPI.RedMatter.getBlock(), FlowerRedMatter);
+
+		flowerRegistry.registerAcceptableFlower(ObjHandler.matterBlock.getDefaultState().withProperty(PEStateProps.TIER_PROP, EnumMatterType.DARK_MATTER), FlowerDarkMatter);
+		flowerRegistry.registerAcceptableFlower(ObjHandler.matterBlock.getDefaultState().withProperty(PEStateProps.TIER_PROP, EnumMatterType.RED_MATTER), FlowerRedMatter);
+
 		flowerRegistry.registerAcceptableFlower(Blocks.GOLD_ORE, FlowerGold);
 		flowerRegistry.registerAcceptableFlower(Blocks.IRON_ORE, FlowerIron);
 		flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(0).getItem()), FlowerCopper);

@@ -17,10 +17,12 @@
 /eclipse
 /logs
 /mods
+/out
 /resourcepacks
 /run
 /saves
+.classpath
 usernamecache.json
 usercache.json
 options.txt
-.classpath
+

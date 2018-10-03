@@ -1,22 +1,20 @@
 package com.thesledgehammer.retrobees.recipes;
 
-
 import com.google.common.collect.ImmutableMap;
 import com.thesledgehammer.retrobees.init.ModItems;
+import com.thesledgehammer.retrobees.init.ObjectBatchLoader;
 import com.thesledgehammer.retrobees.items.EnumCombType;
 import com.thesledgehammer.retrobees.items.EnumDropType;
 
-import forestry.api.core.ForestryAPI;
 import forestry.api.recipes.RecipeManagers;
 import forestry.apiculture.ModuleApiculture;
-import forestry.modules.ForestryModuleUids;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
 import techreborn.api.TechRebornAPI;
 
 public class CentrifugeRecipes {
 
 	public static void registerCentrifugeRecipes() {
+
         //CENTRIFUGE
 		//Darkened comb
         RecipeManagers.centrifugeManager.addRecipe(20, ModItems.BeeComb.getComb(EnumCombType.DARKENED, 1), ImmutableMap.of(
@@ -197,7 +195,7 @@ public class CentrifugeRecipes {
 				ModuleApiculture.getItems().honeyDrop.getItemStack(), 0.2f,
 				TechRebornAPI.subItemRetriever.getDustByName("spessartine"), 0.5f
 		));
-			
+
 		//Almandine comb
         RecipeManagers.centrifugeManager.addRecipe(20, ModItems.BeeComb.getComb(EnumCombType.ALMANDINE, 1), ImmutableMap.of(
                 ModuleApiculture.getItems().honeyDrop.getItemStack(), 0.2f,
@@ -235,7 +233,7 @@ public class CentrifugeRecipes {
 		));
 
 		//Carbon comb
-        RecipeManagers.centrifugeManager.addRecipe(20, ModItems.BeeComb.getComb(EnumCombType.CARBON, 1), ImmutableMap.of(
+        RecipeManagers.centrifugeManager.addRecipe(20,ModItems.BeeComb.getComb(EnumCombType.CARBON, 1), ImmutableMap.of(
 				ModItems.HoneyDrop.getDrop(EnumDropType.CARBON, 1), 0.15f
 		));
 
@@ -255,8 +253,8 @@ public class CentrifugeRecipes {
 		));
 
 		//Tritium comb
-        RecipeManagers.centrifugeManager.addRecipe(20, ModItems.BeeComb.getComb(EnumCombType.TRITIUM, 1), ImmutableMap.of(
-					ModItems.HoneyDrop.getDrop(EnumDropType.TRITIUM, 1), 0.15f
+        RecipeManagers.centrifugeManager.addRecipe(20,ModItems.BeeComb.getComb(EnumCombType.TRITIUM, 1), ImmutableMap.of(
+				ModItems.HoneyDrop.getDrop(EnumDropType.TRITIUM, 1), 0.15f
 		));
 
 		//Helium comb

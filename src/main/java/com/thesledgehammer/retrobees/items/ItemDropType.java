@@ -1,6 +1,8 @@
 package com.thesledgehammer.retrobees.items;
 
+import com.thesledgehammer.retrobees.RetroBees;
 import com.thesledgehammer.retrobees.init.ModItems;
+import com.thesledgehammer.retrobees.init.ObjectBatchLoader;
 import com.thesledgehammer.retrobees.misc.IInitModel;
 
 import forestry.api.core.Tabs;
@@ -18,9 +20,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ItemDropType extends Item implements IInitModel, IItemColor {
 	
 	public ItemDropType() {
-		setMaxDamage(0);
-		setHasSubtypes(true);
-		setCreativeTab(Tabs.tabApiculture);
+		this.setMaxDamage(0);
+		this.setHasSubtypes(true);
+		this.setCreativeTab(Tabs.tabApiculture);
+
 	}
 	
 	@Override

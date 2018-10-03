@@ -20,7 +20,9 @@ import net.minecraftforge.fml.common.Loader;
  */
 
 public class ObjectBatchLoader {
-	
+
+	public static ModItems items = new ModItems();
+
 	public static void preInit() {
 		ModCheck();
 		ModItems.init();
@@ -35,7 +37,6 @@ public class ObjectBatchLoader {
 		CentrifugeRecipes.registerCentrifugeRecipes();
 		SqueezerRecipes.registerSqueezerRecipes();
 		EmcRecipes.registerEMCRecipes();
-		OreDictionaryRegister.init();
 		EMCProxy.addEMC();
 	}
 	

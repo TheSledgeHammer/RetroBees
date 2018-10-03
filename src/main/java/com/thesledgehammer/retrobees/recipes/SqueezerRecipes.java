@@ -1,14 +1,10 @@
 package com.thesledgehammer.retrobees.recipes;
 
-import com.thesledgehammer.retrobees.init.ModItems;
 import com.thesledgehammer.retrobees.items.EnumDropType;
 
-import forestry.api.core.ForestryAPI;
+import com.thesledgehammer.retrobees.init.ModItems;
 import forestry.api.recipes.RecipeManagers;
-import forestry.core.config.Constants;
-import forestry.modules.ForestryModuleUids;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.FluidStack;
 import techreborn.init.ModFluids;
 

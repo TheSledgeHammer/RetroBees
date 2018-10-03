@@ -1,9 +1,10 @@
 package com.thesledgehammer.retrobees.items;
 
+import com.thesledgehammer.retrobees.RetroBees;
 import com.thesledgehammer.retrobees.init.ModItems;
+import com.thesledgehammer.retrobees.init.ObjectBatchLoader;
 import com.thesledgehammer.retrobees.misc.IInitModel;
 
-import forestry.api.core.Tabs;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.color.IItemColor;
@@ -18,9 +19,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ItemCombType extends Item implements IInitModel, IItemColor {
 	
 	public ItemCombType() {
-		setMaxDamage(0);
-		setHasSubtypes(true);
-		setCreativeTab(Tabs.tabApiculture);
+		this.setMaxDamage(0);
+		this.setHasSubtypes(true);
+		this.setCreativeTab(RetroBees.creativeTab);
 	}
 	
 	@Override

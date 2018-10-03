@@ -1,5 +1,9 @@
 package com.thesledgehammer.retrobees;
 
+import forestry.api.core.Tabs;
+import forestry.core.CreativeTabForestry;
+import moze_intel.projecte.gameObjs.CreativeTab;
+import net.minecraft.creativetab.CreativeTabs;
 import org.apache.logging.log4j.Logger;
 
 import com.thesledgehammer.retrobees.proxy.CommonProxy;
@@ -24,11 +28,13 @@ public class RetroBees {
 	public static  RetroBees instance;
 	
 	public static Logger logger;
+	public static CreativeTabs creativeTab;
 	
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		logger = event.getModLog();
 		proxy.preInit(event);
+		creativeTab = Tabs.tabAgriculture;
 	}
 
 	@Mod.EventHandler

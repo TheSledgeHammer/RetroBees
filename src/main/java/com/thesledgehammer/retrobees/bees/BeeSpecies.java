@@ -6,12 +6,13 @@ import java.util.Locale;
 
 import javax.annotation.Nullable;
 
+import com.thesledgehammer.retrobees.init.ModItems;
+import com.thesledgehammer.retrobees.init.ObjectBatchLoader;
 import net.minecraftforge.common.BiomeDictionary;
 import org.apache.commons.lang3.text.WordUtils;
 
 import com.thesledgehammer.retrobees.RetroBees;
 import com.thesledgehammer.retrobees.flowers.FlowerRegister;
-import com.thesledgehammer.retrobees.init.ModItems;
 import com.thesledgehammer.retrobees.items.EnumCombType;
 
 import forestry.api.apiculture.BeeManager;

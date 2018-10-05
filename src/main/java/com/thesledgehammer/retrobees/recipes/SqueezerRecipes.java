@@ -1,10 +1,8 @@
 package com.thesledgehammer.retrobees.recipes;
 
-import com.thesledgehammer.retrobees.items.EnumDropType;
-
 import com.thesledgehammer.retrobees.init.ModItems;
+import com.thesledgehammer.retrobees.items.EnumDropType;
 import forestry.api.recipes.RecipeManagers;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 import techreborn.init.ModFluids;
 
@@ -21,17 +19,16 @@ public class SqueezerRecipes {
 		FluidStack Methane = new FluidStack(ModFluids.METHANE, 100);
 		FluidStack Tritium = new FluidStack(ModFluids.TRITIUM, 100);
 		FluidStack Wolframium = new FluidStack(ModFluids.WOLFRAMIUM, 100);
-		//FluidStack UUMatter = new FluidStack();
-			
+
 		//Recipes
-		RecipeManagers.squeezerManager.addRecipe(10, new ItemStack(ModItems.HoneyDrop.getDrop(EnumDropType.CARBON, 1).getItem()), Carbon);
-		RecipeManagers.squeezerManager.addRecipe(10, new ItemStack(ModItems.HoneyDrop.getDrop(EnumDropType.DEUTERIUM, 1).getItem()), Deuterium);
-		RecipeManagers.squeezerManager.addRecipe(10, new ItemStack(ModItems.HoneyDrop.getDrop(EnumDropType.HELIUM, 1).getItem()), Helium);
-		RecipeManagers.squeezerManager.addRecipe(10, new ItemStack(ModItems.HoneyDrop.getDrop(EnumDropType.HELIUM_3, 1).getItem()), Helium_3);
-		RecipeManagers.squeezerManager.addRecipe(10, new ItemStack(ModItems.HoneyDrop.getDrop(EnumDropType.HELIUM_PLASMA, 1).getItem()), HeliumPlasma);
-		RecipeManagers.squeezerManager.addRecipe(10, new ItemStack(ModItems.HoneyDrop.getDrop(EnumDropType.HYDROGEN, 1).getItem()), Hydrogen);
-		RecipeManagers.squeezerManager.addRecipe(10, new ItemStack(ModItems.HoneyDrop.getDrop(EnumDropType.METHANE, 1).getItem()), Methane);
-		RecipeManagers.squeezerManager.addRecipe(10, new ItemStack(ModItems.HoneyDrop.getDrop(EnumDropType.TRITIUM, 1).getItem()), Tritium);
-		RecipeManagers.squeezerManager.addRecipe(10, new ItemStack(ModItems.HoneyDrop.getDrop(EnumDropType.WOLFRAMIUM, 1).getItem()), Wolframium);
+		RecipeManagers.squeezerManager.addRecipe(10, ModItems.HoneyDrop.getDrop(EnumDropType.CARBON, 1), Carbon);
+		RecipeManagers.squeezerManager.addRecipe(10, ModItems.HoneyDrop.getDrop(EnumDropType.DEUTERIUM, 1), Deuterium);
+		RecipeManagers.squeezerManager.addRecipe(10, ModItems.HoneyDrop.getDrop(EnumDropType.HELIUM, 1), Helium);
+		RecipeManagers.squeezerManager.addRecipe(10, ModItems.HoneyDrop.getDrop(EnumDropType.HELIUM_3, 1), Helium_3);
+		RecipeManagers.squeezerManager.addRecipe(10, ModItems.HoneyDrop.getDrop(EnumDropType.HELIUM_PLASMA, 1), HeliumPlasma);
+		RecipeManagers.squeezerManager.addRecipe(10, ModItems.HoneyDrop.getDrop(EnumDropType.HYDROGEN, 1), Hydrogen);
+		RecipeManagers.squeezerManager.addRecipe(10, ModItems.HoneyDrop.getDrop(EnumDropType.METHANE, 1), Methane);
+		RecipeManagers.squeezerManager.addRecipe(10, ModItems.HoneyDrop.getDrop(EnumDropType.TRITIUM, 1), Tritium);
+		RecipeManagers.squeezerManager.addRecipe(10, ModItems.HoneyDrop.getDrop(EnumDropType.WOLFRAMIUM, 1), Wolframium);
 	}
 }

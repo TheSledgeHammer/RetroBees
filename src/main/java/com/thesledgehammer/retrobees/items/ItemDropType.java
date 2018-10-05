@@ -1,10 +1,7 @@
 package com.thesledgehammer.retrobees.items;
 
-import com.thesledgehammer.retrobees.RetroBees;
 import com.thesledgehammer.retrobees.init.ModItems;
-import com.thesledgehammer.retrobees.init.ObjectBatchLoader;
 import com.thesledgehammer.retrobees.misc.IInitModel;
-
 import forestry.api.core.Tabs;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -35,7 +32,8 @@ public class ItemDropType extends Item implements IInitModel, IItemColor {
 	public boolean isRepairable() {
 		return false;
 	}
-	
+
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void initModel() {
 		ModelLoader.setCustomMeshDefinition(ModItems.HoneyDrop, new ItemMeshDefinition() {
@@ -51,11 +49,14 @@ public class ItemDropType extends Item implements IInitModel, IItemColor {
 		EnumDropType honeyDrop = EnumDropType.VALUES[stack.getItemDamage()];
 		return super.getUnlocalizedName(stack) + "." + honeyDrop.name;
 	}
-	
+
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> subItems) {
-		for(int i = 0; i < EnumDropType.VALUES.length; i++) {
-			subItems.add(new ItemStack(this, 1, i));
+		if(this.isInCreativeTab(tab)) {
+			for(int i = 0; i < EnumDropType.VALUES.length; i++) {
+				subItems.add(new ItemStack(this, 1, i));
+			}
 		}
 	}
 	

@@ -3,13 +3,9 @@ package com.thesledgehammer.retrobees.init;
 import com.thesledgehammer.retrobees.RetroBees;
 import com.thesledgehammer.retrobees.items.ItemCombType;
 import com.thesledgehammer.retrobees.items.ItemDropType;
-
-import forestry.api.core.Tabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;

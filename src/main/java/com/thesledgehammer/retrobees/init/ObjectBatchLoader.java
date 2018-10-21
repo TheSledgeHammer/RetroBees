@@ -65,9 +65,11 @@ public class ObjectBatchLoader {
 		}
 		if(!Loader.isModLoaded("techreborn")) {
 			Log.error("Tech Reborn is not loaded");
+			BeeSpecies.IRON.setInactive();
 			BeeSpecies.COPPER.setInactive();
 			BeeSpecies.SILVER.setInactive();
 			BeeSpecies.TIN.setInactive();
+			BeeSpecies.GOLD.setInactive();
 			BeeSpecies.ALUMINUM.setInactive();
 			BeeSpecies.LEAD.setInactive();
 			BeeSpecies.GALENA.setInactive();

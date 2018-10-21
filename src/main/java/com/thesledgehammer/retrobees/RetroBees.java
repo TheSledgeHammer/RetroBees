@@ -8,13 +8,14 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.Logger;
 
-@Mod(modid = RetroBees.MOD_ID, name = "RetroBees", version = RetroBees.VERSION, acceptedMinecraftVersions = RetroBees.MCVERSION, dependencies = "required-after:forestry;after:projecte;after:techreborn;after:reborncore;")
+
+@Mod(modid = RetroBees.MOD_ID, name = "RetroBees", version = RetroBees.VERSION, acceptedMinecraftVersions = RetroBees.MCVERSION, dependencies = "required-after:forestry;")
 public class RetroBees {
 	
 	public static final String MOD_ID = "retrobees";
-	public static final String VERSION = "1.0.3";
+	public static final String VERSION = "1.0.4";
 	public static final String MCVERSION = "1.12.2";
-
+	//after:projecte;after:techreborn;after:reborncore;
 	
 	@SidedProxy(clientSide = "com.thesledgehammer.retrobees.proxy.ClientProxy", serverSide = "com.thesledgehammer.retrobees.proxy.CommonProxy")
 	public static CommonProxy proxy;

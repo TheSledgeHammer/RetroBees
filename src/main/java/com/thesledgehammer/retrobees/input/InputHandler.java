@@ -2,7 +2,6 @@ package com.thesledgehammer.retrobees.input;
 
 import com.thesledgehammer.retrobees.network.PacketHandler;
 import com.thesledgehammer.retrobees.network.PacketSendKey;
-
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent;
 

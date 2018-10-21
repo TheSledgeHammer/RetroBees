@@ -4,7 +4,6 @@ import com.thesledgehammer.retrobees.init.ObjectBatchLoader;
 import com.thesledgehammer.retrobees.input.InputHandler;
 import com.thesledgehammer.retrobees.input.KeyBindings;
 import com.thesledgehammer.retrobees.misc.ObjectManager;
-
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;

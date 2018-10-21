@@ -3,7 +3,6 @@ package com.thesledgehammer.retrobees.recipes;
 import com.thesledgehammer.retrobees.bees.BeeSpecies;
 import com.thesledgehammer.retrobees.bees.mutation.EmcRecipe;
 import com.thesledgehammer.retrobees.misc.Config;
-
 import forestry.apiculture.genetics.BeeDefinition;
 
 public class EmcRecipes {

@@ -1,10 +1,5 @@
 package com.thesledgehammer.retrobees.bees;
 
-import java.util.Arrays;
-import java.util.Locale;
-
-import javax.annotation.Nullable;
-
 import forestry.api.apiculture.BeeManager;
 import forestry.api.apiculture.EnumBeeChromosome;
 import forestry.api.genetics.IAllele;
@@ -13,6 +8,10 @@ import forestry.apiculture.genetics.alleles.AlleleEffects;
 import forestry.core.genetics.IBranchDefinition;
 import forestry.core.genetics.alleles.AlleleHelper;
 import forestry.core.genetics.alleles.EnumAllele;
+
+import javax.annotation.Nullable;
+import java.util.Arrays;
+import java.util.Locale;
 
 public enum BeeBranches implements IBranchDefinition {
 	

@@ -1,9 +1,9 @@
 package com.thesledgehammer.retrobees.items;
 
-import java.awt.Color;
-import java.util.Locale;
-
 import net.minecraft.util.IStringSerializable;
+
+import java.awt.*;
+import java.util.Locale;
 
 public enum EnumDropType implements IStringSerializable {
 	/**

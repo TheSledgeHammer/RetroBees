@@ -1,9 +1,9 @@
 package com.thesledgehammer.retrobees.flowers;
 
-import java.util.Locale;
-
 import forestry.apiculture.flowers.FlowerProvider;
 import forestry.core.genetics.alleles.IAlleleValue;
+
+import java.util.Locale;
 
 public enum EnumFlowers implements IAlleleValue<FlowerProvider> {
 	DARKMATTER(FlowerRegister.FlowerDarkMatter, true),

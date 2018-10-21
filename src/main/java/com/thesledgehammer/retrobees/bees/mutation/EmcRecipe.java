@@ -2,7 +2,6 @@ package com.thesledgehammer.retrobees.bees.mutation;
 
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.ImmutableTable;
-
 import forestry.api.apiculture.IAlleleBeeSpecies;
 import forestry.apiculture.genetics.IBeeDefinition;
 

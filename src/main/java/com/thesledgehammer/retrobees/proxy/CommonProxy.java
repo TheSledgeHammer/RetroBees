@@ -1,17 +1,16 @@
 package com.thesledgehammer.retrobees.proxy;
 
-import java.io.File;
-
 import com.thesledgehammer.retrobees.RetroBees;
 import com.thesledgehammer.retrobees.init.ObjectBatchLoader;
 import com.thesledgehammer.retrobees.misc.Config;
 import com.thesledgehammer.retrobees.network.PacketHandler;
-
 import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+
+import java.io.File;
 
 public class CommonProxy {
 	

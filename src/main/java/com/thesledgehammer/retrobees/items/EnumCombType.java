@@ -1,16 +1,32 @@
 package com.thesledgehammer.retrobees.items;
 
-import java.awt.Color;
-import java.util.Locale;
-
 import net.minecraft.util.IStringSerializable;
+
+import java.awt.*;
+import java.util.Locale;
 
 public enum EnumCombType implements IStringSerializable {
 	/**
 	 * @param HoneyComb Name, @param Primary Color, @param Secondary Color, @param (Optinal) IsSecret(true or false)
 	 */
-	//Vanilla
-	//HONEY(new Color(0xFFA12B), new Color(0xE8D56A)),
+	/*
+	UPCOMING RELEASE: 1.1.0
+	VANILLA:
+	COAL(new Color(TBA), new Color(0xE8D56A)),
+	QUARTZ(new Color(TBA), new Color(0xE8D56A)),
+	REDSTONE(new Color(TBA), new Color(0xE8D56A)),
+	GLOWSTONE(new Color(TBA), new Color(0xE8D56A)),
+	DIAMOND(new Color(TBA), new Color(0xE8D56A)),
+	EMERALD(new Color(TBA), new Color(0xE8D56A)),
+	ENDER_PEARL(new Color(TBA), new Color(0xE8D56A)),
+
+	ALLOYS:
+	REFINED_IRON(new Color(TBA), new Color(0xE8D56A)),
+	BRONZE(new Color(TBA), new Color(0xE8D56A)),
+	MIXED_METAL(new Color(TBA), new Color(0xE8D56A)),
+	ADVANCED_ALLOY(new Color(TBA), new Color(0xE8D56A)),
+	IRIDIUM_ALLOY(new Color(TBA), new Color(0xE8D56A)),
+	*/
 
 	//EMC
 	DARKENED(new Color(0x33EBCB), new Color(0xE8D56A)),
@@ -61,9 +77,9 @@ public enum EnumCombType implements IStringSerializable {
 	PLATINUM(new Color(0xE5E4E2), new Color(0xE8D56A)),
 	TITANIUM(new Color(0xD3D3DD), new Color(0xE8D56A)),
 	IRIDIUM(new Color(0x3D3C3A), new Color(0xE8D56A)),
-	UUMATTER(new Color(0xFF1493), new Color(0xE8D56A)),
 
 	//Fluid Cells
+	//Sepulchral
 	CARBON(new Color(0x000000), new Color(0xE8D56A)),
 	METHANE(new Color(0xFB05DE), new Color(0xE8D56A)),
 	//Anemic
@@ -74,6 +90,8 @@ public enum EnumCombType implements IStringSerializable {
 	HELIUM_3(new Color(0xBCBC1B), new Color(0xE8D56A)),
 	HELIUM_PLASMA(new Color(0xF5F6BD), new Color(0xE8D56A)),
 	HELIUM(new Color(0xF5F51E), new Color(0xE8D56A)),
+	UUMATTER(new Color(0xFF1493), new Color(0xE8D56A)),
+
 	WOLFRAMIUM(new Color(0x620F7E), new Color(0xE8D56A));
 
 	public static final EnumCombType[] VALUES = values();

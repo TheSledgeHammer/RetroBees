@@ -1,13 +1,13 @@
 package com.thesledgehammer.retrobees.misc.oredictionaryresourcetypes;
 
-import java.util.ArrayList;
-
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
+import java.util.ArrayList;
+
 public class Ores {
 
-	private ArrayList<ItemStack> Ore = new ArrayList<ItemStack>(20);
+	private ArrayList<ItemStack> Ore = new ArrayList<>();
 
 	public Ores() {
 		setOreUID(Ore);

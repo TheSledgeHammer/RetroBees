@@ -2,28 +2,18 @@ package com.thesledgehammer.retrobees.flowers;
 
 import com.thesledgehammer.retrobees.RetroBees;
 import com.thesledgehammer.retrobees.misc.oredictionaryresourcetypes.Ores;
-
 import forestry.api.apiculture.EnumBeeChromosome;
 import forestry.api.apiculture.FlowerManager;
 import forestry.api.genetics.AlleleManager;
 import forestry.api.genetics.IAlleleFlowers;
 import forestry.api.genetics.IFlowerRegistry;
 import forestry.apiculture.flowers.FlowerRegistry;
-
-import moze_intel.projecte.api.ProjectEAPI;
 import moze_intel.projecte.api.state.PEStateProps;
 import moze_intel.projecte.api.state.enums.EnumMatterType;
 import moze_intel.projecte.gameObjs.ObjHandler;
-import moze_intel.projecte.gameObjs.blocks.MatterBlock;
-import moze_intel.projecte.gameObjs.items.ItemPE;
-import moze_intel.projecte.gameObjs.items.Matter;
 import net.minecraft.block.Block;
-import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.state.BlockStateContainer;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.Loader;
 
 public class FlowerRegister {
 	public static IFlowerRegistry flowerRegistry;
@@ -76,37 +66,19 @@ public class FlowerRegister {
 
 
 	public static void initFlowers() {
-		Ores ore = new Ores();
-
 		FlowerRegistry flowerRegistry = (FlowerRegistry) FlowerManager.flowerRegistry;
-
-		flowerRegistry.registerAcceptableFlower(ObjHandler.matterBlock.getDefaultState().withProperty(PEStateProps.TIER_PROP, EnumMatterType.DARK_MATTER), FlowerDarkMatter);
-		flowerRegistry.registerAcceptableFlower(ObjHandler.matterBlock.getDefaultState().withProperty(PEStateProps.TIER_PROP, EnumMatterType.RED_MATTER), FlowerRedMatter);
+		registerProjectEFlowers(flowerRegistry);
+		registerTechRebornFlowers(flowerRegistry);
 
 		flowerRegistry.registerAcceptableFlower(Blocks.GOLD_ORE, FlowerGold);
 		flowerRegistry.registerAcceptableFlower(Blocks.IRON_ORE, FlowerIron);
-		flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(0).getItem()), FlowerCopper);
-		flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(1).getItem()), FlowerSilver);
-		flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(2).getItem()), FlowerLead);
-		flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(3).getItem()), FlowerTin);
-		flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(4).getItem()), FlowerAluminium);
-		flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(5).getItem()), FlowerGalena);
-		flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(6).getItem()), FlowerRuby);
-		flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(7).getItem()), FlowerSapphire);
-		flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(8).getItem()), FlowerBauxite);
-		flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(9).getItem()), FlowerCinnabar);
-		flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(10).getItem()), FlowerSphalerite);
-		flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(11).getItem()), FlowerTungsten);
-		flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(12).getItem()), FlowerPeridot);
-		flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(13).getItem()), FlowerSodalite);
-		flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(14).getItem()), FlowerIridium);
-		flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(15).getItem()), FlowerPyrite);
-		flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(16).getItem()), FlowerSheldonite);
-		
-		DARKMATTER = AlleleManager.alleleFactory.createFlowers(RetroBees.MOD_ID, FlowerType, FlowerDarkMatter, EnumFlowers.DARKMATTER.getValue(), false, EnumBeeChromosome.FLOWER_PROVIDER);
-		REDMATTER = AlleleManager.alleleFactory.createFlowers(RetroBees.MOD_ID, FlowerType, FlowerRedMatter, EnumFlowers.REDMATTER.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
+
 		IRON_ORE = AlleleManager.alleleFactory.createFlowers(RetroBees.MOD_ID, FlowerType, FlowerIron, EnumFlowers.IRON.getValue(), false, EnumBeeChromosome.FLOWER_PROVIDER);
 		GOLD_ORE = AlleleManager.alleleFactory.createFlowers(RetroBees.MOD_ID, FlowerType, FlowerGold, EnumFlowers.GOLD.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
+
+		DARKMATTER = AlleleManager.alleleFactory.createFlowers(RetroBees.MOD_ID, FlowerType, FlowerDarkMatter, EnumFlowers.DARKMATTER.getValue(), false, EnumBeeChromosome.FLOWER_PROVIDER);
+		REDMATTER = AlleleManager.alleleFactory.createFlowers(RetroBees.MOD_ID, FlowerType, FlowerRedMatter, EnumFlowers.REDMATTER.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
+
 		COPPER_ORE = AlleleManager.alleleFactory.createFlowers(RetroBees.MOD_ID, FlowerType, FlowerCopper, EnumFlowers.COPPER.getValue(), false, EnumBeeChromosome.FLOWER_PROVIDER);
 		SILVER_ORE = AlleleManager.alleleFactory.createFlowers(RetroBees.MOD_ID, FlowerType, FlowerSilver, EnumFlowers.SILVER.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
 		LEAD_ORE = AlleleManager.alleleFactory.createFlowers(RetroBees.MOD_ID, FlowerType, FlowerLead, EnumFlowers.LEAD.getValue(), false, EnumBeeChromosome.FLOWER_PROVIDER);
@@ -124,5 +96,35 @@ public class FlowerRegister {
 		IRIDIUM_ORE = AlleleManager.alleleFactory.createFlowers(RetroBees.MOD_ID, FlowerType, FlowerIridium, EnumFlowers.IRIDIUM.getValue(), false, EnumBeeChromosome.FLOWER_PROVIDER);
 		PYRITE_ORE = AlleleManager.alleleFactory.createFlowers(RetroBees.MOD_ID, FlowerType, FlowerPyrite, EnumFlowers.PYRITE.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
 		SHELDONITE_ORE = AlleleManager.alleleFactory.createFlowers(RetroBees.MOD_ID, FlowerType, FlowerSheldonite, EnumFlowers.SHELDONITE.getValue(), false, EnumBeeChromosome.FLOWER_PROVIDER);
+	}
+
+	private static void registerProjectEFlowers(FlowerRegistry flowerRegistry) {
+		if(Loader.isModLoaded("ProjectE")) {
+			flowerRegistry.registerAcceptableFlower(ObjHandler.matterBlock.getDefaultState().withProperty(PEStateProps.TIER_PROP, EnumMatterType.DARK_MATTER), FlowerDarkMatter);
+			flowerRegistry.registerAcceptableFlower(ObjHandler.matterBlock.getDefaultState().withProperty(PEStateProps.TIER_PROP, EnumMatterType.RED_MATTER), FlowerRedMatter);
+		}
+	}
+
+	private static void registerTechRebornFlowers(FlowerRegistry flowerRegistry) {
+		Ores ore = new Ores();
+		if(Loader.isModLoaded("TechReborn")) {
+			flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(0).getItem()), FlowerCopper);
+			flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(1).getItem()), FlowerSilver);
+			flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(2).getItem()), FlowerLead);
+			flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(3).getItem()), FlowerTin);
+			flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(4).getItem()), FlowerAluminium);
+			flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(5).getItem()), FlowerGalena);
+			flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(6).getItem()), FlowerRuby);
+			flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(7).getItem()), FlowerSapphire);
+			flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(8).getItem()), FlowerBauxite);
+			flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(9).getItem()), FlowerCinnabar);
+			flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(10).getItem()), FlowerSphalerite);
+			flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(11).getItem()), FlowerTungsten);
+			flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(12).getItem()), FlowerPeridot);
+			flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(13).getItem()), FlowerSodalite);
+			flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(14).getItem()), FlowerIridium);
+			flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(15).getItem()), FlowerPyrite);
+			flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(16).getItem()), FlowerSheldonite);
+		}
 	}
 }

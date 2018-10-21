@@ -1,11 +1,9 @@
 package com.thesledgehammer.retrobees.misc;
 
-import org.apache.logging.log4j.Level;
-
 import com.thesledgehammer.retrobees.RetroBees;
 import com.thesledgehammer.retrobees.proxy.CommonProxy;
-
 import net.minecraftforge.common.config.Configuration;
+import org.apache.logging.log4j.Level;
 
 public class Config {
 	

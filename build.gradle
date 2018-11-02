@@ -12,6 +12,7 @@ buildscript {
 	}
 }
 
+apply plugin: 'java'
 apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: 'maven'
 apply from: rootProject.file('git-maven.gradle')
@@ -41,6 +42,7 @@ archivesBaseName = "RetroBees"
 //version = mcversion + '-' + version_major + '.' + version_minor + '.' + version_patch
 
 dependencies {
+	/*
 	deobfCompile("net.sengir.forestry:forestry_${forestry_mcversion}:${forestry_version}") {
 		transitive = false
 	}
@@ -48,7 +50,12 @@ dependencies {
 	deobfCompile("RebornCore:RebornCore-1.12.2:+:universal") {
 		transitive = false
 	}
-	compile files('/lib/ProjectE-1.12-PE1.3.0.jar')
+	compile files("/lib/ProjectE-1.12-PE1.3.0.jar")
+	*/
+	compile "net.sengir.forestry:forestry_1.12.2:+"
+	compile "TechReborn:TechReborn-1.12.2:+:universal"
+	compile "RebornCore:RebornCore-1.12.2:+:universal"
+	compile files("/lib/ProjectE-1.12-PE1.3.0.jar")
 }
 
 processResources {

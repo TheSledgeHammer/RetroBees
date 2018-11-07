@@ -38,7 +38,7 @@ minecraft {
 }
 
 group= 'com.thesledgehammer.retrobees'
-archivesBaseName = "RetroBees"
+archivesBaseName = "RetroBees_" + mcversion
 //version = mcversion + '-' + version_major + '.' + version_minor + '.' + version_patch
 
 dependencies {

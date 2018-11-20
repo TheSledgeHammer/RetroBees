@@ -22,6 +22,14 @@ public class EmcRecipes {
 		emcMutation.addRecipe(BeeSpecies.REDDENED, BeeSpecies.DARKENED, Config.omegaBeeValue);
 		
 		//emcMutation.addRecipe(BeeSpecies.IRIDIUM, BeeSpecies.OMEGA, Config.uuMatterBeeValue);
-		emcMutation.addRecipe(BeeSpecies.OMEGA, BeeSpecies.IRIDIUM, Config.uuMatterBeeValue);
+		emcMutation.addRecipe(BeeSpecies.COAL, BeeSpecies.COAL, Config.alchemicalBeeValue);
+
+		emcMutation.addRecipe(BeeSpecies.COAL, BeeSpecies.ALCHEMICAL_COAL, Config.mobiusBeeValue);
+
+		emcMutation.addRecipe(BeeSpecies.ALCHEMICAL_COAL, BeeSpecies.MOBIUS, Config.aeternalisBeeValue);
+
+		emcMutation.addRecipe(BeeSpecies.DIAMOND, BeeSpecies.AETERNALIS, Config.darkMatterBeeValue);
+
+		emcMutation.addRecipe(BeeSpecies.AETERNALIS, BeeSpecies.DARKMATTER, Config.redMatterBeeValue);
 	}
 }

@@ -10,28 +10,38 @@ public enum EnumCombType implements IStringSerializable {
 	 * @param HoneyComb Name, @param Primary Color, @param Secondary Color, @param (Optinal) IsSecret(true or false)
 	 */
 	/*
-	UPCOMING RELEASE: 1.1.0
-	VANILLA:
-	COAL(new Color(TBA), new Color(0xE8D56A)),
-	QUARTZ(new Color(TBA), new Color(0xE8D56A)),
-	REDSTONE(new Color(TBA), new Color(0xE8D56A)),
-	GLOWSTONE(new Color(TBA), new Color(0xE8D56A)),
-	DIAMOND(new Color(TBA), new Color(0xE8D56A)),
-	EMERALD(new Color(TBA), new Color(0xE8D56A)),
-	ENDER_PEARL(new Color(TBA), new Color(0xE8D56A)),
-
+	NEXT RELEASE: 1.2.0
 	ALLOYS:
 	REFINED_IRON(new Color(TBA), new Color(0xE8D56A)),
 	BRONZE(new Color(TBA), new Color(0xE8D56A)),
 	MIXED_METAL(new Color(TBA), new Color(0xE8D56A)),
 	ADVANCED_ALLOY(new Color(TBA), new Color(0xE8D56A)),
 	IRIDIUM_ALLOY(new Color(TBA), new Color(0xE8D56A)),
+
+	UPCOMING RELEASE: 1.1.0: Adds 12 new Bee Species
+	VANILLA:
+	COAL(new Color(TBA), new Color(0xE8D56A)),
+	NETHER_QUARTZ(new Color(TBA), new Color(0xE8D56A)),
+	REDSTONE(new Color(TBA), new Color(0xE8D56A)),
+	GLOWSTONE(new Color(TBA), new Color(0xE8D56A)),
+	DIAMOND(new Color(TBA), new Color(0xE8D56A)),
+	EMERALD(new Color(TBA), new Color(0xE8D56A)),
+	ENDER_PEARL(new Color(TBA), new Color(0xE8D56A)),
 	*/
 
-	//EMC
+	//Energy Matter Convertis
 	DARKENED(new Color(0x33EBCB), new Color(0xE8D56A)),
 	REDDENED(new Color(0x6200E7), new Color(0xE8D56A)),
 	OMEGA(new Color(0x6DCFF6), new Color(0xE8D56A)),
+	/*
+	//Transmutated
+	ALCHEMICAL_COAL(new Color(TBA), new Color(0xE8D56A)),
+	MOBIUS(new Color(TBA), new Color(0xE8D56A)),
+	AETERNALIS(new Color(TBA), new Color(0xE8D56A)),
+	//Matter From Energy
+	DARKMATTER(new Color(TBA), new Color(0xE8D56A)),
+	READMATTER(new Color(TBA), new Color(0xE8D56A)),
+	*/
 	//Oscillate
 	IRON(new Color(0xBCBCBC), new Color(0xE8D56A)),
 	COPPER(new Color(0xBB6F4D), new Color(0xE8D56A)),

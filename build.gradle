@@ -37,9 +37,8 @@ minecraft {
 	mappings = mcp_mappings
 }
 
-group= 'com.thesledgehammer.retrobees'
+group= "com.thesledgehammer.retrobees"
 archivesBaseName = "RetroBees_" + mcversion
-//version = mcversion + '-' + version_major + '.' + version_minor + '.' + version_patch
 
 dependencies {
 	/*

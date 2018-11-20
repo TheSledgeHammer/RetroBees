@@ -25,6 +25,28 @@ public enum BeeBranches implements IBranchDefinition {
 			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.SPEED, EnumAllele.Speed.SLOW);
 		}
 	},
+
+	TRANSMUTATED("TransMutatinis") {
+		@Override
+		protected void setBranchProperties(IAllele[] alleles) {
+
+		}
+	},
+
+	MFE("Matter-From-Energies") {
+		@Override
+		protected void setBranchProperties(IAllele[] alleles) {
+
+		}
+	},
+
+	TBA("To-Be-Decided") {
+		@Override
+		protected void setBranchProperties(IAllele[] alleles) {
+
+		}
+	},
+
 	// TechReborn Irradiated Branch (Renamed from Venegful Branch)
 	IRRADIATED("Irradiatis") {
 		@Override

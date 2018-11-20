@@ -86,6 +86,216 @@ public enum BeeSpecies implements IBeeDefinition {
 		}
 	},
 
+	//Transmutated Branch
+	ALCHEMICAL_COAL(BeeBranches.TRANSMUTATED, "Alchemicalis", false, new Color(0xFDFE8E), new Color(0xffdc16)) {
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
+
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template) {
+
+		}
+
+		@Override
+		protected void registerMutations() {
+			registerEMCMutation(COAL, COAL, 100);
+		}
+	},
+
+	MOBIUS(BeeBranches.TRANSMUTATED, "Mobius", false, new Color(0xFDFE8E), new Color(0xffdc16)) {
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
+
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template) {
+
+		}
+
+		@Override
+		protected void registerMutations() {
+			registerEMCMutation(COAL, ALCHEMICAL_COAL, 100);
+		}
+	},
+
+	AETERNALIS(BeeBranches.TRANSMUTATED, "Aeternalis", false, new Color(0xFDFE8E), new Color(0xffdc16)) {
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
+
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template) {
+
+		}
+
+		@Override
+		protected void registerMutations() {
+			registerEMCMutation(ALCHEMICAL_COAL, MOBIUS, 100);
+		}
+	},
+
+	//Matter From Energy Branch
+	DARKMATTER(BeeBranches.MFE, "DarkMatteris", false, new Color(0xFDFE8E), new Color(0xffdc16)) {
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
+
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template) {
+
+		}
+
+		@Override
+		protected void registerMutations() {
+			registerEMCMutation(DIAMOND, AETERNALIS, 100);
+			registerMutation(AETERNALIS, DARKENED, 10);
+		}
+	},
+
+	REDMATTER(BeeBranches.MFE, "RedMatteris", false, new Color(0xFDFE8E), new Color(0xffdc16)) {
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
+
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template) {
+
+		}
+
+		@Override
+		protected void registerMutations() {
+			registerEMCMutation(AETERNALIS, DARKMATTER, 100);
+			registerMutation(AETERNALIS, REDDENED, 10);
+		}
+	},
+
+
+	//MC Bees
+	COAL(BeeBranches.TBA, "Coalitis", false, new Color(0xBCBCBC), new Color(0xffdc16)) {
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
+
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template) {
+
+		}
+
+		@Override
+		protected void registerMutations() {
+
+		}
+	},
+
+	EMERALD(BeeBranches.TBA, "Emeralditis", false, new Color(0xBCBCBC), new Color(0xffdc16)) {
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
+
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template) {
+
+		}
+
+		@Override
+		protected void registerMutations() {
+
+		}
+	},
+
+	DIAMOND(BeeBranches.TBA, "Diamonditis", false, new Color(0xBCBCBC), new Color(0xffdc16)) {
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
+
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template) {
+
+		}
+
+		@Override
+		protected void registerMutations() {
+
+		}
+	},
+
+	REDSTONE(BeeBranches.TBA, "Redstonitis", false, new Color(0xBCBCBC), new Color(0xffdc16)) {
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
+
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template) {
+
+		}
+
+		@Override
+		protected void registerMutations() {
+
+		}
+	},
+
+	GLOWSTONE(BeeBranches.TBA, "Glowstonitis", false, new Color(0xBCBCBC), new Color(0xffdc16)) {
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
+
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template) {
+
+		}
+
+		@Override
+		protected void registerMutations() {
+
+		}
+	},
+
+	NETHER_QUARTZ(BeeBranches.TBA, "Nether's Quartz", false, new Color(0xBCBCBC), new Color(0xffdc16)) {
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
+
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template) {
+
+		}
+
+		@Override
+		protected void registerMutations() {
+
+		}
+	},
+
+	ENDER_PEARL(BeeBranches.TBA, "Enderman's Pearl", false, new Color(0xBCBCBC), new Color(0xffdc16)) {
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
+
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template) {
+
+		}
+
+		@Override
+		protected void registerMutations() {
+
+		}
+	},
+
 	//TechReborn Branches
 	IRON(BeeBranches.OSCILLATED, "Ironitis", false, new Color(0xBCBCBC), new Color(0xffdc16)) {
 		@Override

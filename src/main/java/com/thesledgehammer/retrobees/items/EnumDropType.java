@@ -12,8 +12,7 @@ public enum EnumDropType implements IStringSerializable {
 	//EMC Combs
 	CHARGED(new Color(0x800505), new Color(0x9C0707)),
 	OMEGA(new Color(0x191919), new Color(0x4A8CA7)),
-
-	//UUMATTER(new Color(0xFF1493), new Color(0xFF69B4)),
+	UUMATTER(new Color(0xFF1493), new Color(0xFF69B4), true),
 
 	//Fluid Cell Combs
 	CARBON(new Color(0x000000), new Color(0x525050)),
@@ -24,7 +23,7 @@ public enum EnumDropType implements IStringSerializable {
 	HYDROGEN(new Color(0x043AFF), new Color(0x5A7DF8)),
 	METHANE(new Color(0xFB05DE), new Color(0xFC62EA)),
 	TRITIUM(new Color(0xFF0004), new Color(0xFC5F62)),
-	WOLFRAMIUM(new Color(0x620F7E), new Color(0x712F86));
+	WOLFRAMIUM(new Color(0x620F7E), new Color(0x712F86), true);
 
 	public static final EnumDropType[] VALUES = values();
 

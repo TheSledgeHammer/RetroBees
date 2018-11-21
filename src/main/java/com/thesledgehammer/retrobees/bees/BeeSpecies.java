@@ -4,6 +4,7 @@ import com.thesledgehammer.retrobees.RetroBees;
 import com.thesledgehammer.retrobees.flowers.FlowerRegister;
 import com.thesledgehammer.retrobees.init.ModItems;
 import com.thesledgehammer.retrobees.items.EnumCombType;
+import com.thesledgehammer.retrobees.misc.Config;
 import forestry.api.apiculture.*;
 import forestry.api.genetics.AlleleManager;
 import forestry.api.genetics.AlleleSpeciesRegisterEvent;
@@ -18,6 +19,8 @@ import forestry.apiculture.items.EnumHoneyComb;
 import forestry.core.genetics.IBranchDefinition;
 import forestry.core.genetics.alleles.AlleleHelper;
 import forestry.core.genetics.alleles.EnumAllele;
+import forestry.core.genetics.alleles.EnumAllele.Lifespan;
+import forestry.core.genetics.alleles.EnumAllele.Speed;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.MinecraftForge;
@@ -36,7 +39,10 @@ public enum BeeSpecies implements IBeeDefinition {
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
 			beeSpecies.addProduct(ModuleApiculture.getItems().beeComb.get(EnumHoneyComb.HONEY, 1), 0.30F)
-			.addSpecialty(ModItems.BeeComb.getComb(EnumCombType.DARKENED, 1), 0.30F);
+					.addSpecialty(ModItems.BeeComb.getComb(EnumCombType.DARKENED, 1), 0.30F);
+			if(Config.canProduceDarkMatter) {
+				beeSpecies.addSpecialty(ModItems.BeeComb.getComb(EnumCombType.DARKMATTER, 1), 0.01F);
+			}
 		}
 
 		@Override
@@ -55,6 +61,9 @@ public enum BeeSpecies implements IBeeDefinition {
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
 			beeSpecies.addProduct(ModuleApiculture.getItems().beeComb.get(EnumHoneyComb.HONEY, 1), 0.30F)
 					.addSpecialty(ModItems.BeeComb.getComb(EnumCombType.REDDENED, 1), 0.30F);
+			if(Config.canProduceRedMatter) {
+				beeSpecies.addSpecialty(ModItems.BeeComb.getComb(EnumCombType.REDMATTER, 1), 0.01F);
+			}
 		}
 
 		@Override
@@ -72,7 +81,13 @@ public enum BeeSpecies implements IBeeDefinition {
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
 			beeSpecies.addProduct(ModItems.BeeComb.getComb(EnumCombType.OMEGA, 1), 0.30F)
-			.setHasEffect();
+					.setHasEffect();
+			if(Config.canProduceDarkMatter) {
+				beeSpecies.addSpecialty(ModItems.BeeComb.getComb(EnumCombType.DARKMATTER, 1), 0.02F);
+			}
+			if(Config.canProduceRedMatter) {
+				beeSpecies.addSpecialty(ModItems.BeeComb.getComb(EnumCombType.REDMATTER, 1), 0.02F);
+			}
 		}
 
 		@Override
@@ -87,216 +102,85 @@ public enum BeeSpecies implements IBeeDefinition {
 	},
 
 	//Transmutated Branch
-	ALCHEMICAL_COAL(BeeBranches.TRANSMUTATED, "Alchemicalis", false, new Color(0xFDFE8E), new Color(0xffdc16)) {
+	ALCHEMICAL_COAL(BeeBranches.TRANSMUTATED, "Alchemicalis", true, new Color(0xC60310), new Color(0xffdc16)) {
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
-
+			beeSpecies.addProduct(ModItems.BeeComb.getComb(EnumCombType.ALCHEMICAL_COAL, 1), 0.30F);
 		}
 
 		@Override
 		protected void setAlleles(IAllele[] template) {
-
+			//TODO: Add Alleles
 		}
 
 		@Override
 		protected void registerMutations() {
 			registerEMCMutation(COAL, COAL, 100);
+			registerMutation(COAL, DARKENED, 10);
 		}
 	},
 
-	MOBIUS(BeeBranches.TRANSMUTATED, "Mobius", false, new Color(0xFDFE8E), new Color(0xffdc16)) {
+	MOBIUS(BeeBranches.TRANSMUTATED, "Mobiusis", false, new Color(0x870009), new Color(0xffdc16)) {
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
-
+			beeSpecies.addProduct(ModItems.BeeComb.getComb(EnumCombType.MOBIUS, 1), 0.30F);
 		}
 
 		@Override
 		protected void setAlleles(IAllele[] template) {
-
+			//TODO: Add Alleles
 		}
 
 		@Override
 		protected void registerMutations() {
 			registerEMCMutation(COAL, ALCHEMICAL_COAL, 100);
+			registerMutation(DARKENED, ALCHEMICAL_COAL, 10);
+			registerMutation(REDDENED, ALCHEMICAL_COAL, 20);
 		}
 	},
 
-	AETERNALIS(BeeBranches.TRANSMUTATED, "Aeternalis", false, new Color(0xFDFE8E), new Color(0xffdc16)) {
+	AETERNALIS(BeeBranches.TRANSMUTATED, "Aeternalisness", true, new Color(0x9D9D9D), new Color(0xffdc16)) {
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
-
+			beeSpecies.addProduct(ModItems.BeeComb.getComb(EnumCombType.AETERNALIS, 1), 0.30F)
+			.setHasEffect();
 		}
 
 		@Override
 		protected void setAlleles(IAllele[] template) {
-
+			//TODO: Add Alleles
 		}
 
 		@Override
 		protected void registerMutations() {
 			registerEMCMutation(ALCHEMICAL_COAL, MOBIUS, 100);
-		}
-	},
-
-	//Matter From Energy Branch
-	DARKMATTER(BeeBranches.MFE, "DarkMatteris", false, new Color(0xFDFE8E), new Color(0xffdc16)) {
-		@Override
-		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
-
-		}
-
-		@Override
-		protected void setAlleles(IAllele[] template) {
-
-		}
-
-		@Override
-		protected void registerMutations() {
-			registerEMCMutation(DIAMOND, AETERNALIS, 100);
-			registerMutation(AETERNALIS, DARKENED, 10);
-		}
-	},
-
-	REDMATTER(BeeBranches.MFE, "RedMatteris", false, new Color(0xFDFE8E), new Color(0xffdc16)) {
-		@Override
-		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
-
-		}
-
-		@Override
-		protected void setAlleles(IAllele[] template) {
-
-		}
-
-		@Override
-		protected void registerMutations() {
-			registerEMCMutation(AETERNALIS, DARKMATTER, 100);
-			registerMutation(AETERNALIS, REDDENED, 10);
-		}
-	},
-
-
-	//MC Bees
-	COAL(BeeBranches.TBA, "Coalitis", false, new Color(0xBCBCBC), new Color(0xffdc16)) {
-		@Override
-		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
-
-		}
-
-		@Override
-		protected void setAlleles(IAllele[] template) {
-
-		}
-
-		@Override
-		protected void registerMutations() {
-
-		}
-	},
-
-	EMERALD(BeeBranches.TBA, "Emeralditis", false, new Color(0xBCBCBC), new Color(0xffdc16)) {
-		@Override
-		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
-
-		}
-
-		@Override
-		protected void setAlleles(IAllele[] template) {
-
-		}
-
-		@Override
-		protected void registerMutations() {
-
-		}
-	},
-
-	DIAMOND(BeeBranches.TBA, "Diamonditis", false, new Color(0xBCBCBC), new Color(0xffdc16)) {
-		@Override
-		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
-
-		}
-
-		@Override
-		protected void setAlleles(IAllele[] template) {
-
-		}
-
-		@Override
-		protected void registerMutations() {
-
-		}
-	},
-
-	REDSTONE(BeeBranches.TBA, "Redstonitis", false, new Color(0xBCBCBC), new Color(0xffdc16)) {
-		@Override
-		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
-
-		}
-
-		@Override
-		protected void setAlleles(IAllele[] template) {
-
-		}
-
-		@Override
-		protected void registerMutations() {
-
-		}
-	},
-
-	GLOWSTONE(BeeBranches.TBA, "Glowstonitis", false, new Color(0xBCBCBC), new Color(0xffdc16)) {
-		@Override
-		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
-
-		}
-
-		@Override
-		protected void setAlleles(IAllele[] template) {
-
-		}
-
-		@Override
-		protected void registerMutations() {
-
-		}
-	},
-
-	NETHER_QUARTZ(BeeBranches.TBA, "Nether's Quartz", false, new Color(0xBCBCBC), new Color(0xffdc16)) {
-		@Override
-		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
-
-		}
-
-		@Override
-		protected void setAlleles(IAllele[] template) {
-
-		}
-
-		@Override
-		protected void registerMutations() {
-
-		}
-	},
-
-	ENDER_PEARL(BeeBranches.TBA, "Enderman's Pearl", false, new Color(0xBCBCBC), new Color(0xffdc16)) {
-		@Override
-		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
-
-		}
-
-		@Override
-		protected void setAlleles(IAllele[] template) {
-
-		}
-
-		@Override
-		protected void registerMutations() {
-
+			registerMutation(REDDENED, MOBIUS, 10);
+			registerMutation(OMEGA, MOBIUS, 20);
 		}
 	},
 
 	//TechReborn Branches
+	COAL(BeeBranches.OSCILLATED, "Coalitis", true, new Color(0x070707), new Color(0xffdc16)) {
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
+			beeSpecies.addProduct(ModItems.BeeComb.getComb(EnumCombType.COAL, 1), 0.30F);
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template) {
+			AlleleHelper.getInstance().set(template, EnumBeeChromosome.LIFESPAN, Lifespan.SHORT);
+			AlleleHelper.getInstance().set(template, EnumBeeChromosome.SPEED, EnumAllele.Speed.SLOW);
+			AlleleHelper.getInstance().set(template, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.DOWN_2);
+			AlleleHelper.getInstance().set(template, EnumBeeChromosome.FLOWERING, EnumAllele.Flowering.FAST);
+			AlleleHelper.getInstance().set(template, EnumBeeChromosome.FLOWER_PROVIDER, FlowerRegister.COAL_ORE);
+		}
+
+		@Override
+		protected void registerMutations() {
+			registerMutation(BeeDefinition.AUSTERE, BeeDefinition.INDUSTRIOUS, 10);
+		}
+	},
+
 	IRON(BeeBranches.OSCILLATED, "Ironitis", false, new Color(0xBCBCBC), new Color(0xffdc16)) {
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
@@ -314,7 +198,7 @@ public enum BeeSpecies implements IBeeDefinition {
 
 		@Override
 		protected void registerMutations() {
-			registerMutation(BeeDefinition.AUSTERE, BeeDefinition.INDUSTRIOUS, 10);
+			registerMutation(COAL, BeeDefinition.AUSTERE, 10);
 		}
 	},
 
@@ -335,7 +219,7 @@ public enum BeeSpecies implements IBeeDefinition {
 
 		@Override
 		protected void registerMutations() {
-			registerMutation(IRON, BeeDefinition.INDUSTRIOUS, 10);
+			registerMutation(IRON, COAL, 10);
 		}
 	},
 
@@ -442,6 +326,24 @@ public enum BeeSpecies implements IBeeDefinition {
 		}
 	},
 
+	REDSTONE(BeeBranches.FULGURATED, "Redstonitis", false, new Color(0x490000), new Color(0xffdc16)) {
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
+			beeSpecies.addProduct(ModItems.BeeComb.getComb(EnumCombType.REDSTONE, 1), 0.30F);
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template) {
+			AlleleHelper.getInstance().set(template, EnumBeeChromosome.FLOWER_PROVIDER, FlowerRegister.REDSTONE_ORE);
+			//TODO: Add More Alleles
+		}
+
+		@Override
+		protected void registerMutations() {
+			registerMutation(IRON, GOLD, 10);
+		}
+	},
+
 	GALENA(BeeBranches.CORUSCATE, "Galenaitis", true, new Color(0x625864), new Color(0xffdc16)) {
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
@@ -527,7 +429,7 @@ public enum BeeSpecies implements IBeeDefinition {
 	SAPPHIRE(BeeBranches.LUMINESCE, "Sapphiris", true, new Color(0x3979BE), new Color(0xffdc16)) {
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
-			beeSpecies.addProduct(ModItems.BeeComb.getComb(EnumCombType.SAPPHIRE, 1), 0.30F).setHasEffect();
+			beeSpecies.addProduct(ModItems.BeeComb.getComb(EnumCombType.SAPPHIRE, 1), 0.30F);
 		}
 
 		@Override
@@ -542,6 +444,47 @@ public enum BeeSpecies implements IBeeDefinition {
 		protected void registerMutations() {
 			registerMutation(RUBY, BeeDefinition.UNWEARY, 7);
 
+		}
+	},
+
+	DIAMOND(BeeBranches.LUMINESCE, "Diamonditis", true, new Color(0x8CF4E2), new Color(0xffdc16)) {
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
+			beeSpecies.addProduct(ModItems.BeeComb.getComb(EnumCombType.DIAMOND, 1), 0.30F)
+					.setHasEffect();
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template) {
+			AlleleHelper.getInstance().set(template, EnumBeeChromosome.LIFESPAN, EnumAllele.Lifespan.LONG);
+			AlleleHelper.getInstance().set(template, EnumBeeChromosome.SPEED, Speed.SLOWER);
+			AlleleHelper.getInstance().set(template, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.DOWN_2);
+			AlleleHelper.getInstance().set(template, EnumBeeChromosome.FLOWER_PROVIDER, FlowerRegister.DIAMOND_ORE);
+		}
+
+		@Override
+		protected void registerMutations() {
+			registerMutation(GOLD, RUBY, 7);
+		}
+	},
+
+	EMERALD(BeeBranches.LUMINESCE, "Emeralditis", false, new Color(0x50C878), new Color(0xffdc16)) {
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
+			beeSpecies.addProduct(ModItems.BeeComb.getComb(EnumCombType.EMERALD, 1), 0.30F)
+					.setHasEffect();
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template) {
+			AlleleHelper.getInstance().set(template, EnumBeeChromosome.LIFESPAN, Lifespan.NORMAL);
+			AlleleHelper.getInstance().set(template, EnumBeeChromosome.SPEED, Speed.SLOW);
+			AlleleHelper.getInstance().set(template, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.DOWN_2);
+		}
+
+		@Override
+		protected void registerMutations() {
+			registerMutation(BeeDefinition.MONASTIC, DIAMOND, 7);
 		}
 	},
 
@@ -563,7 +506,6 @@ public enum BeeSpecies implements IBeeDefinition {
 			registerMutation(RUBY, SAPPHIRE, 9);
 		}
 	},
-
 
 	YELLOW_GARNET(BeeBranches.FULGURATED, "Yellow Garnetitis", true, new Color(0xB29A69), new Color(0xffdc16)) {
 		@Override
@@ -642,7 +584,42 @@ public enum BeeSpecies implements IBeeDefinition {
 		}
 	},
 
+	GLOWSTONE(BeeBranches.CADAVEROUSNESS, "Glowstonitis", true, new Color(0x868600), new Color(0xffdc16)) {
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
+			beeSpecies.addProduct(ModItems.BeeComb.getComb(EnumCombType.GLOWSTONE, 1), 0.30F);
+		}
 
+		@Override
+		protected void setAlleles(IAllele[] template) {
+			//TODO: Add Alleles
+		}
+
+		@Override
+		protected void registerMutations() {
+			registerMutation(REDSTONE, NETHER_QUARTZ, 7);
+		}
+	},
+
+	NETHER_QUARTZ(BeeBranches.CADAVEROUSNESS, "Nether's Quartz", false, new Color(0xDFD8CF), new Color(0xffdc16)) {
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
+			beeSpecies.addProduct(ModItems.BeeComb.getComb(EnumCombType.NETHER_QUARTZ, 1), 0.30F);
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template) {
+			AlleleHelper.getInstance().set(template, EnumBeeChromosome.SPEED, EnumAllele.Speed.NORMAL);
+			AlleleHelper.getInstance().set(template, EnumBeeChromosome.LIFESPAN, EnumAllele.Lifespan.LONG);
+			AlleleHelper.getInstance().set(template, EnumBeeChromosome.EFFECT, AlleleEffects.effectAggressive);
+			AlleleHelper.getInstance().set(template, EnumBeeChromosome.FLOWER_PROVIDER, FlowerRegister.NETHER_QUARTZ_ORE);
+		}
+
+		@Override
+		protected void registerMutations() {
+			registerMutation(BeeDefinition.FIENDISH, SAPPHIRE, 10);
+		}
+	},
 
 	PYRITE(BeeBranches.CADAVEROUSNESS, "Pyritis", false, new Color(0xEC9B7F), new Color(0xffdc16)) {
 		@Override
@@ -660,7 +637,7 @@ public enum BeeSpecies implements IBeeDefinition {
 
 		@Override
 		protected void registerMutations() {
-			registerMutation(BeeDefinition.FIENDISH, SAPPHIRE, 10);
+			registerMutation(NETHER_QUARTZ, BeeDefinition.FIENDISH, 10);
 		}
 	},
 
@@ -680,14 +657,15 @@ public enum BeeSpecies implements IBeeDefinition {
 
 		@Override
 		protected void registerMutations() {
-			registerMutation(PYRITE, BeeDefinition.FIENDISH, 12);
+			registerMutation(PYRITE, NETHER_QUARTZ, 12);
 		}
 	},
 
 	SPHALERITE(BeeBranches.CADAVEROUSNESS, "Sphaleritis", true, new Color(0x96A164), new Color(0xffdc16)) {
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
-			beeSpecies.addProduct(ModItems.BeeComb.getComb(EnumCombType.SPHALERITE, 1), 0.30F).setHasEffect();
+			beeSpecies.addProduct(ModItems.BeeComb.getComb(EnumCombType.SPHALERITE, 1), 0.30F)
+					.setHasEffect();
 		}
 
 		@Override
@@ -703,7 +681,6 @@ public enum BeeSpecies implements IBeeDefinition {
 			registerMutation(CINNABAR, PYRITE, 7);
 		}
 	},
-
 
 	SULFUR(BeeBranches.PHOSPHORESCE, "Sulfuris", true, new Color(0xBD8742), new Color(0xffdc16)) {
 		@Override
@@ -725,7 +702,6 @@ public enum BeeSpecies implements IBeeDefinition {
 			registerMutation(GALENA, PYRITE, 10);
 		}
 	},
-
 
 	CALCITE(BeeBranches.PHOSPHORESCE, "Calcitis", true, new Color(0xBFB18A), new Color(0xffdc16)) {
 		@Override
@@ -850,6 +826,23 @@ public enum BeeSpecies implements IBeeDefinition {
 		}
 	},
 
+	ENDER_PEARL(BeeBranches.MONOTONOUS, "Enderman's Pearl", true, new Color(0x063931), new Color(0xffdc16)) {
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
+			beeSpecies.addProduct(ModItems.BeeComb.getComb(EnumCombType.ENDER_PEARL, 1), 0.30F);
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template) {
+			AlleleHelper.getInstance().set(template, EnumBeeChromosome.EFFECT, AlleleEffects.effectReanimation);
+		}
+
+		@Override
+		protected void registerMutations() {
+			registerMutation(DIAMOND, BeeDefinition.SPECTRAL, 8);
+		}
+	},
+
 	PERIDOT(BeeBranches.MONOTONOUS, "Peridotis", true, new Color(0x98DA49), new Color(0xffdc16)) {
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
@@ -864,7 +857,7 @@ public enum BeeSpecies implements IBeeDefinition {
 
 		@Override
 		protected void registerMutations() {
-			registerMutation(BeeDefinition.SPECTRAL, BAUXITE, 8);
+			registerMutation(ENDER_PEARL, BAUXITE, 8);
 		}
 	},
 
@@ -882,7 +875,7 @@ public enum BeeSpecies implements IBeeDefinition {
 
 		@Override
 		protected void registerMutations() {
-			registerMutation(PERIDOT, BeeDefinition.SPECTRAL, 8);
+			registerMutation(PERIDOT, ENDER_PEARL, 8);
 		}
 	},
 

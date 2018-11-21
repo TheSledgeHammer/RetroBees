@@ -17,32 +17,23 @@ public enum EnumCombType implements IStringSerializable {
 	MIXED_METAL(new Color(TBA), new Color(0xE8D56A)),
 	ADVANCED_ALLOY(new Color(TBA), new Color(0xE8D56A)),
 	IRIDIUM_ALLOY(new Color(TBA), new Color(0xE8D56A)),
-
-	UPCOMING RELEASE: 1.1.0: Adds 12 new Bee Species
-	VANILLA:
-	COAL(new Color(TBA), new Color(0xE8D56A)),
-	NETHER_QUARTZ(new Color(TBA), new Color(0xE8D56A)),
-	REDSTONE(new Color(TBA), new Color(0xE8D56A)),
-	GLOWSTONE(new Color(TBA), new Color(0xE8D56A)),
-	DIAMOND(new Color(TBA), new Color(0xE8D56A)),
-	EMERALD(new Color(TBA), new Color(0xE8D56A)),
-	ENDER_PEARL(new Color(TBA), new Color(0xE8D56A)),
 	*/
 
 	//Energy Matter Convertis
 	DARKENED(new Color(0x33EBCB), new Color(0xE8D56A)),
 	REDDENED(new Color(0x6200E7), new Color(0xE8D56A)),
 	OMEGA(new Color(0x6DCFF6), new Color(0xE8D56A)),
-	/*
+	DARKMATTER(new Color(0x470E51), new Color(0xE8D56A)),
+	REDMATTER(new Color(0x870606), new Color(0xE8D56A)),
 	//Transmutated
-	ALCHEMICAL_COAL(new Color(TBA), new Color(0xE8D56A)),
-	MOBIUS(new Color(TBA), new Color(0xE8D56A)),
-	AETERNALIS(new Color(TBA), new Color(0xE8D56A)),
-	//Matter From Energy
-	DARKMATTER(new Color(TBA), new Color(0xE8D56A)),
-	READMATTER(new Color(TBA), new Color(0xE8D56A)),
-	*/
+	ALCHEMICAL_COAL(new Color(0xC60310), new Color(0xE8D56A)),
+	MOBIUS(new Color(0x870009), new Color(0xE8D56A)),
+	AETERNALIS(new Color(0x9D9D9D), new Color(0xE8D56A)),
+
+	REDSTONE(new Color(0x490000), new Color(0xE8D56A)),
+	GLOWSTONE(new Color(0x868600), new Color(0xE8D56A)),
 	//Oscillate
+	COAL(new Color(0x070707), new Color(0xE8D56A)),
 	IRON(new Color(0xBCBCBC), new Color(0xE8D56A)),
 	COPPER(new Color(0xBB6F4D), new Color(0xE8D56A)),
 	SILVER(new Color(0xC9D7D9), new Color(0xE8D56A)),
@@ -54,6 +45,8 @@ public enum EnumCombType implements IStringSerializable {
 	//Luminesce
 	RUBY(new Color(0xD32B37), new Color(0xE8D56A)),
 	SAPPHIRE(new Color(0x3979BE), new Color(0xE8D56A)),
+	DIAMOND(new Color(0x8CF4E2), new Color(0xE8D56A)),
+	EMERALD(new Color(0x50C878), new Color(0xE8D56A)),
 	//Phosphoresce
 	SULFUR(new Color(0xBD8742), new Color(0xE8D56A)),
 	CALCITE(new Color(0xBFB18A), new Color(0xE8D56A)),
@@ -69,10 +62,12 @@ public enum EnumCombType implements IStringSerializable {
 	MAGNESIUM(new Color(0xAF8F8F), new Color(0xE8D56A)),
 	MANGANESE(new Color(0xBCCCC3), new Color(0xE8D56A)),
 	//Monotonous
+	ENDER_PEARL(new Color(0x063931), new Color(0xE8D56A)),
 	PERIDOT(new Color(0x98DA49), new Color(0xE8D56A)),
 	SODALITE(new Color(0x2B3E52), new Color(0xE8D56A)),
 	TUNGSTEN(new Color(0x4F5559), new Color(0xE8D56A)),
 	//Cadaverousness
+	NETHER_QUARTZ(new Color(0xDFD8CF), new Color(0xE8D56A)),
 	PYRITE(new Color(0xEC9B7F), new Color(0xE8D56A)),
 	CINNABAR(new Color(0xB18073), new Color(0xE8D56A)),
 	SPHALERITE(new Color(0x96A164), new Color(0xE8D56A)),
@@ -87,8 +82,7 @@ public enum EnumCombType implements IStringSerializable {
 	PLATINUM(new Color(0xE5E4E2), new Color(0xE8D56A)),
 	TITANIUM(new Color(0xD3D3DD), new Color(0xE8D56A)),
 	IRIDIUM(new Color(0x3D3C3A), new Color(0xE8D56A)),
-
-	//Fluid Cells
+	UUMATTER(new Color(0xFF1493), new Color(0xE8D56A)),
 	//Sepulchral
 	CARBON(new Color(0x000000), new Color(0xE8D56A)),
 	METHANE(new Color(0xFB05DE), new Color(0xE8D56A)),
@@ -100,9 +94,8 @@ public enum EnumCombType implements IStringSerializable {
 	HELIUM_3(new Color(0xBCBC1B), new Color(0xE8D56A)),
 	HELIUM_PLASMA(new Color(0xF5F6BD), new Color(0xE8D56A)),
 	HELIUM(new Color(0xF5F51E), new Color(0xE8D56A)),
-	UUMATTER(new Color(0xFF1493), new Color(0xE8D56A)),
 
-	WOLFRAMIUM(new Color(0x620F7E), new Color(0xE8D56A));
+	WOLFRAMIUM(new Color(0x620F7E), new Color(0xE8D56A), true);
 
 	public static final EnumCombType[] VALUES = values();
 

@@ -6,10 +6,15 @@ import forestry.core.genetics.alleles.IAlleleValue;
 import java.util.Locale;
 
 public enum EnumFlowers implements IAlleleValue<FlowerProvider> {
+
 	DARKMATTER(FlowerRegister.FlowerDarkMatter, true),
 	REDMATTER(FlowerRegister.FlowerRedMatter, false),
+	COAL(FlowerRegister.FlowerCoal, false),
 	IRON(FlowerRegister.FlowerIron, true),
 	GOLD(FlowerRegister.FlowerGold, false),
+	REDSTONE(FlowerRegister.FlowerRedstone, true),
+	DIAMOND(FlowerRegister.FlowerDiamond, false),
+	NETHER_QUARTZ(FlowerRegister.FlowerNetherQuartz, true),
 	COPPER(FlowerRegister.FlowerCopper, true),
 	SILVER(FlowerRegister.FlowerSilver, false),
 	LEAD(FlowerRegister.FlowerLead, true),
@@ -27,6 +32,7 @@ public enum EnumFlowers implements IAlleleValue<FlowerProvider> {
 	IRIDIUM(FlowerRegister.FlowerIridium, true),
 	PYRITE(FlowerRegister.FlowerPyrite, false),
 	SHELDONITE(FlowerRegister.FlowerSheldonite, true);
+
 
 	public static final EnumFlowers[] VALUES = values();
 

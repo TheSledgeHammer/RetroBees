@@ -7,6 +7,8 @@ import com.thesledgehammer.retrobees.items.EnumDropType;
 import com.thesledgehammer.retrobees.misc.oredictionaryresourcetypes.Dusts;
 import forestry.api.recipes.RecipeManagers;
 import forestry.apiculture.ModuleApiculture;
+import moze_intel.projecte.gameObjs.ObjHandler;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Loader;
 import techreborn.api.TechRebornAPI;
@@ -14,6 +16,8 @@ import techreborn.api.TechRebornAPI;
 public class CentrifugeRecipes {
 
 	public static void registerCentrifugeRecipes() {
+		//Item alchemicalCoal = new ItemStack(Item.getItemFromBlock(ObjHandler.fuelBlock.getDefaultState().withProperty(PEStateProps.FUEL_PROP, EnumFuelType.ALCHEMICAL_COAL).getBlock()), 1).getItem();//, 0.15f
+
 		Dusts dust = new Dusts();
         //CENTRIFUGE
 		if(Loader.isModLoaded("projecte")) {
@@ -34,8 +38,41 @@ public class CentrifugeRecipes {
 					ModuleApiculture.getItems().honeyDrop.getItemStack(), 0.2f,
 					ModItems.HoneyDrop.getDrop(EnumDropType.OMEGA, 1), 0.15f
 			));
-		}
 
+			//Alchemical Coal comb
+			RecipeManagers.centrifugeManager.addRecipe(20, ModItems.BeeComb.getComb(EnumCombType.ALCHEMICAL_COAL, 1), ImmutableMap.of(
+					ModuleApiculture.getItems().honeyDrop.getItemStack(), 0.2f,
+					new ItemStack(ObjHandler.fuels,1, 0), 0.15f
+			));
+
+			//Mobius comb
+			RecipeManagers.centrifugeManager.addRecipe(20, ModItems.BeeComb.getComb(EnumCombType.MOBIUS, 1), ImmutableMap.of(
+					ModuleApiculture.getItems().honeyDrop.getItemStack(), 0.2f,
+					//new ItemStack(new AlchemicalFuel(), 1), 0.15f,
+					new ItemStack(ObjHandler.fuels,1, 1), 0.15f
+			));
+
+			//Aeternalis comb
+			RecipeManagers.centrifugeManager.addRecipe(20, ModItems.BeeComb.getComb(EnumCombType.AETERNALIS, 1), ImmutableMap.of(
+					ModuleApiculture.getItems().honeyDrop.getItemStack(), 0.2f,
+					//new ItemStack(new AlchemicalFuel(), 1), 0.15f,
+					new ItemStack(ObjHandler.fuels,1, 2), 0.15f
+			));
+
+			//Dark Matter comb
+			RecipeManagers.centrifugeManager.addRecipe(20, ModItems.BeeComb.getComb(EnumCombType.DARKMATTER, 1), ImmutableMap.of(
+					ModuleApiculture.getItems().honeyDrop.getItemStack(), 0.2f,
+					//new ItemStack(new AlchemicalFuel(), 1), 0.15f,
+					new ItemStack(ObjHandler.matter,1, 0), 0.15f
+			));
+
+			//Red Matter comb
+			RecipeManagers.centrifugeManager.addRecipe(20, ModItems.BeeComb.getComb(EnumCombType.REDMATTER, 1), ImmutableMap.of(
+					ModuleApiculture.getItems().honeyDrop.getItemStack(), 0.2f,
+					//new ItemStack(new AlchemicalFuel(), 1), 0.15f,
+					new ItemStack(ObjHandler.matter,1, 1), 0.15f
+			));
+		}
 
         if(Loader.isModLoaded("techreborn")) {
 			//Iron comb
@@ -283,6 +320,48 @@ public class CentrifugeRecipes {
 					ModuleApiculture.getItems().honeyDrop.getItemStack(), 0.2f,
 					//ModItems.HoneyDrop.getDrop(EnumDropType.UUMATTER, 1), 0.3f,
 					new ItemStack(techreborn.init.ModItems.UU_MATTER, 1), 0.15f
+			));
+
+			//Coal comb
+			RecipeManagers.centrifugeManager.addRecipe(20, ModItems.BeeComb.getComb(EnumCombType.COAL, 1), ImmutableMap.of(
+					ModuleApiculture.getItems().honeyDrop.getItemStack(), 0.2f,
+					new ItemStack(Items.COAL, 1), 0.5f
+			));
+
+			//Diamond comb
+			RecipeManagers.centrifugeManager.addRecipe(20, ModItems.BeeComb.getComb(EnumCombType.DIAMOND, 1), ImmutableMap.of(
+					ModuleApiculture.getItems().honeyDrop.getItemStack(), 0.2f,
+					TechRebornAPI.subItemRetriever.getDustByName("diamond"), 0.5f
+			));
+
+			//Emerald comb
+			RecipeManagers.centrifugeManager.addRecipe(20, ModItems.BeeComb.getComb(EnumCombType.EMERALD, 1), ImmutableMap.of(
+					ModuleApiculture.getItems().honeyDrop.getItemStack(), 0.2f,
+					TechRebornAPI.subItemRetriever.getDustByName("emerald"), 0.5f
+			));
+
+			//Ender Pearl comb
+			RecipeManagers.centrifugeManager.addRecipe(20, ModItems.BeeComb.getComb(EnumCombType.ENDER_PEARL, 1), ImmutableMap.of(
+					ModuleApiculture.getItems().honeyDrop.getItemStack(), 0.2f,
+					TechRebornAPI.subItemRetriever.getDustByName("ender_pearl"), 0.5f
+			));
+
+			//Nether Quartz comb
+			RecipeManagers.centrifugeManager.addRecipe(20, ModItems.BeeComb.getComb(EnumCombType.NETHER_QUARTZ, 1), ImmutableMap.of(
+					ModuleApiculture.getItems().honeyDrop.getItemStack(), 0.2f,
+					new ItemStack(Items.QUARTZ, 1), 0.5f
+			));
+
+			//Redstone comb
+			RecipeManagers.centrifugeManager.addRecipe(20, ModItems.BeeComb.getComb(EnumCombType.REDSTONE, 1), ImmutableMap.of(
+					ModuleApiculture.getItems().honeyDrop.getItemStack(), 0.2f,
+					new ItemStack(Items.REDSTONE, 1), 0.5f
+			));
+
+			//Glowstone comb
+			RecipeManagers.centrifugeManager.addRecipe(20, ModItems.BeeComb.getComb(EnumCombType.GLOWSTONE, 1), ImmutableMap.of(
+					ModuleApiculture.getItems().honeyDrop.getItemStack(), 0.2f,
+					new ItemStack(Items.GLOWSTONE_DUST, 1), 0.5f
 			));
 		}
 	}

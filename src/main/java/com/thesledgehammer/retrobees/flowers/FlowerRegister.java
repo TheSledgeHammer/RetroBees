@@ -22,6 +22,10 @@ public class FlowerRegister {
 	
 	public static final String FlowerDarkMatter = "DarkMatter";
 	public static final String FlowerRedMatter = "RedMatter";
+	public static final String FlowerCoal = "Coal";
+	public static final String FlowerDiamond = "Diamond";
+	public static final String FlowerRedstone = "Redstone";
+	public static final String FlowerNetherQuartz = "Nether Quartz";
 	public static final String FlowerIron = "Iron";
 	public static final String FlowerGold = "Gold";
 	public static final String FlowerCopper = "Copper";
@@ -41,9 +45,14 @@ public class FlowerRegister {
 	public static final String FlowerIridium = "Iridium";
 	public static final String FlowerPyrite = "Pyrite";
 	public static final String FlowerSheldonite = "Sheldonite";
-	
+
+
 	public static IAlleleFlowers DARKMATTER;
 	public static IAlleleFlowers REDMATTER;
+	public static IAlleleFlowers COAL_ORE;
+	public static IAlleleFlowers DIAMOND_ORE;
+	public static IAlleleFlowers REDSTONE_ORE;
+	public static IAlleleFlowers NETHER_QUARTZ_ORE;
 	public static IAlleleFlowers IRON_ORE;
 	public static IAlleleFlowers GOLD_ORE;
 	public static IAlleleFlowers COPPER_ORE;
@@ -67,18 +76,19 @@ public class FlowerRegister {
 
 	public static void initFlowers() {
 		FlowerRegistry flowerRegistry = (FlowerRegistry) FlowerManager.flowerRegistry;
+		registerVanillaFlowers(flowerRegistry);
 		registerProjectEFlowers(flowerRegistry);
 		registerTechRebornFlowers(flowerRegistry);
-
-		flowerRegistry.registerAcceptableFlower(Blocks.GOLD_ORE, FlowerGold);
-		flowerRegistry.registerAcceptableFlower(Blocks.IRON_ORE, FlowerIron);
-
-		IRON_ORE = AlleleManager.alleleFactory.createFlowers(RetroBees.MOD_ID, FlowerType, FlowerIron, EnumFlowers.IRON.getValue(), false, EnumBeeChromosome.FLOWER_PROVIDER);
-		GOLD_ORE = AlleleManager.alleleFactory.createFlowers(RetroBees.MOD_ID, FlowerType, FlowerGold, EnumFlowers.GOLD.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
 
 		DARKMATTER = AlleleManager.alleleFactory.createFlowers(RetroBees.MOD_ID, FlowerType, FlowerDarkMatter, EnumFlowers.DARKMATTER.getValue(), false, EnumBeeChromosome.FLOWER_PROVIDER);
 		REDMATTER = AlleleManager.alleleFactory.createFlowers(RetroBees.MOD_ID, FlowerType, FlowerRedMatter, EnumFlowers.REDMATTER.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
 
+		COAL_ORE = AlleleManager.alleleFactory.createFlowers(RetroBees.MOD_ID, FlowerType, FlowerCoal, EnumFlowers.COAL.getValue(), false, EnumBeeChromosome.FLOWER_PROVIDER);
+		IRON_ORE = AlleleManager.alleleFactory.createFlowers(RetroBees.MOD_ID, FlowerType, FlowerIron, EnumFlowers.IRON.getValue(), false, EnumBeeChromosome.FLOWER_PROVIDER);
+		GOLD_ORE = AlleleManager.alleleFactory.createFlowers(RetroBees.MOD_ID, FlowerType, FlowerGold, EnumFlowers.GOLD.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
+		DIAMOND_ORE = AlleleManager.alleleFactory.createFlowers(RetroBees.MOD_ID, FlowerType, FlowerDiamond, EnumFlowers.DIAMOND.getValue(), false, EnumBeeChromosome.FLOWER_PROVIDER);
+		REDSTONE_ORE = AlleleManager.alleleFactory.createFlowers(RetroBees.MOD_ID, FlowerType, FlowerRedstone, EnumFlowers.REDSTONE.getValue(), false, EnumBeeChromosome.FLOWER_PROVIDER);
+		NETHER_QUARTZ_ORE = AlleleManager.alleleFactory.createFlowers(RetroBees.MOD_ID, FlowerType, FlowerNetherQuartz, EnumFlowers.NETHER_QUARTZ.getValue(), false, EnumBeeChromosome.FLOWER_PROVIDER);
 		COPPER_ORE = AlleleManager.alleleFactory.createFlowers(RetroBees.MOD_ID, FlowerType, FlowerCopper, EnumFlowers.COPPER.getValue(), false, EnumBeeChromosome.FLOWER_PROVIDER);
 		SILVER_ORE = AlleleManager.alleleFactory.createFlowers(RetroBees.MOD_ID, FlowerType, FlowerSilver, EnumFlowers.SILVER.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
 		LEAD_ORE = AlleleManager.alleleFactory.createFlowers(RetroBees.MOD_ID, FlowerType, FlowerLead, EnumFlowers.LEAD.getValue(), false, EnumBeeChromosome.FLOWER_PROVIDER);
@@ -96,6 +106,15 @@ public class FlowerRegister {
 		IRIDIUM_ORE = AlleleManager.alleleFactory.createFlowers(RetroBees.MOD_ID, FlowerType, FlowerIridium, EnumFlowers.IRIDIUM.getValue(), false, EnumBeeChromosome.FLOWER_PROVIDER);
 		PYRITE_ORE = AlleleManager.alleleFactory.createFlowers(RetroBees.MOD_ID, FlowerType, FlowerPyrite, EnumFlowers.PYRITE.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
 		SHELDONITE_ORE = AlleleManager.alleleFactory.createFlowers(RetroBees.MOD_ID, FlowerType, FlowerSheldonite, EnumFlowers.SHELDONITE.getValue(), false, EnumBeeChromosome.FLOWER_PROVIDER);
+	}
+
+	private static void registerVanillaFlowers(FlowerRegistry flowerRegistry) {
+		flowerRegistry.registerAcceptableFlower(Blocks.COAL_ORE, FlowerCoal);
+		flowerRegistry.registerAcceptableFlower(Blocks.IRON_ORE, FlowerIron);
+		flowerRegistry.registerAcceptableFlower(Blocks.GOLD_ORE, FlowerGold);
+		flowerRegistry.registerAcceptableFlower(Blocks.DIAMOND_ORE, FlowerDiamond);
+		flowerRegistry.registerAcceptableFlower(Blocks.REDSTONE_ORE, FlowerRedstone);
+		flowerRegistry.registerAcceptableFlower(Blocks.QUARTZ_ORE, FlowerNetherQuartz);
 	}
 
 	private static void registerProjectEFlowers(FlowerRegistry flowerRegistry) {

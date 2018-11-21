@@ -44,7 +44,10 @@ public class Dusts {
 		Dust.addAll(OreDictionary.getOres("dustIridium")); 		// 14
 		Dust.addAll(OreDictionary.getOres("dustPyrite")); 		// 15
 		Dust.addAll(OreDictionary.getOres("dustSheldonite")); 	// 16
-		Dust.addAll(OreDictionary.getOres("dustIron"));			//17
-		Dust.addAll(OreDictionary.getOres("dustGold"));			//18
+		Dust.addAll(OreDictionary.getOres("dustIron"));			// 17
+		Dust.addAll(OreDictionary.getOres("dustGold"));			// 18
+		Dust.addAll(OreDictionary.getOres("dustEmerald"));		// 19
+		Dust.addAll(OreDictionary.getOres("dustDiamond"));		// 20
+		//Dust.addAll(OreDictionary.getOres("dust"));
 	}
 }

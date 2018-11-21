@@ -42,8 +42,20 @@ for.bees.species.hydrogen=Hydrogen
 for.bees.species.deuterium=Deuterium
 for.bees.species.tritium=Tritium
 for.bees.species.helium_3=Helium3
-for.bees.species.helium_plasma=HeliumPlasma
+for.bees.species.helium_plasma=Helium Plasma
 for.bees.species.helium=Helium
+for.bees.species.coal=Coal
+for.bees.species.diamond=Diamond
+for.bees.species.emerald=Emerald
+for.bees.species.redstone=Redstone
+for.bees.species.glowstone=Glowstone
+for.bees.species.nether_quartz=Nether Quartz
+for.bees.species.ender_pearl=Ender Pearl
+for.bees.species.alchemical_coal=Alchemical Coal
+for.bees.species.mobius=Mobius
+for.bees.species.aeternalis=Aeternalis
+for.bees.species.darkmatter=Dark Matter
+for.bees.species.redmatter=Red Matter
 
 //Items 
 //HoneyCombs
@@ -87,12 +99,24 @@ item.beecomb.carbon.name=Carbon Comb
 item.beecomb.deuterium.name=Deuterium Comb
 item.beecomb.helium.name=Helium Comb
 item.beecomb.helium_3.name=Helium3 Comb
-item.beecomb.helium_plasma.name=HeliumPlasma Comb
+item.beecomb.helium_plasma.name=Helium Plasma Comb
 item.beecomb.hydrogen.name=Hydrogen Comb
 item.beecomb.methane.name=Methane Comb
 item.beecomb.tritium.name=Tritium Comb
 item.beecomb.wolframium.name=Wolframium Comb
 item.beecomb.uumatter.name=UU-Matter Comb
+item.beecomb.coal.name=Coal Comb
+item.beecomb.diamond.name=Diamond Comb
+item.beecomb.emerald.name=Emerald Comb
+item.beecomb.redstone.name=Redstone Comb
+item.beecomb.glowstone.name=Glowstone Comb
+item.beecomb.nether_quartz.name=Nether Quartz Comb
+item.beecomb.ender_pearl.name=Ender Pearl Comb
+item.beecomb.alchemical_coal.name=Alchemical Coal Comb
+item.beecomb.mobius.name=Mobius Comb
+item.beecomb.aeternalis.name=Aeternalis Comb
+item.beecomb.darkmatter.name=Dark Matter Comb
+item.beecomb.redmatter.name=Red Matter Comb
 
 //HoneyDrops
 item.honeydrop.charged.name=Charged Drop
@@ -130,3 +154,7 @@ for.flowers.sodalite=Sodalite Ore
 for.flowers.iridium=Iridium Ore
 for.flowers.pyrite=Pyrite Ore
 for.flowers.sheldonite=Sheldonite Ore
+for.flowers.coal=Coal Ore
+for.flowers.diamond=Diamond Ore
+for.flowers.redstone=Redstone Ore
+for.flowers.nether_quartz=Nether Quartz Ore

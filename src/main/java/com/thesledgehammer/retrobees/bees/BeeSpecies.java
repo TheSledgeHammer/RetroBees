@@ -33,7 +33,6 @@ import java.util.Locale;
 
 public enum BeeSpecies implements IBeeDefinition {
 
-
 	// EMC Branch
 	DARKENED(BeeBranches.EMC, "Darkened", false, new Color(0xD6BDE4), new Color(0xffdc16)) {
 		@Override
@@ -105,7 +104,8 @@ public enum BeeSpecies implements IBeeDefinition {
 	ALCHEMICAL_COAL(BeeBranches.TRANSMUTATED, "Alchemicalis", true, new Color(0xC60310), new Color(0xffdc16)) {
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
-			beeSpecies.addProduct(ModItems.BeeComb.getComb(EnumCombType.ALCHEMICAL_COAL, 1), 0.30F);
+			beeSpecies.addProduct(ModuleApiculture.getItems().beeComb.get(EnumHoneyComb.HONEY, 1), 0.30F)
+					.addSpecialty(ModItems.BeeComb.getComb(EnumCombType.ALCHEMICAL_COAL, 1), 0.30F);
 		}
 
 		@Override
@@ -123,7 +123,8 @@ public enum BeeSpecies implements IBeeDefinition {
 	MOBIUS(BeeBranches.TRANSMUTATED, "Mobiusis", false, new Color(0x870009), new Color(0xffdc16)) {
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
-			beeSpecies.addProduct(ModItems.BeeComb.getComb(EnumCombType.MOBIUS, 1), 0.30F);
+			beeSpecies.addProduct(ModuleApiculture.getItems().beeComb.get(EnumHoneyComb.HONEY, 1), 0.30F)
+					.addSpecialty(ModItems.BeeComb.getComb(EnumCombType.MOBIUS, 1), 0.30F);
 		}
 
 		@Override
@@ -142,8 +143,9 @@ public enum BeeSpecies implements IBeeDefinition {
 	AETERNALIS(BeeBranches.TRANSMUTATED, "Aeternalisness", true, new Color(0x9D9D9D), new Color(0xffdc16)) {
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
-			beeSpecies.addProduct(ModItems.BeeComb.getComb(EnumCombType.AETERNALIS, 1), 0.30F)
-			.setHasEffect();
+			beeSpecies.addProduct(ModuleApiculture.getItems().beeComb.get(EnumHoneyComb.HONEY, 1), 0.30F)
+					.addSpecialty(ModItems.BeeComb.getComb(EnumCombType.AETERNALIS, 1), 0.30F)
+					.setHasEffect();
 		}
 
 		@Override

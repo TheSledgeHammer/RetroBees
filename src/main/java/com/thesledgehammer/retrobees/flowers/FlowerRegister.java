@@ -15,11 +15,13 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.Loader;
 
+import java.util.ArrayList;
+
 public class FlowerRegister {
 	public static IFlowerRegistry flowerRegistry;
 
-	public static final String FlowerType = "flowers";
-	
+	private static final String FlowerType = "flowers";
+
 	public static final String FlowerDarkMatter = "DarkMatter";
 	public static final String FlowerRedMatter = "RedMatter";
 	public static final String FlowerCoal = "Coal";
@@ -73,13 +75,17 @@ public class FlowerRegister {
 	public static IAlleleFlowers PYRITE_ORE;
 	public static IAlleleFlowers SHELDONITE_ORE;
 
+	public static ArrayList<IAlleleFlowers> alleles = new ArrayList<>();
 
 	public static void initFlowers() {
 		FlowerRegistry flowerRegistry = (FlowerRegistry) FlowerManager.flowerRegistry;
 		registerVanillaFlowers(flowerRegistry);
 		registerProjectEFlowers(flowerRegistry);
 		registerTechRebornFlowers(flowerRegistry);
+		registerFlowerAlleles();
+	}
 
+	private static void registerFlowerAlleles() {
 		DARKMATTER = AlleleManager.alleleFactory.createFlowers(RetroBees.MOD_ID, FlowerType, FlowerDarkMatter, EnumFlowers.DARKMATTER.getValue(), false, EnumBeeChromosome.FLOWER_PROVIDER);
 		REDMATTER = AlleleManager.alleleFactory.createFlowers(RetroBees.MOD_ID, FlowerType, FlowerRedMatter, EnumFlowers.REDMATTER.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
 
@@ -118,7 +124,7 @@ public class FlowerRegister {
 	}
 
 	private static void registerProjectEFlowers(FlowerRegistry flowerRegistry) {
-		if(Loader.isModLoaded("ProjectE")) {
+		if (Loader.isModLoaded("ProjectE")) {
 			flowerRegistry.registerAcceptableFlower(ObjHandler.matterBlock.getDefaultState().withProperty(PEStateProps.TIER_PROP, EnumMatterType.DARK_MATTER), FlowerDarkMatter);
 			flowerRegistry.registerAcceptableFlower(ObjHandler.matterBlock.getDefaultState().withProperty(PEStateProps.TIER_PROP, EnumMatterType.RED_MATTER), FlowerRedMatter);
 		}
@@ -126,7 +132,7 @@ public class FlowerRegister {
 
 	private static void registerTechRebornFlowers(FlowerRegistry flowerRegistry) {
 		Ores ore = new Ores();
-		if(Loader.isModLoaded("TechReborn")) {
+		if (Loader.isModLoaded("TechReborn")) {
 			flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(0).getItem()), FlowerCopper);
 			flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(1).getItem()), FlowerSilver);
 			flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(2).getItem()), FlowerLead);

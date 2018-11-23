@@ -33,7 +33,6 @@ public enum EnumFlowers implements IAlleleValue<FlowerProvider> {
 	PYRITE(FlowerRegister.FlowerPyrite, false),
 	SHELDONITE(FlowerRegister.FlowerSheldonite, true);
 
-
 	public static final EnumFlowers[] VALUES = values();
 
 	private final FlowerProvider value;

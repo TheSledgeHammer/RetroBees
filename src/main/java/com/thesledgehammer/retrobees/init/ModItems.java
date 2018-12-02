@@ -23,6 +23,7 @@ public class ModItems {
 	public static ItemCombType BeeComb;
 	public static ItemDropType HoneyDrop;
 
+
 	public static void init() {
 		HoneyDrop = registerItem(new ItemDropType(), "honeydrop");
 		BeeComb = registerItem(new ItemCombType(), "beecomb");

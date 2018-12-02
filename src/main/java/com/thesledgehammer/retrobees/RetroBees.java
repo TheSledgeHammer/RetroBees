@@ -34,8 +34,8 @@ public class RetroBees {
 	
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		logger = event.getModLog();
 		proxy.preInit(event);
+		logger = event.getModLog();
 	}
 
 	@Mod.EventHandler

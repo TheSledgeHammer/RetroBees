@@ -11,7 +11,6 @@ package com.thesledgehammer.retrobees.items;
 import com.thesledgehammer.retrobees.init.ModItems;
 import com.thesledgehammer.retrobees.misc.IInitModel;
 import forestry.api.core.Tabs;
-import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.creativetab.CreativeTabs;
@@ -22,7 +21,7 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemCombType extends Item implements IInitModel, IItemColor {
+public class ItemCombType extends Item implements IItemColor, IInitModel {
 	
 	public ItemCombType() {
 		this.setMaxDamage(0);
@@ -40,15 +39,12 @@ public class ItemCombType extends Item implements IInitModel, IItemColor {
 		return false;
 	}
 
-	@SideOnly(Side.CLIENT)
 	@Override
+	@SideOnly(Side.CLIENT)
 	public void initModel() {
-		ModelLoader.setCustomMeshDefinition(ModItems.BeeComb, new ItemMeshDefinition() {
-			@Override
-			public ModelResourceLocation getModelLocation(ItemStack stack) {
-				return new ModelResourceLocation(ModItems.BeeComb.getRegistryName(), "inventory");
-			}
-		});
+		for(int i = 0; i < EnumCombType.VALUES.length; i++) {
+			ModelLoader.setCustomModelResourceLocation(this, i, new ModelResourceLocation(ModItems.BeeComb.getRegistryName(), "inventory"));
+		}
 	}
 	
 	@Override
@@ -77,4 +73,17 @@ public class ItemCombType extends Item implements IInitModel, IItemColor {
 		EnumCombType comb = EnumCombType.VALUES[stack.getItemDamage()];
 		return comb != null ? (tintIndex == 0 ? comb.getPrimaryColor() : comb.getSecondaryColor()) : 16777215;
 	}
+
+	/*
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void initModel() {
+		ModelLoader.setCustomMeshDefinition(ModItems.BeeComb, new ItemMeshDefinition() {
+			@Override
+			public ModelResourceLocation getModelLocation(ItemStack stack) {
+				return new ModelResourceLocation(ModItems.BeeComb.getRegistryName(), "inventory");
+			}
+		});
+	}
+	*/
 }

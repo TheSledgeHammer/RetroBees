@@ -64,6 +64,7 @@ public class CompatModule {
             BeeSpecies.ALMANDINE.setInactive();
             BeeSpecies.UVAROVITE.setInactive();
             BeeSpecies.CHROME.setInactive();
+            BeeSpecies.REDSTONE.setInactive();
             BeeSpecies.GLOWSTONE.setInactive();
             BeeSpecies.NETHER_QUARTZ.setInactive();
             BeeSpecies.PYRITE.setInactive();

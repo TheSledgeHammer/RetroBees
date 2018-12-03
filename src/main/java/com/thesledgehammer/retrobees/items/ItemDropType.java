@@ -20,6 +20,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class ItemDropType extends Item implements IItemColor, IInitModel {
 
@@ -72,6 +73,10 @@ public class ItemDropType extends Item implements IItemColor, IInitModel {
 	public int colorMultiplier(ItemStack stack, int tintIndex) {
 		EnumDropType drop = EnumDropType.VALUES[stack.getItemDamage()];
 		return drop != null ? tintIndex == 0 ? drop.getPrimaryColor() : drop.getSecondaryColor() : 16777215;
+	}
+
+	public ItemStack getWildcard() {
+		return new ItemStack(this, 1, OreDictionary.WILDCARD_VALUE);
 	}
 
 	/*

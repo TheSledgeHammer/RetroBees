@@ -20,6 +20,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class ItemCombType extends Item implements IItemColor, IInitModel {
 	
@@ -73,6 +74,11 @@ public class ItemCombType extends Item implements IItemColor, IInitModel {
 		EnumCombType comb = EnumCombType.VALUES[stack.getItemDamage()];
 		return comb != null ? (tintIndex == 0 ? comb.getPrimaryColor() : comb.getSecondaryColor()) : 16777215;
 	}
+
+	public ItemStack getWildcard() {
+		return new ItemStack(this, 1, OreDictionary.WILDCARD_VALUE);
+	}
+
 
 	/*
 	@SideOnly(Side.CLIENT)

@@ -1145,8 +1145,8 @@ public enum BeeSpecies implements IBeeDefinition {
 		String lowercaseName = this.toString().toLowerCase(Locale.ENGLISH);
 		String species = "species" + WordUtils.capitalize(lowercaseName);
 		
-		String modID = RetroBees.MOD_ID + '.' + species;
-		String UID = modID + '.' + species;
+		String modID = RetroBees.MOD_ID;
+		String UID = modID + ".species." + species;
 		String description = "for.description." + species;
 		String name = "for.bees.species." + lowercaseName;
 		

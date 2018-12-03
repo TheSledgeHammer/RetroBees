@@ -11,6 +11,7 @@ package com.thesledgehammer.retrobees.init;
 import com.thesledgehammer.retrobees.RetroBees;
 import com.thesledgehammer.retrobees.items.ItemCombType;
 import com.thesledgehammer.retrobees.items.ItemDropType;
+import com.thesledgehammer.retrobees.misc.OreDictUtil;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
@@ -26,7 +27,10 @@ public class ModItems {
 
 	public static void init() {
 		HoneyDrop = registerItem(new ItemDropType(), "honeydrop");
+		OreDictionary.registerOre(OreDictUtil.DROP_HONEYDEW, HoneyDrop.getWildcard());
+
 		BeeComb = registerItem(new ItemCombType(), "beecomb");
+		OreDictionary.registerOre(OreDictUtil.BEE_COMB, BeeComb.getWildcard());
 	}
 
 	@SideOnly(Side.CLIENT)

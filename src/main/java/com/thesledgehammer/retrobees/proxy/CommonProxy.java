@@ -12,6 +12,7 @@ import com.thesledgehammer.retrobees.RetroBees;
 import com.thesledgehammer.retrobees.init.ObjectBatchLoader;
 import com.thesledgehammer.retrobees.misc.Config;
 import com.thesledgehammer.retrobees.network.PacketHandler;
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -32,7 +33,6 @@ public class CommonProxy {
 		PacketHandler.registerMessages("retrobees");
 		// Initialization of blocks and items typically goes here:
 		ObjectBatchLoader.preInit();
-		
 	}
 	
 	 public void init(FMLInitializationEvent event) {
@@ -48,5 +48,10 @@ public class CommonProxy {
 
 	public void registerItem(Item item) {
 		
+	}
+
+
+	public void registerBlock(Block block) {
+
 	}
 }

@@ -27,6 +27,7 @@ public class ObjectBatchLoader {
 
 	public static void preInit() {
 		ModItems.init();
+		ModBlocks.init();
 	}
 	
 	public static void init() {

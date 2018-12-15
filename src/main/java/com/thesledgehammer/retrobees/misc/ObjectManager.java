@@ -35,8 +35,8 @@ public class ObjectManager {
 	
 	public static void ColorRegister() {
 		registerItemColor();
-		//registerBlockColor();
-		//BlockStateMapper();
+		registerBlockColor();
+		BlockStateMapper();
 	}
 	
 	@SideOnly(Side.CLIENT)
@@ -55,13 +55,13 @@ public class ObjectManager {
 			itemColorList.add((IItemColor) item);
 		}
 	}
-	/*
+
 	@SideOnly(Side.CLIENT)
 	private static void BlockStateMapper() {
 		for (IStateMapper stateMapper : stateMapperList) {
-			stateMapper.registerStateMapper();
+			//stateMapper.registerStateMapper();
 		}
-	}*/
+	}
 
 	@SideOnly(Side.CLIENT)
 	private static void registerItemColor() {

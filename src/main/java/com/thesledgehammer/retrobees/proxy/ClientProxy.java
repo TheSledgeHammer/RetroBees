@@ -12,6 +12,7 @@ import com.thesledgehammer.retrobees.init.ObjectBatchLoader;
 import com.thesledgehammer.retrobees.input.InputHandler;
 import com.thesledgehammer.retrobees.input.KeyBindings;
 import com.thesledgehammer.retrobees.misc.ObjectManager;
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -43,5 +44,10 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void registerItem(Item item) {
 		ObjectManager.registerItemClient(item);
+	}
+
+	@Override
+	public void registerBlock(Block block) {
+		ObjectManager.registerBlockClient(block);
 	}
 }

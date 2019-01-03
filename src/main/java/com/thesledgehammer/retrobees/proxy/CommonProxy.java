@@ -8,7 +8,6 @@
 
 package com.thesledgehammer.retrobees.proxy;
 
-import com.thesledgehammer.retrobees.RetroBees;
 import com.thesledgehammer.retrobees.init.ObjectBatchLoader;
 import com.thesledgehammer.retrobees.misc.Config;
 import com.thesledgehammer.retrobees.network.PacketHandler;
@@ -27,7 +26,7 @@ public class CommonProxy {
 
 	public void preInit(FMLPreInitializationEvent event) {
 		File directory = event.getModConfigurationDirectory();
-		config = new Configuration(new File(directory.getPath(), RetroBees.MOD_ID + ".cfg"));
+		config = new Configuration(new File(directory.getPath(), "retrobees.cfg"));
 		Config.readConfig();
 
 		// Initialize our packet handler. Make sure the name is 20 characters or less!

@@ -9,7 +9,6 @@
 package com.thesledgehammer.retrobees;
 
 import com.thesledgehammer.retrobees.proxy.CommonProxy;
-import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -32,13 +31,11 @@ public class RetroBees {
 	public static  RetroBees instance;
 	
 	public static Logger logger;
-
-	public static Configuration config;
 	
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		proxy.preInit(event);
 		logger = event.getModLog();
+		proxy.preInit(event);
 	}
 
 	@Mod.EventHandler

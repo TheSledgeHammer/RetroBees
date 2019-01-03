@@ -9,20 +9,21 @@
 package com.thesledgehammer.retrobees.misc;
 
 import com.thesledgehammer.retrobees.RetroBees;
+import com.thesledgehammer.retrobees.proxy.CommonProxy;
 import net.minecraftforge.common.config.Configuration;
 import org.apache.logging.log4j.Level;
 
 public class Config {
 	
 	private static final String CATEGORY_EMC = "emc";
-	
-	//EMC Items
-	public static int dropChargedValue = 2048;
-	public static int dropOmegaValue = 8192;
 
 	public static boolean canProduceDarkMatter = true;
 	public static boolean canProduceRedMatter = true;
 	public static boolean isTransmutable = true;
+
+	//EMC Items
+	public static int dropChargedValue = 2048;
+	public static int dropOmegaValue = 8192;
 
 	//EMC Bee Species
 	public static double darkenedBeeValue = 139264;
@@ -35,8 +36,7 @@ public class Config {
 	public static double aeternalisBeeValue = 466944;
 
 	public static void readConfig() {
-		Configuration cfg = RetroBees.config;
-
+		Configuration cfg = CommonProxy.config;
 		try {
 			cfg.load();
 			initConfig(cfg);
@@ -50,6 +50,7 @@ public class Config {
 	}
 	
 	private static void initConfig(Configuration cfg) {
+		cfg.addCustomCategoryComment(CATEGORY_EMC, "ProjectE EMC configuration");
 		dropChargedValue = cfg.get(CATEGORY_EMC, "chargedDropEMCValue (Default: 2048)", dropChargedValue, "The EMC value for the Charged HoneyDrop").getInt();
 		dropOmegaValue = cfg.get(CATEGORY_EMC, "omegaDropEMCValue (Default: 8192)", dropOmegaValue, "The EMC value for the Omega HoneyDrop").getInt();
 

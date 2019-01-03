@@ -11,6 +11,7 @@ package com.thesledgehammer.retrobees.misc;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.block.statemap.BlockStateMapper;
 import net.minecraft.client.renderer.block.statemap.IStateMapper;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.IBlockColor;
@@ -32,11 +33,11 @@ public class ObjectManager {
 	private final static Set<IItemColor> itemColorList = new HashSet<>();
 	private final static Set<IBlockColor> blockColorList = new HashSet<>();
 	private final static Set<IStateMapper> stateMapperList = new HashSet<>();
+	//private final static Map<Block, IStateMapper> stateMapperMap = new HashMap<>();
 	
 	public static void ColorRegister() {
 		registerItemColor();
 		registerBlockColor();
-		BlockStateMapper();
 	}
 	
 	@SideOnly(Side.CLIENT)
@@ -47,19 +48,18 @@ public class ObjectManager {
 		if(block instanceof IStateMapper) {
 			stateMapperList.add((IStateMapper) block);
 		}
+
+		for (IStateMapper stateMapper : stateMapperList) {
+			if(stateMapper instanceof BlockStateMapper) {
+				((BlockStateMapper) stateMapper).registerBlockStateMapper(block, stateMapper);
+			}
+		}
 	}
 	
 	@SideOnly(Side.CLIENT)
 	public static void registerItemClient(Item item) {
 		if(item instanceof IItemColor) {
 			itemColorList.add((IItemColor) item);
-		}
-	}
-
-	@SideOnly(Side.CLIENT)
-	private static void BlockStateMapper() {
-		for (IStateMapper stateMapper : stateMapperList) {
-			//stateMapper.registerStateMapper();
 		}
 	}
 
@@ -118,5 +118,4 @@ public class ObjectManager {
 			return 0xffffff;
 		}
 	}
-
 }

@@ -14,7 +14,7 @@ import com.thesledgehammer.retrobees.misc.Config;
 import moze_intel.projecte.api.ProjectEAPI;
 
 public class EMCProxy  {
-	
+
 	public static void addEMC() {
 		/*Add Custom EMC Values to Items/Objects here "emcProxy...(ItemStack, EMCValue)" 
 		All EMC Values should be referenced in ConfigHandler*/

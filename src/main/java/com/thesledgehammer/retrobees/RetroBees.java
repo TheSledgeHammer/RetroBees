@@ -9,6 +9,7 @@
 package com.thesledgehammer.retrobees;
 
 import com.thesledgehammer.retrobees.proxy.CommonProxy;
+import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -21,7 +22,7 @@ import org.apache.logging.log4j.Logger;
 public class RetroBees {
 	
 	public static final String MOD_ID = "retrobees";
-	public static final String VERSION = "1.1.0";
+	public static final String VERSION = "1.1.1";
 	public static final String MCVERSION = "1.12.2";
 	
 	@SidedProxy(clientSide = "com.thesledgehammer.retrobees.proxy.ClientProxy", serverSide = "com.thesledgehammer.retrobees.proxy.CommonProxy")
@@ -31,6 +32,8 @@ public class RetroBees {
 	public static  RetroBees instance;
 	
 	public static Logger logger;
+
+	public static Configuration config;
 	
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) {

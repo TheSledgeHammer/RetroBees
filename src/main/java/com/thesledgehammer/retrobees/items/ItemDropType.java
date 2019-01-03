@@ -78,17 +78,5 @@ public class ItemDropType extends Item implements IItemColor, IInitModel {
 	public ItemStack getWildcard() {
 		return new ItemStack(this, 1, OreDictionary.WILDCARD_VALUE);
 	}
-
-	/*
-	@SideOnly(Side.CLIENT)
-	public void initModel() {
-		ModelLoader.setCustomMeshDefinition(this, new ItemMeshDefinition() {
-			@Override
-			public ModelResourceLocation getModelLocation(ItemStack stack) {
-				return new ModelResourceLocation(ModItems.HoneyDrop.getRegistryName(), "inventory");
-			}
-		});
-	}
-	*/
 }
 	

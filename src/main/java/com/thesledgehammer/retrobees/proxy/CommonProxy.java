@@ -29,10 +29,12 @@ public class CommonProxy {
 		File directory = event.getModConfigurationDirectory();
 		config = new Configuration(new File(directory.getPath(), RetroBees.MOD_ID + ".cfg"));
 		Config.readConfig();
+
 		// Initialize our packet handler. Make sure the name is 20 characters or less!
 		PacketHandler.registerMessages("retrobees");
 		// Initialization of blocks and items typically goes here:
 		ObjectBatchLoader.preInit();
+
 	}
 	
 	 public void init(FMLInitializationEvent event) {
@@ -42,7 +44,7 @@ public class CommonProxy {
 	 public void postInit(FMLPostInitializationEvent event) {
 		 ObjectBatchLoader.postInit();
 		 if(config.hasChanged()) {
-			 config.save();
+		 	config.save();
 		 }
 	 }
 

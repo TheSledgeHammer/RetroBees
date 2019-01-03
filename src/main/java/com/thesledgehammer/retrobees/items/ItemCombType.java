@@ -67,7 +67,7 @@ public class ItemCombType extends Item implements IItemColor, IInitModel {
 	public ItemStack getComb(EnumCombType honeyComb, int amount) {
 		return new ItemStack(this, amount, honeyComb.ordinal());
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	@Override
 	public int colorMultiplier(ItemStack stack, int tintIndex) {
@@ -78,18 +78,4 @@ public class ItemCombType extends Item implements IItemColor, IInitModel {
 	public ItemStack getWildcard() {
 		return new ItemStack(this, 1, OreDictionary.WILDCARD_VALUE);
 	}
-
-
-	/*
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void initModel() {
-		ModelLoader.setCustomMeshDefinition(ModItems.BeeComb, new ItemMeshDefinition() {
-			@Override
-			public ModelResourceLocation getModelLocation(ItemStack stack) {
-				return new ModelResourceLocation(ModItems.BeeComb.getRegistryName(), "inventory");
-			}
-		});
-	}
-	*/
 }

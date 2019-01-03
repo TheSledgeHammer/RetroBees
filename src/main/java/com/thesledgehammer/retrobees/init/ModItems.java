@@ -27,7 +27,7 @@ public class ModItems {
 
 	public static void init() {
 		HoneyDrop = registerItem(new ItemDropType(), "honeydrop");
-		OreDictionary.registerOre(OreDictUtil.DROP_HONEYDEW, HoneyDrop.getWildcard());
+		OreDictionary.registerOre(OreDictUtil.DROP_HONEY, HoneyDrop.getWildcard());
 
 		BeeComb = registerItem(new ItemCombType(), "beecomb");
 		OreDictionary.registerOre(OreDictUtil.BEE_COMB, BeeComb.getWildcard());

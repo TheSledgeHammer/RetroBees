@@ -13,6 +13,7 @@ import com.thesledgehammer.retrobees.bees.BeeSpecies;
 import com.thesledgehammer.retrobees.bees.mutation.BeeMutationFactoryEMC;
 import com.thesledgehammer.retrobees.flowers.FlowerRegister;
 import com.thesledgehammer.retrobees.recipes.CentrifugeRecipes;
+import com.thesledgehammer.retrobees.recipes.SmeltingRecipes;
 import com.thesledgehammer.retrobees.recipes.SqueezerRecipes;
 import forestry.api.apiculture.BeeManager;
 import forestry.apiculture.genetics.BeeMutationFactory;
@@ -38,6 +39,7 @@ public class ObjectBatchLoader {
 		BeeSpecies.initBees();
 		CentrifugeRecipes.registerCentrifugeRecipes();
 		SqueezerRecipes.registerSqueezerRecipes();
+		SmeltingRecipes.registerSmeltingRecipes();
 		CompatModule.initCompatability();
 	}
 	

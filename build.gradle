@@ -41,20 +41,10 @@ group= "com.thesledgehammer.retrobees"
 archivesBaseName = "RetroBees_" + mcversion
 
 dependencies {
-	/*
-	deobfCompile("net.sengir.forestry:forestry_${forestry_mcversion}:${forestry_version}") {
-		transitive = false
-	}
-	deobfCompile("TechReborn:TechReborn-1.12.2:+:universal")
-	deobfCompile("RebornCore:RebornCore-1.12.2:+:universal") {
-		transitive = false
-	}
-	compile files("/lib/ProjectE-1.12-PE1.3.0.jar")
-	*/
 	compile "net.sengir.forestry:forestry_1.12.2:+"
 	compile "TechReborn:TechReborn-1.12.2:+:universal"
 	compile "RebornCore:RebornCore-1.12.2:+:universal"
-	compile files("/lib/ProjectE-1.12-PE1.3.0.jar")
+	compile files("/lib/ProjectE-1.12-PE1.3.2h.jar")
 }
 
 processResources {

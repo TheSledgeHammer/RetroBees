@@ -32,6 +32,7 @@ import forestry.core.genetics.alleles.EnumAllele.Speed;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.Loader;
 import org.apache.commons.lang3.text.WordUtils;
 
 import javax.annotation.Nullable;
@@ -1119,6 +1120,211 @@ public enum BeeSpecies implements IBeeDefinition {
 		}
 	};
 
+//TBA: New Transmutable Bees
+/*
+	DIRT(BeeBranches.EMC, "Dirtimis", true, new Color(0xFDFE8E), new Color(0xffdc16)) {
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
+
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template) {
+
+		}
+
+		@Override
+		protected void registerMutations() {
+
+		}
+	},
+
+	GRASS(BeeBranches.EMC, "Grassitis", false, new Color(0xFDFE8E), new Color(0xffdc16)) {
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
+
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template) {
+
+		}
+
+		@Override
+		protected void registerMutations() {
+
+		}
+	},
+
+	SAND(BeeBranches.EMC, "Sandimis", true, new Color(0xFDFE8E), new Color(0xffdc16)) {
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
+
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template) {
+
+		}
+
+		@Override
+		protected void registerMutations() {
+
+		}
+	},
+
+	SANDSTONE(BeeBranches.EMC, "Sandstonis", false, new Color(0xFDFE8E), new Color(0xffdc16)) {
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
+
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template) {
+
+		}
+
+		@Override
+		protected void registerMutations() {
+
+		}
+	},
+
+	ICE(BeeBranches.EMC, "Icitis", true, new Color(0xFDFE8E), new Color(0xffdc16)) {
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
+
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template) {
+
+		}
+
+		@Override
+		protected void registerMutations() {
+
+		}
+	},
+
+	COBBLESTONE(BeeBranches.EMC, "Cobblestonis", false, new Color(0xFDFE8E), new Color(0xffdc16)) {
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
+
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template) {
+
+		}
+
+		@Override
+		protected void registerMutations() {
+
+		}
+	},
+
+	STONE(BeeBranches.EMC, "Stonis", true, new Color(0xFDFE8E), new Color(0xffdc16)) {
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
+
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template) {
+
+		}
+
+		@Override
+		protected void registerMutations() {
+
+		}
+	},
+
+	GRAVEL(BeeBranches.EMC, "Gravelmis", false, new Color(0xFDFE8E), new Color(0xffdc16)) {
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
+
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template) {
+
+		}
+
+		@Override
+		protected void registerMutations() {
+
+		}
+	},
+
+	OBSIDIAN(BeeBranches.EMC, "Obsidianitis", true, new Color(0xFDFE8E), new Color(0xffdc16)) {
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
+
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template) {
+
+		}
+
+		@Override
+		protected void registerMutations() {
+
+		}
+	},
+
+	LAVA(BeeBranches.EMC, "Lavamis", false, new Color(0xFDFE8E), new Color(0xffdc16)) {
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
+
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template) {
+
+		}
+
+		@Override
+		protected void registerMutations() {
+
+		}
+	},
+
+	WATER(BeeBranches.EMC, "Wateris", false, new Color(0xFDFE8E), new Color(0xffdc16)) {
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
+
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template) {
+
+		}
+
+		@Override
+		protected void registerMutations() {
+
+		}
+	},
+
+	PHILOSOPHER(BeeBranches.EMC, "Philosophicalis", true, new Color(0xFDFE8E), new Color(0xffdc16)) {
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
+
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template) {
+
+		}
+
+		@Override
+		protected void registerMutations() {
+
+		}
+	};*/
 
 	public boolean active = true;
 	
@@ -1131,6 +1337,8 @@ public enum BeeSpecies implements IBeeDefinition {
 	public boolean isActive() {
 		return active;
 	}
+
+
 	
 	private final IBranchDefinition branch;
 	private final IAlleleBeeSpecies species;
@@ -1242,5 +1450,12 @@ public enum BeeSpecies implements IBeeDefinition {
 	
 	public static IBeeMutationBuilder registerEMCMutation(IAlleleBeeSpecies parent1, IAlleleBeeSpecies parent2, IAllele[] template, int chance) {
 		return BeeManagerRetroBees.beeMutationFactoryEMC.createMutation(parent1, parent2, template, chance);
+	}
+
+	public static boolean isTransmutable() {
+		if(Loader.isModLoaded("projecte")) {
+			return Config.isTransmutable;
+		}
+		return false;
 	}
 }

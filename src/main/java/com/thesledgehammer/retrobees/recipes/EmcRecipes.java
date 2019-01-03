@@ -21,15 +21,13 @@ public class EmcRecipes {
 		emcMutation = new EmcRecipe();
 		
 		emcMutation.addRecipe(BeeDefinition.MODEST, BeeDefinition.WINTRY, Config.darkenedBeeValue);
-		//emcMutation.addRecipe(BeeDefinition.WINTRY, BeeDefinition.MODEST, Config.darkenedBeeValue);
 		
 		emcMutation.addRecipe(BeeSpecies.DARKENED, BeeDefinition.MODEST, Config.reddenedBeeValue);
-		//emcMutation.addRecipe(BeeDefinition.MODEST, BeeSpecies.DARKENED, Config.reddenedBeeValue);
-		
-		//emcMutation.addRecipe(BeeSpecies.DARKENED, BeeSpecies.REDDENED, Config.omegaBeeValue);
+
 		emcMutation.addRecipe(BeeSpecies.REDDENED, BeeSpecies.DARKENED, Config.omegaBeeValue);
 		
-		//emcMutation.addRecipe(BeeSpecies.IRIDIUM, BeeSpecies.OMEGA, Config.uuMatterBeeValue);
+		emcMutation.addRecipe(BeeSpecies.OMEGA, BeeSpecies.IRIDIUM, Config.uuMatterBeeValue);
+
 		emcMutation.addRecipe(BeeSpecies.COAL, BeeSpecies.COAL, Config.alchemicalBeeValue);
 
 		emcMutation.addRecipe(BeeSpecies.COAL, BeeSpecies.ALCHEMICAL_COAL, Config.mobiusBeeValue);

@@ -7,5 +7,6 @@
   "authorList": [ "TheSledgeHammer" ],
   "credits": "Forestry, Tech Reborn and ProjectE",
   "dependencies": [ "forestry,techreborn,projecte" ]
+  "logoFile": "RetroBeesLogo.jpg"
   }
 ]

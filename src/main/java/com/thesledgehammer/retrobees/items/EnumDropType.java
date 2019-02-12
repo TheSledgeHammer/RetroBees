@@ -67,4 +67,13 @@ public enum EnumDropType implements IStringSerializable {
 	public String getName() {
 		return name;
 	}
+
+	public static EnumDropType get(int meta) {
+		if (meta >= VALUES.length) {
+			meta = 0;
+		}
+		return VALUES[meta];
+	}
+
+
 }

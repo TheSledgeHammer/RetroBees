@@ -8,21 +8,24 @@
 
 package com.thesledgehammer.retrobees.items;
 
-import com.thesledgehammer.retrobees.init.ModItems;
 import com.thesledgehammer.retrobees.misc.IInitModel;
 import forestry.api.core.Tabs;
+import forestry.core.items.IColoredItem;
+import forestry.core.items.ItemForestry;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraftforge.oredict.OreDictionary;
 
-public class ItemCombType extends Item implements IItemColor, IInitModel {
+import javax.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+public class ItemCombType extends ItemForestry implements IColoredItem, IInitModel {
 	
 	public ItemCombType() {
 		this.setMaxDamage(0);
@@ -44,7 +47,7 @@ public class ItemCombType extends Item implements IItemColor, IInitModel {
 	@SideOnly(Side.CLIENT)
 	public void initModel() {
 		for(int i = 0; i < EnumCombType.VALUES.length; i++) {
-			ModelLoader.setCustomModelResourceLocation(this, i, new ModelResourceLocation(ModItems.BeeComb.getRegistryName(), "inventory"));
+			ModelLoader.setCustomModelResourceLocation(this, i, new ModelResourceLocation(this.getRegistryName(), "inventory"));
 		}
 	}
 	
@@ -54,28 +57,53 @@ public class ItemCombType extends Item implements IItemColor, IInitModel {
 		return super.getUnlocalizedName(stack) + "." + honeyComb.name;
 	}
 
-	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> subItems) {
 		if(this.isInCreativeTab(tab)) {
 			for(int i = 0; i < EnumCombType.VALUES.length; i++) {
-				subItems.add(new ItemStack(this, 1, i));
+				EnumCombType honeyComb = EnumCombType.get(i);
+				if(!honeyComb.isSecret()) {
+					subItems.add(new ItemStack(this, 1, i));
+				}
 			}
 		}
+	}
+
+	@Nullable
+	private static EnumCombType getRandomCombType(Random random, boolean includeSecret) {
+		List<EnumCombType> validComb = new ArrayList<>(EnumCombType.VALUES.length);
+		for(int i = 0; i < EnumCombType.VALUES.length; i++) {
+			EnumCombType honeyComb = EnumCombType.get(i);
+			if(!honeyComb.isSecret() || includeSecret) {
+				validComb.add(honeyComb);
+			}
+		}
+		if(validComb.isEmpty()) {
+			return null;
+		} else {
+			return validComb.get(random.nextInt(validComb.size()));
+		}
+	}
+
+	public ItemStack getRandomComb(int amount, Random random, boolean includeSecret) {
+		EnumCombType honeyComb = getRandomCombType(random, includeSecret);
+		if(honeyComb == null) {
+			return ItemStack.EMPTY;
+		}
+		return getComb(honeyComb, amount);
 	}
 	
 	public ItemStack getComb(EnumCombType honeyComb, int amount) {
 		return new ItemStack(this, amount, honeyComb.ordinal());
 	}
 
-	@SideOnly(Side.CLIENT)
 	@Override
-	public int colorMultiplier(ItemStack stack, int tintIndex) {
+	public int getColorFromItemstack(ItemStack stack, int tintIndex) {
 		EnumCombType comb = EnumCombType.VALUES[stack.getItemDamage()];
-		return comb != null ? (tintIndex == 0 ? comb.getPrimaryColor() : comb.getSecondaryColor()) : 16777215;
+		return comb != null ? tintIndex == 0 ? comb.getPrimaryColor() : comb.getSecondaryColor() : 16777215;
 	}
-
+/*
 	public ItemStack getWildcard() {
 		return new ItemStack(this, 1, OreDictionary.WILDCARD_VALUE);
-	}
+	}*/
 }

@@ -19,19 +19,19 @@ import org.apache.logging.log4j.Logger;
 
 @Mod(modid = RetroBees.MOD_ID, name = "RetroBees", version = RetroBees.VERSION, acceptedMinecraftVersions = RetroBees.MCVERSION, dependencies = "required-after:forestry;")
 public class RetroBees {
-	
+
 	public static final String MOD_ID = "retrobees";
 	public static final String VERSION = "1.1.1";
 	public static final String MCVERSION = "1.12.2";
-	
+
 	@SidedProxy(clientSide = "com.thesledgehammer.retrobees.proxy.ClientProxy", serverSide = "com.thesledgehammer.retrobees.proxy.CommonProxy")
 	public static CommonProxy proxy;
-	
+
 	@Mod.Instance("retrobees")
 	public static  RetroBees instance;
-	
+
 	public static Logger logger;
-	
+
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		logger = event.getModLog();

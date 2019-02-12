@@ -22,8 +22,8 @@ public class Config {
 	public static boolean isTransmutable = true;
 
 	//EMC Items
-	public static int dropChargedValue = 2048;
-	public static int dropOmegaValue = 8192;
+	public static long dropChargedValue = 2048;
+	public static long dropOmegaValue = 8192;
 
 	//EMC Bee Species
 	public static double darkenedBeeValue = 139264;
@@ -51,8 +51,8 @@ public class Config {
 	
 	private static void initConfig(Configuration cfg) {
 		cfg.addCustomCategoryComment(CATEGORY_EMC, "ProjectE EMC configuration");
-		dropChargedValue = cfg.get(CATEGORY_EMC, "chargedDropEMCValue (Default: 2048)", dropChargedValue, "The EMC value for the Charged HoneyDrop").getInt();
-		dropOmegaValue = cfg.get(CATEGORY_EMC, "omegaDropEMCValue (Default: 8192)", dropOmegaValue, "The EMC value for the Omega HoneyDrop").getInt();
+		dropChargedValue = cfg.get(CATEGORY_EMC, "chargedDropEMCValue (Default: 2048)", dropChargedValue, "The EMC value for the Charged HoneyDrop").getLong();
+		dropOmegaValue = cfg.get(CATEGORY_EMC, "omegaDropEMCValue (Default: 8192)", dropOmegaValue, "The EMC value for the Omega HoneyDrop").getLong();
 
 		canProduceDarkMatter = cfg.getBoolean(CATEGORY_EMC, "canProduceDarkMatter (Default: true)", canProduceDarkMatter, "If The Darkened and Omega Bee can produce Dark Matter");
 		canProduceRedMatter = cfg.getBoolean(CATEGORY_EMC, "canProduceRedMatter (Default: true)", canProduceRedMatter, "If The Reddended and Omega Bee can produce Red Matter");

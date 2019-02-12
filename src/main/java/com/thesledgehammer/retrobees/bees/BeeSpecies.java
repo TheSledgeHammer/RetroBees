@@ -124,6 +124,7 @@ public enum BeeSpecies implements IBeeDefinition {
 
 		@Override
 		protected void registerMutations() {
+			//TODO: Adjust Primary Mutation to The Philosopher Bee:
 			registerEMCMutation(COAL, COAL, 100);
 			registerMutation(COAL, DARKENED, 10);
 		}
@@ -1241,7 +1242,7 @@ public enum BeeSpecies implements IBeeDefinition {
 		}
 	},
 
-	GRAVEL(BeeBranches.EMC, "Gravelmis", false, new Color(0xFDFE8E), new Color(0xffdc16)) {
+	GRAVEL(BeeBranches.EMC, "Gravelis", false, new Color(0xFDFE8E), new Color(0xffdc16)) {
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
 
@@ -1309,7 +1310,7 @@ public enum BeeSpecies implements IBeeDefinition {
 		}
 	},
 
-	PHILOSOPHER(BeeBranches.EMC, "Philosophicalis", true, new Color(0xFDFE8E), new Color(0xffdc16)) {
+	THE_PHILOSOPHER(BeeBranches.EMC, "Philosophicalis", true, new Color(0xFDFE8E), new Color(0xffdc16)) {
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
 
@@ -1317,29 +1318,38 @@ public enum BeeSpecies implements IBeeDefinition {
 
 		@Override
 		protected void setAlleles(IAllele[] template) {
-
+			//AlleleHelper.getInstance().set(template, EnumBeeChromosome.EFFECT, AlleleEffectRegister.effectPhilosophersStone);
 		}
 
 		@Override
 		protected void registerMutations() {
-
+			//TODO: Register Valid EMCMutations: Glowstone(4 x 384), Diamond(1 x 8192), Redstone(4 x 64)
+			//registerEMCMutation(REDSTONE, GLOWSTONE, 100);//EMC: 11840
+			//registerEMCMutation(GLOWSTONE, DIAMOND, 100);//EMC: 2560
+			//registerEMCMutation(DIAMOND, REDSTONE, 100);//EMC: 2560
 		}
-	};*/
+	};
+*/
 
-	public boolean active = true;
-	
-	public BeeSpecies setInactive() {
-		this.active = false;
-		AlleleManager.alleleRegistry.blacklistAllele(species.getUID());
-		return this;
+	private boolean active;
+
+	private void setActive(boolean active) {
+		this.active = active;
 	}
 
-	public boolean isActive() {
+	public void setInactive() {
+		setActive(true);
+		AlleleManager.alleleRegistry.blacklistAllele(species.getUID());
+	}
+
+	public void setIsActive() {
+		setActive(false);
+	}
+
+	public boolean getActive() {
 		return active;
 	}
 
-
-	
 	private final IBranchDefinition branch;
 	private final IAlleleBeeSpecies species;
 	
@@ -1359,7 +1369,7 @@ public enum BeeSpecies implements IBeeDefinition {
 		String name = "for.bees.species." + lowercaseName;
 		
 		this.branch = branch;
-	
+
 		IAlleleBeeSpeciesBuilder speciesBuilder = BeeManager.beeFactory.createSpecies(modID, UID, dominant, "TheSledgeHammer", name, description, branch.getBranch(), binomial, primary.getRGB(), secondary.getRGB());
 		
 		if (isSecret()) {

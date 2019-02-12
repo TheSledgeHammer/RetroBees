@@ -74,6 +74,4 @@ public enum EnumDropType implements IStringSerializable {
 		}
 		return VALUES[meta];
 	}
-
-
 }

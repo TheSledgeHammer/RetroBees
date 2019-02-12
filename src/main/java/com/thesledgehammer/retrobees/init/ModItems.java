@@ -24,7 +24,6 @@ public class ModItems {
 	public static ItemCombType BeeComb;
 	public static ItemDropType HoneyDrop;
 
-
 	public static void init() {
 		HoneyDrop = registerItem(new ItemDropType(), "honeydrop");
 		OreDictionary.registerOre(OreDictUtil.DROP_HONEY, HoneyDrop.getWildcard());

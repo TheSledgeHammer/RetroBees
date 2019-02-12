@@ -10,6 +10,7 @@ package com.thesledgehammer.retrobees.init;
 
 import com.thesledgehammer.retrobees.bees.BeeManagerRetroBees;
 import com.thesledgehammer.retrobees.bees.BeeSpecies;
+import com.thesledgehammer.retrobees.bees.alleles.AlleleEffectRegister;
 import com.thesledgehammer.retrobees.bees.mutation.BeeMutationFactoryEMC;
 import com.thesledgehammer.retrobees.flowers.FlowerRegister;
 import com.thesledgehammer.retrobees.recipes.CentrifugeRecipes;
@@ -36,6 +37,7 @@ public class ObjectBatchLoader {
 		BeeManagerRetroBees.beeMutationFactoryEMC = new BeeMutationFactoryEMC();
 		BeeManager.beeMutationFactory = new BeeMutationFactory();
 		FlowerRegister.initFlowers();
+		AlleleEffectRegister.init();
 		BeeSpecies.initBees();
 		CentrifugeRecipes.registerCentrifugeRecipes();
 		SqueezerRecipes.registerSqueezerRecipes();

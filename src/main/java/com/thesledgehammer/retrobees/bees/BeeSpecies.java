@@ -9,6 +9,7 @@
 package com.thesledgehammer.retrobees.bees;
 
 import com.thesledgehammer.retrobees.RetroBees;
+import com.thesledgehammer.retrobees.bees.alleles.AlleleEffectRegister;
 import com.thesledgehammer.retrobees.flowers.FlowerRegister;
 import com.thesledgehammer.retrobees.init.ModItems;
 import com.thesledgehammer.retrobees.items.EnumCombType;
@@ -109,6 +110,26 @@ public enum BeeSpecies implements IBeeDefinition {
 		}
 	},
 
+	PHILOSOPHERS_STONE(BeeBranches.EMC, "The Philosophicalis Stonis", true, new Color(0xFDFE8E), new Color(0xffdc16)) {
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
+			beeSpecies.addProduct(ModuleApiculture.getItems().beeComb.get(EnumHoneyComb.HONEY, 1), 0.30F)
+					.setHasEffect();
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template) {
+			AlleleHelper.getInstance().set(template, EnumBeeChromosome.EFFECT, AlleleEffectRegister.effectPhilosophersStone);
+		}
+
+		@Override
+		protected void registerMutations() {
+			registerEMCMutation(REDSTONE, GLOWSTONE, 100);
+			registerEMCMutation(GLOWSTONE, DIAMOND, 100);
+			registerEMCMutation(DIAMOND, REDSTONE, 100);
+		}
+	},
+
 	//Transmutated Branch
 	ALCHEMICAL_COAL(BeeBranches.TRANSMUTATED, "Alchemicalis", true, new Color(0xC60310), new Color(0xffdc16)) {
 		@Override
@@ -127,6 +148,10 @@ public enum BeeSpecies implements IBeeDefinition {
 			//TODO: Adjust Primary Mutation to The Philosopher Bee:
 			registerEMCMutation(COAL, COAL, 100);
 			registerMutation(COAL, DARKENED, 10);
+			if(isTransmutable()) {
+				//registerEMCMutation(PHILOSOPHERS_STONE, COAL, 100);//EMC: 512
+				//registerEMCMutation(PHILOSOPHERS_STONE, MOBIUS, 100);//EMC: 512
+			}
 		}
 	},
 
@@ -147,6 +172,10 @@ public enum BeeSpecies implements IBeeDefinition {
 			registerEMCMutation(COAL, ALCHEMICAL_COAL, 100);
 			registerMutation(DARKENED, ALCHEMICAL_COAL, 10);
 			registerMutation(REDDENED, ALCHEMICAL_COAL, 20);
+			if(isTransmutable()) {
+				//registerEMCMutation(PHILOSOPHERS_STONE, ALCHEMICAL_COAL, 100); EMC: 2048
+				//registerEMCMutation(PHILOSOPHERS_STONE, AETERNALIS, 100); EMC: 8192
+			}
 		}
 	},
 
@@ -165,9 +194,12 @@ public enum BeeSpecies implements IBeeDefinition {
 
 		@Override
 		protected void registerMutations() {
-			registerEMCMutation(ALCHEMICAL_COAL, MOBIUS, 100);
+			registerEMCMutation(ALCHEMICAL_COAL, MOBIUS, 100);//Remove Replacing with new Philosopher Bee Mutation
 			registerMutation(REDDENED, MOBIUS, 10);
 			registerMutation(OMEGA, MOBIUS, 20);
+			if(isTransmutable()) {
+				//registerEMCMutation(PHILOSOPHERS_STONE, MOBIUS, 100);
+			}
 		}
 	},
 
@@ -190,6 +222,9 @@ public enum BeeSpecies implements IBeeDefinition {
 		@Override
 		protected void registerMutations() {
 			registerMutation(BeeDefinition.AUSTERE, BeeDefinition.INDUSTRIOUS, 10);
+			if(isTransmutable()) {
+				//registerEMCMutation(PHILOSOPHERS_STONE, ALCHEMICAL_COAL, 100);
+			}
 		}
 	},
 
@@ -211,6 +246,9 @@ public enum BeeSpecies implements IBeeDefinition {
 		@Override
 		protected void registerMutations() {
 			registerMutation(COAL, BeeDefinition.AUSTERE, 10);
+			if(isTransmutable()) {
+				//registerEMCMutation(PHILOSOPHERS_STONE, GOLD, 100);
+			}
 		}
 	},
 
@@ -274,6 +312,10 @@ public enum BeeSpecies implements IBeeDefinition {
 		@Override
 		protected void registerMutations() {
 			registerMutation(SILVER, COPPER, 9);
+			if(isTransmutable()) {
+				//registerEMCMutation(PHILOSOPHERS_STONE, IRON, 100);
+				//registerEMCMutation(PHILOSOPHERS_STONE, DIAMOND, 100);
+			}
 		}
 	},
 
@@ -477,6 +519,10 @@ public enum BeeSpecies implements IBeeDefinition {
 		@Override
 		protected void registerMutations() {
 			registerMutation(GOLD, RUBY, 7);
+			if(isTransmutable()) {
+				//registerEMCMutation(PHILOSOPHERS_STONE, GOLD, 100);
+				//registerEMCMutation(PHILOSOPHERS_STONE, EMERALD, 100);
+			}
 		}
 	},
 
@@ -497,6 +543,9 @@ public enum BeeSpecies implements IBeeDefinition {
 		@Override
 		protected void registerMutations() {
 			registerMutation(BeeDefinition.MONASTIC, DIAMOND, 7);
+			if(isTransmutable()) {
+				//registerEMCMutation(PHILOSOPHERS_STONE, DIAMOND, 100);
+			}
 		}
 	},
 
@@ -852,6 +901,9 @@ public enum BeeSpecies implements IBeeDefinition {
 		@Override
 		protected void registerMutations() {
 			registerMutation(DIAMOND, BeeDefinition.SPECTRAL, 8);
+			if(isTransmutable()) {
+				//registerEMCMutation(PHILOSOPHERS_STONE, IRON, 100);
+			}
 		}
 	},
 
@@ -1310,25 +1362,6 @@ public enum BeeSpecies implements IBeeDefinition {
 		}
 	},
 
-	THE_PHILOSOPHER(BeeBranches.EMC, "Philosophicalis", true, new Color(0xFDFE8E), new Color(0xffdc16)) {
-		@Override
-		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
-
-		}
-
-		@Override
-		protected void setAlleles(IAllele[] template) {
-			//AlleleHelper.getInstance().set(template, EnumBeeChromosome.EFFECT, AlleleEffectRegister.effectPhilosophersStone);
-		}
-
-		@Override
-		protected void registerMutations() {
-			//TODO: Register Valid EMCMutations: Glowstone(4 x 384), Diamond(1 x 8192), Redstone(4 x 64)
-			//registerEMCMutation(REDSTONE, GLOWSTONE, 100);//EMC: 11840
-			//registerEMCMutation(GLOWSTONE, DIAMOND, 100);//EMC: 2560
-			//registerEMCMutation(DIAMOND, REDSTONE, 100);//EMC: 2560
-		}
-	};
 */
 
 	private boolean active;
@@ -1468,4 +1501,6 @@ public enum BeeSpecies implements IBeeDefinition {
 		}
 		return false;
 	}
+
+
 }

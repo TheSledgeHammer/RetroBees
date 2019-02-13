@@ -33,5 +33,11 @@ public class EmcRecipes {
 		emcMutation.addRecipe(BeeSpecies.COAL, BeeSpecies.ALCHEMICAL_COAL, Config.mobiusBeeValue);
 
 		emcMutation.addRecipe(BeeSpecies.ALCHEMICAL_COAL, BeeSpecies.MOBIUS, Config.aeternalisBeeValue);
+
+		emcMutation.addRecipe(BeeSpecies.DIAMOND, BeeSpecies.REDSTONE, 1536);
+
+		emcMutation.addRecipe(BeeSpecies.REDSTONE, BeeSpecies.GLOWSTONE, 8192);
+
+		emcMutation.addRecipe(BeeSpecies.GLOWSTONE, BeeSpecies.DIAMOND, 256);
 	}
 }

@@ -32,6 +32,7 @@ public class CompatModule {
             BeeSpecies.DARKENED.setInactive();
             BeeSpecies.REDDENED.setInactive();
             BeeSpecies.OMEGA.setInactive();
+            BeeSpecies.PHILOSOPHERS_STONE.setInactive();
             BeeSpecies.ALCHEMICAL_COAL.setInactive();
             BeeSpecies.MOBIUS.setInactive();
             BeeSpecies.AETERNALIS.setInactive();

@@ -8,6 +8,7 @@
 
 package com.thesledgehammer.retrobees.bees;
 
+import com.thesledgehammer.retrobees.bees.alleles.AlleleEffectRegister;
 import forestry.api.apiculture.BeeManager;
 import forestry.api.apiculture.EnumBeeChromosome;
 import forestry.api.genetics.IAllele;
@@ -34,12 +35,12 @@ public enum BeeBranches implements IBranchDefinition {
 		}
 	},
 
-
-
-	TRANSMUTATED("TransMutatinis") {
+	TRANSMUTATED("Transmutatinis") {
 		@Override
 		protected void setBranchProperties(IAllele[] alleles) {
-			//TODO: Add Alleles
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.FLOWERING, EnumAllele.Flowering.AVERAGE);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.BOTH_1);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.EFFECT, AlleleEffectRegister.effectPhilosophersStone);
 		}
 	},
 

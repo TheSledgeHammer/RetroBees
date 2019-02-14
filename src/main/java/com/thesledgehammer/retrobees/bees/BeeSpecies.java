@@ -9,7 +9,6 @@
 package com.thesledgehammer.retrobees.bees;
 
 import com.thesledgehammer.retrobees.RetroBees;
-import com.thesledgehammer.retrobees.bees.alleles.AlleleEffectRegister;
 import com.thesledgehammer.retrobees.flowers.FlowerRegister;
 import com.thesledgehammer.retrobees.init.ModItems;
 import com.thesledgehammer.retrobees.items.EnumCombType;
@@ -110,7 +109,7 @@ public enum BeeSpecies implements IBeeDefinition {
 		}
 	},
 
-	PHILOSOPHERS_STONE(BeeBranches.TRANSMUTATED, "Philosophicalis Stonis", true, new Color(0xFDFE8E), new Color(0xffdc16)) {
+	PHILOSOPHERS_STONE(BeeBranches.TRANSMUTATED, "Philosophicalis Stonis", true, new Color(0xFD5732), new Color(0xffdc16)) {
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
 			beeSpecies.addProduct(ModuleApiculture.getItems().beeComb.get(EnumHoneyComb.HONEY, 1), 0.30F)
@@ -119,7 +118,7 @@ public enum BeeSpecies implements IBeeDefinition {
 
 		@Override
 		protected void setAlleles(IAllele[] template) {
-			AlleleHelper.getInstance().set(template, EnumBeeChromosome.EFFECT, AlleleEffectRegister.effectPhilosophersStone);
+			//AlleleHelper.getInstance().set(template, EnumBeeChromosome.EFFECT, AlleleEffectRegister.effectPhilosophersStone);
 		}
 
 		@Override
@@ -145,8 +144,6 @@ public enum BeeSpecies implements IBeeDefinition {
 
 		@Override
 		protected void registerMutations() {
-			//registerEMCMutation(COAL, COAL, 100);
-			//registerMutation(COAL, DARKENED, 10);
 			registerEMCMutation(PHILOSOPHERS_STONE, COAL, 100);
 			registerEMCMutation(PHILOSOPHERS_STONE, MOBIUS, 100);
 		}
@@ -166,9 +163,6 @@ public enum BeeSpecies implements IBeeDefinition {
 
 		@Override
 		protected void registerMutations() {
-			//registerEMCMutation(COAL, ALCHEMICAL_COAL, 100);
-			//registerMutation(DARKENED, ALCHEMICAL_COAL, 10);
-			//registerMutation(REDDENED, ALCHEMICAL_COAL, 20);
 			registerEMCMutation(PHILOSOPHERS_STONE, ALCHEMICAL_COAL, 100);
 			registerEMCMutation(PHILOSOPHERS_STONE, AETERNALIS, 100);
 		}
@@ -189,9 +183,6 @@ public enum BeeSpecies implements IBeeDefinition {
 
 		@Override
 		protected void registerMutations() {
-			//registerEMCMutation(ALCHEMICAL_COAL, MOBIUS, 100);//Remove Replacing with new Philosopher Bee Mutation
-			//registerMutation(REDDENED, MOBIUS, 10);
-			//registerMutation(OMEGA, MOBIUS, 20);
 			registerEMCMutation(PHILOSOPHERS_STONE, MOBIUS, 100);
 		}
 	},
@@ -1024,7 +1015,7 @@ public enum BeeSpecies implements IBeeDefinition {
 		}
 	},
 
-	UU_MATTER(BeeBranches.RADIATE, "UU-Matteris", true, new Color(0xFF1493), new Color(0xffdc16)) {
+	UU_MATTER(BeeBranches.RADIATE, "UU-Mattis", true, new Color(0xFF1493), new Color(0xffdc16)) {
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
 			beeSpecies.addProduct(ModItems.BeeComb.getComb(EnumCombType.UUMATTER, 1), 0.25F)
@@ -1506,6 +1497,4 @@ public enum BeeSpecies implements IBeeDefinition {
 		}
 		return false;
 	}
-
-
 }

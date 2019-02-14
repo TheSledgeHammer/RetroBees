@@ -16,7 +16,7 @@ import java.util.Random;
 public class AlleleEffectPhilosophersStone extends AlleleEffect {
 
     public AlleleEffectPhilosophersStone() {
-        super("philosophers_stone", true);
+        super("philosopher_stone", true);
     }
 
     @Override

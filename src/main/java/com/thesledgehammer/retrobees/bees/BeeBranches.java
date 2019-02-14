@@ -34,6 +34,8 @@ public enum BeeBranches implements IBranchDefinition {
 		}
 	},
 
+
+
 	TRANSMUTATED("TransMutatinis") {
 		@Override
 		protected void setBranchProperties(IAllele[] alleles) {
@@ -177,6 +179,20 @@ public enum BeeBranches implements IBranchDefinition {
 		}
 	},
 	SEPULCHRAL("Sepulcharalis") {
+		@Override
+		protected void setBranchProperties(IAllele[] alleles) {
+			//TODO: Add Alleles
+		}
+	},
+
+	INCANDESCE("Incandescis") {
+		@Override
+		protected void setBranchProperties(IAllele[] alleles) {
+			//TODO: Add Alleles
+		}
+	},
+
+	ADUMBRATE("Adumbratis") {
 		@Override
 		protected void setBranchProperties(IAllele[] alleles) {
 			//TODO: Add Alleles

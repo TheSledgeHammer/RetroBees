@@ -14,7 +14,11 @@ import net.minecraftforge.common.config.Configuration;
 import org.apache.logging.log4j.Level;
 
 public class Config {
-	
+	/*
+	Bee EMC to EMC Conversion:
+	1st Tier= 68
+	2nd Tier+ = 114
+	*/
 	private static final String CATEGORY_EMC = "emc";
 
 	public static boolean canProduceDarkMatter = true;
@@ -30,10 +34,20 @@ public class Config {
 	public static double reddenedBeeValue = 466944;
 	public static double omegaBeeValue = 933888;
 	public static double uuMatterBeeValue = 1867776;
+	public static double philosophersBeeValue = 678912;
 
-	public static double alchemicalBeeValue = 69632;
-	public static double mobiusBeeValue = 139264;
-	public static double aeternalisBeeValue = 466944;
+	//EMC Transmutable Bee Species
+	public static double alchemicalBeeValue = 713728;
+	public static double mobiusBeeValue = 818176;
+	public static double aeternalisBeeValue = 1235968;
+	/*
+	public static double coalBeeValue = 687616;
+	public static double ironBeeValue = 696320;
+	public static double goldBeeValue = 818176;
+	public static double diamondBeeValue = 1235968;
+	public static double emeraldBeeValue = 1793024;
+	public static double enderPearlBeeValue = 748544;
+	*/
 
 	public static void readConfig() {
 		Configuration cfg = CommonProxy.config;
@@ -63,8 +77,9 @@ public class Config {
 		omegaBeeValue = cfg.get(CATEGORY_EMC, "omegaBeeEMCValue (Default: 933888)", omegaBeeValue, "The EMC value for the Omega Bee Species").getDouble();
 		uuMatterBeeValue = cfg.get(CATEGORY_EMC, "uuMatterBeeValue (Default: 1867776)", uuMatterBeeValue, "The EMC value for the UU-Matter Bee Species").getDouble();
 
-		alchemicalBeeValue = cfg.get(CATEGORY_EMC, "alchemicalBeeValue (Default: 69632)", alchemicalBeeValue, "The EMC value for the Alchemical Coal Bee Species").getDouble();
-		mobiusBeeValue = cfg.get(CATEGORY_EMC, "mobiusBeeValue (Default: 139264)", mobiusBeeValue, "The EMC value for the Mobius Bee Species").getDouble();
-		aeternalisBeeValue = cfg.get(CATEGORY_EMC, "aeternalisBeeValue (Default: 466944)", aeternalisBeeValue, "The EMC value for the Aeternalis Bee Species").getDouble();
+		philosophersBeeValue = cfg.get(CATEGORY_EMC, "philosophersBeeValue (Default: 678912)", philosophersBeeValue, "The EMC value for the Philosophers Stone Bee Species").getDouble();
+		alchemicalBeeValue = cfg.get(CATEGORY_EMC, "alchemicalBeeValue (Default: 713728)", alchemicalBeeValue, "The EMC value for the Alchemical Coal Bee Species").getDouble();
+		mobiusBeeValue = cfg.get(CATEGORY_EMC, "mobiusBeeValue (Default: 818176)", mobiusBeeValue, "The EMC value for the Mobius Bee Species").getDouble();
+		aeternalisBeeValue = cfg.get(CATEGORY_EMC, "aeternalisBeeValue (Default: 1235968)", aeternalisBeeValue, "The EMC value for the Aeternalis Bee Species").getDouble();
 	}
 }

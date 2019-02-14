@@ -19,25 +19,55 @@ public class EmcRecipes {
 	
 	public static void registerEMCRecipes() {
 		emcMutation = new EmcRecipe();
-		
+
+		//Darkened Bee
 		emcMutation.addRecipe(BeeDefinition.MODEST, BeeDefinition.WINTRY, Config.darkenedBeeValue);
-		
+
+		//Reddened Bee
 		emcMutation.addRecipe(BeeSpecies.DARKENED, BeeDefinition.MODEST, Config.reddenedBeeValue);
 
+		//Omega Bee
 		emcMutation.addRecipe(BeeSpecies.REDDENED, BeeSpecies.DARKENED, Config.omegaBeeValue);
-		
+
+		//UU-Matter Bee
 		emcMutation.addRecipe(BeeSpecies.OMEGA, BeeSpecies.IRIDIUM, Config.uuMatterBeeValue);
 
-		emcMutation.addRecipe(BeeSpecies.COAL, BeeSpecies.COAL, Config.alchemicalBeeValue);
+		//Philosophers Stone Bee
+		emcMutation.addRecipe(BeeSpecies.DIAMOND, BeeSpecies.REDSTONE, Config.philosophersBeeValue);
+		emcMutation.addRecipe(BeeSpecies.REDSTONE, BeeSpecies.GLOWSTONE, Config.philosophersBeeValue);
+		emcMutation.addRecipe(BeeSpecies.GLOWSTONE, BeeSpecies.DIAMOND, Config.philosophersBeeValue);
 
-		emcMutation.addRecipe(BeeSpecies.COAL, BeeSpecies.ALCHEMICAL_COAL, Config.mobiusBeeValue);
+		//Philosophers Stone Transmutable Bee EMC Mutations:
+		//Alchemical Coal Bee
+		emcMutation.addRecipe(BeeSpecies.PHILOSOPHERS_STONE, BeeSpecies.COAL, Config.alchemicalBeeValue);
+		emcMutation.addRecipe(BeeSpecies.PHILOSOPHERS_STONE, BeeSpecies.MOBIUS, Config.alchemicalBeeValue);
 
-		emcMutation.addRecipe(BeeSpecies.ALCHEMICAL_COAL, BeeSpecies.MOBIUS, Config.aeternalisBeeValue);
+		//Mobius Fuel Bee
+		emcMutation.addRecipe(BeeSpecies.PHILOSOPHERS_STONE, BeeSpecies.ALCHEMICAL_COAL, Config.mobiusBeeValue);
+		emcMutation.addRecipe(BeeSpecies.PHILOSOPHERS_STONE, BeeSpecies.AETERNALIS, Config.mobiusBeeValue);
 
-		emcMutation.addRecipe(BeeSpecies.DIAMOND, BeeSpecies.REDSTONE, 1536);
+		//Aeternalis Fuel Bee
+		emcMutation.addRecipe(BeeSpecies.PHILOSOPHERS_STONE, BeeSpecies.MOBIUS, Config.aeternalisBeeValue);
+/*
+		//Coal Bee
+		emcMutation.addRecipe(BeeSpecies.PHILOSOPHERS_STONE, BeeSpecies.MOBIUS, Config.coalBeeValue);
 
-		emcMutation.addRecipe(BeeSpecies.REDSTONE, BeeSpecies.GLOWSTONE, 8192);
+		//Iron Bee
+		emcMutation.addRecipe(BeeSpecies.PHILOSOPHERS_STONE, BeeSpecies.GOLD, Config.ironBeeValue);
 
-		emcMutation.addRecipe(BeeSpecies.GLOWSTONE, BeeSpecies.DIAMOND, 256);
+		//Gold Bee
+		emcMutation.addRecipe(BeeSpecies.PHILOSOPHERS_STONE, BeeSpecies.IRON, Config.goldBeeValue);
+		emcMutation.addRecipe(BeeSpecies.PHILOSOPHERS_STONE, BeeSpecies.DIAMOND, Config.goldBeeValue);
+
+		//Diamond Bee
+		emcMutation.addRecipe(BeeSpecies.PHILOSOPHERS_STONE, BeeSpecies.GOLD, Config.diamondBeeValue);
+		emcMutation.addRecipe(BeeSpecies.PHILOSOPHERS_STONE, BeeSpecies.EMERALD, Config.diamondBeeValue);
+
+		//Emerald Bee
+		emcMutation.addRecipe(BeeSpecies.PHILOSOPHERS_STONE, BeeSpecies.DIAMOND, Config.emeraldBeeValue);
+
+		//Ender Pearl Bee
+		emcMutation.addRecipe(BeeSpecies.PHILOSOPHERS_STONE, BeeSpecies.IRON, Config.enderPearlBeeValue);
+		*/
 	}
 }

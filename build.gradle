@@ -26,6 +26,10 @@ sourceCompatibility = 1.8
 targetCompatibility= 1.8
 
 repositories {
+	 maven {
+	 	name = "RetroBees"
+        	url  "https://dl.bintray.com/thesledgehammer/RetroBees"
+	}
 	maven {
 		name = "Forestry"
 		url = "http://maven.ic2.player.to/"

@@ -17,19 +17,12 @@ plugins {
 	id 'maven'
 	id "net.minecraftforge.gradle.forge" version "2.0.2"
 }
-//apply plugin: 'java'
-//apply plugin: 'net.minecraftforge.gradle.forge'
-//apply plugin: 'maven'
 apply from: rootProject.file('git-maven.gradle')
 
 sourceCompatibility = 1.8
 targetCompatibility= 1.8
 
 repositories {
-	 maven {
-	 	name = "RetroBees"
-        	url  "https://dl.bintray.com/thesledgehammer/RetroBees"
-	}
 	maven {
 		name = "Forestry"
 		url = "http://maven.ic2.player.to/"

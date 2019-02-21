@@ -5,9 +5,11 @@ With current Mod compatability for Tech Reborn & ProjectE. Adds Approximently 44
 ### Acknowledgements
 Forestry, Tech Reborn & ProjectE
 
-### Gradle Build Environment
+### Build Gradle Environment
+
 Maven Repository:
 Add the following to your build.Gradle
+```
 repositories {
   maven {
     name = "RetroBees"
@@ -18,6 +20,7 @@ repositories {
 dependencies {
 	compile "com.thesledgehammer.RetroBees:RetroBees_1.12.2:+:universal"
 }
+```
 
 
 ### GNU Lesser General Public License v3.0

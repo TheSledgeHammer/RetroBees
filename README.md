@@ -13,7 +13,7 @@ Add the following to your build.Gradle
 repositories {
   maven {
     name = "RetroBees"
-    url = "https://helixteamhub.cloud/SledgeHammerDevolopment/projects/mods/repositories/maven/devlopment"
+    url = "https://dl.bintray.com/thesledgehammer/development/"
   }
 }
 

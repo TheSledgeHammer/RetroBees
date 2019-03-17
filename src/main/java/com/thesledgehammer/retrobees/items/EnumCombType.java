@@ -8,6 +8,7 @@
 
 package com.thesledgehammer.retrobees.items;
 
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.IStringSerializable;
 
 import java.awt.*;
@@ -17,6 +18,7 @@ public enum EnumCombType implements IStringSerializable {
 	/**
 	 * @param HoneyComb Name, @param Primary Color, @param Secondary Color, @param (Optinal) IsSecret(true or false)
 	 */
+
 	/*
 	NEXT RELEASE: 1.2.0
 	ALLOYS:
@@ -34,6 +36,7 @@ public enum EnumCombType implements IStringSerializable {
 	DARKMATTER(new Color(0x470E51), new Color(0xE8D56A)),
 	REDMATTER(new Color(0x870606), new Color(0xE8D56A)),
 	//Transmutated
+	PHILOSOPHERS(new Color(0xC60310/*Change this Colour*/), new Color(0xE8D56A)),
 	ALCHEMICAL_COAL(new Color(0xC60310), new Color(0xE8D56A)),
 	MOBIUS(new Color(0x870009), new Color(0xE8D56A)),
 	AETERNALIS(new Color(0x9D9D9D), new Color(0xE8D56A)),
@@ -111,6 +114,7 @@ public enum EnumCombType implements IStringSerializable {
 	public final int primaryColor;
 	public final int secondaryColor;
 	private final boolean secret;
+	public IBlockState philosophersComb;
 
 	EnumCombType(Color primary, Color secondary) {
 		this(primary, secondary, false);

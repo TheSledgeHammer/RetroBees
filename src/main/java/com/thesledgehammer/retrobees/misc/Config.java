@@ -40,14 +40,14 @@ public class Config {
 	public static double alchemicalBeeValue = 713728;
 	public static double mobiusBeeValue = 818176;
 	public static double aeternalisBeeValue = 1235968;
-	/*
+
 	public static double coalBeeValue = 687616;
 	public static double ironBeeValue = 696320;
 	public static double goldBeeValue = 818176;
 	public static double diamondBeeValue = 1235968;
 	public static double emeraldBeeValue = 1793024;
 	public static double enderPearlBeeValue = 748544;
-	*/
+
 
 	public static void readConfig() {
 		Configuration cfg = CommonProxy.config;
@@ -81,5 +81,12 @@ public class Config {
 		alchemicalBeeValue = cfg.get(CATEGORY_EMC, "alchemicalBeeValue (Default: 713728)", alchemicalBeeValue, "The EMC value for the Alchemical Coal Bee Species").getDouble();
 		mobiusBeeValue = cfg.get(CATEGORY_EMC, "mobiusBeeValue (Default: 818176)", mobiusBeeValue, "The EMC value for the Mobius Bee Species").getDouble();
 		aeternalisBeeValue = cfg.get(CATEGORY_EMC, "aeternalisBeeValue (Default: 1235968)", aeternalisBeeValue, "The EMC value for the Aeternalis Bee Species").getDouble();
+
+		coalBeeValue = cfg.get(CATEGORY_EMC, "coalBeeValue (Default: 687616)", coalBeeValue, "The EMC value for the Coal Bee Species").getDouble();
+		ironBeeValue = cfg.get(CATEGORY_EMC, "ironBeeValue (Default: 696320)", ironBeeValue, "The EMC value for the Iron Bee Species").getDouble();
+		goldBeeValue = cfg.get(CATEGORY_EMC, "goldBeeValue (Default: 818176)", goldBeeValue, "The EMC value for the Gold Bee Species").getDouble();
+		diamondBeeValue = cfg.get(CATEGORY_EMC, "diamondBeeValue (Default: 1235968)", diamondBeeValue, "The EMC value for the Diamond Bee Species").getDouble();
+		emeraldBeeValue = cfg.get(CATEGORY_EMC, "emeraldBeeValue (Default: 1793024)", emeraldBeeValue, "The EMC value for the Emerald Bee Species").getDouble();
+		enderPearlBeeValue = cfg.get(CATEGORY_EMC, "enderPearlBeeValue (Default: 748544)", enderPearlBeeValue, "The EMC value for the Ender Pearl Bee Species").getDouble();
 	}
 }

@@ -113,12 +113,13 @@ public enum BeeSpecies implements IBeeDefinition {
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
 			beeSpecies.addProduct(ModuleApiculture.getItems().beeComb.get(EnumHoneyComb.HONEY, 1), 0.30F)
+					/*.addProduct(ModItems.BeeComb.getComb(EnumCombType.PHILOSOPHERS, 1), 0.30F)*/
 					.setHasEffect();
 		}
 
 		@Override
 		protected void setAlleles(IAllele[] template) {
-			//AlleleHelper.getInstance().set(template, EnumBeeChromosome.EFFECT, AlleleEffectRegister.effectPhilosophersStone);
+
 		}
 
 		@Override
@@ -206,11 +207,10 @@ public enum BeeSpecies implements IBeeDefinition {
 		@Override
 		protected void registerMutations() {
 			registerMutation(BeeDefinition.AUSTERE, BeeDefinition.INDUSTRIOUS, 10);
-			/*
+
 			if(isTransmutable()) {
 				registerEMCMutation(PHILOSOPHERS_STONE, ALCHEMICAL_COAL, 100);
 			}
-			*/
 		}
 	},
 
@@ -232,11 +232,10 @@ public enum BeeSpecies implements IBeeDefinition {
 		@Override
 		protected void registerMutations() {
 			registerMutation(COAL, BeeDefinition.AUSTERE, 10);
-			/*
+
 			if(isTransmutable()) {
 				registerEMCMutation(PHILOSOPHERS_STONE, GOLD, 100);
 			}
-			*/
 		}
 	},
 
@@ -300,12 +299,11 @@ public enum BeeSpecies implements IBeeDefinition {
 		@Override
 		protected void registerMutations() {
 			registerMutation(SILVER, COPPER, 9);
-			/*
+
 			if(isTransmutable()) {
 				registerEMCMutation(PHILOSOPHERS_STONE, IRON, 100);
 				registerEMCMutation(PHILOSOPHERS_STONE, DIAMOND, 100);
 			}
-			*/
 		}
 	},
 
@@ -509,12 +507,11 @@ public enum BeeSpecies implements IBeeDefinition {
 		@Override
 		protected void registerMutations() {
 			registerMutation(GOLD, RUBY, 7);
-			/*
+
 			if(isTransmutable()) {
 				registerEMCMutation(PHILOSOPHERS_STONE, GOLD, 100);
 				registerEMCMutation(PHILOSOPHERS_STONE, EMERALD, 100);
 			}
-			*/
 		}
 	},
 
@@ -535,11 +532,10 @@ public enum BeeSpecies implements IBeeDefinition {
 		@Override
 		protected void registerMutations() {
 			registerMutation(BeeDefinition.MONASTIC, DIAMOND, 7);
-			/*
+
 			if(isTransmutable()) {
 				registerEMCMutation(PHILOSOPHERS_STONE, DIAMOND, 100);
 			}
-			*/
 		}
 	},
 
@@ -895,11 +891,10 @@ public enum BeeSpecies implements IBeeDefinition {
 		@Override
 		protected void registerMutations() {
 			registerMutation(DIAMOND, BeeDefinition.SPECTRAL, 8);
-			/*
+
 			if(isTransmutable()) {
 				registerEMCMutation(PHILOSOPHERS_STONE, IRON, 100);
 			}
-			*/
 		}
 	},
 
@@ -1169,197 +1164,6 @@ public enum BeeSpecies implements IBeeDefinition {
 		}
 	};
 
-//TBA: New Transmutable Bees
-/*
-	DIRT(BeeBranches.EMC, "Dirtimis", true, new Color(0xFDFE8E), new Color(0xffdc16)) {
-		@Override
-		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
-
-		}
-
-		@Override
-		protected void setAlleles(IAllele[] template) {
-
-		}
-
-		@Override
-		protected void registerMutations() {
-
-		}
-	},
-
-	GRASS(BeeBranches.EMC, "Grassitis", false, new Color(0xFDFE8E), new Color(0xffdc16)) {
-		@Override
-		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
-
-		}
-
-		@Override
-		protected void setAlleles(IAllele[] template) {
-
-		}
-
-		@Override
-		protected void registerMutations() {
-
-		}
-	},
-
-	SAND(BeeBranches.EMC, "Sandimis", true, new Color(0xFDFE8E), new Color(0xffdc16)) {
-		@Override
-		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
-
-		}
-
-		@Override
-		protected void setAlleles(IAllele[] template) {
-
-		}
-
-		@Override
-		protected void registerMutations() {
-
-		}
-	},
-
-	SANDSTONE(BeeBranches.EMC, "Sandstonis", false, new Color(0xFDFE8E), new Color(0xffdc16)) {
-		@Override
-		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
-
-		}
-
-		@Override
-		protected void setAlleles(IAllele[] template) {
-
-		}
-
-		@Override
-		protected void registerMutations() {
-
-		}
-	},
-
-	ICE(BeeBranches.EMC, "Icitis", true, new Color(0xFDFE8E), new Color(0xffdc16)) {
-		@Override
-		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
-
-		}
-
-		@Override
-		protected void setAlleles(IAllele[] template) {
-
-		}
-
-		@Override
-		protected void registerMutations() {
-
-		}
-	},
-
-	COBBLESTONE(BeeBranches.EMC, "Cobblestonis", false, new Color(0xFDFE8E), new Color(0xffdc16)) {
-		@Override
-		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
-
-		}
-
-		@Override
-		protected void setAlleles(IAllele[] template) {
-
-		}
-
-		@Override
-		protected void registerMutations() {
-
-		}
-	},
-
-	STONE(BeeBranches.EMC, "Stonis", true, new Color(0xFDFE8E), new Color(0xffdc16)) {
-		@Override
-		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
-
-		}
-
-		@Override
-		protected void setAlleles(IAllele[] template) {
-
-		}
-
-		@Override
-		protected void registerMutations() {
-
-		}
-	},
-
-	GRAVEL(BeeBranches.EMC, "Gravelis", false, new Color(0xFDFE8E), new Color(0xffdc16)) {
-		@Override
-		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
-
-		}
-
-		@Override
-		protected void setAlleles(IAllele[] template) {
-
-		}
-
-		@Override
-		protected void registerMutations() {
-
-		}
-	},
-
-	OBSIDIAN(BeeBranches.EMC, "Obsidianitis", true, new Color(0xFDFE8E), new Color(0xffdc16)) {
-		@Override
-		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
-
-		}
-
-		@Override
-		protected void setAlleles(IAllele[] template) {
-
-		}
-
-		@Override
-		protected void registerMutations() {
-
-		}
-	},
-
-	LAVA(BeeBranches.EMC, "Lavamis", false, new Color(0xFDFE8E), new Color(0xffdc16)) {
-		@Override
-		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
-
-		}
-
-		@Override
-		protected void setAlleles(IAllele[] template) {
-
-		}
-
-		@Override
-		protected void registerMutations() {
-
-		}
-	},
-
-	WATER(BeeBranches.EMC, "Wateris", false, new Color(0xFDFE8E), new Color(0xffdc16)) {
-		@Override
-		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies) {
-
-		}
-
-		@Override
-		protected void setAlleles(IAllele[] template) {
-
-		}
-
-		@Override
-		protected void registerMutations() {
-
-		}
-	},
-
-*/
-
 	private boolean active;
 
 	private void setActive(boolean active) {
@@ -1377,6 +1181,13 @@ public enum BeeSpecies implements IBeeDefinition {
 
 	public boolean getActive() {
 		return active;
+	}
+
+	public static boolean isTransmutable() {
+		if(Loader.isModLoaded("projecte")) {
+			return Config.isTransmutable;
+		}
+		return false;
 	}
 
 	private final IBranchDefinition branch;
@@ -1489,12 +1300,5 @@ public enum BeeSpecies implements IBeeDefinition {
 	
 	public static IBeeMutationBuilder registerEMCMutation(IAlleleBeeSpecies parent1, IAlleleBeeSpecies parent2, IAllele[] template, int chance) {
 		return BeeManagerRetroBees.beeMutationFactoryEMC.createMutation(parent1, parent2, template, chance);
-	}
-
-	public static boolean isTransmutable() {
-		if(Loader.isModLoaded("projecte")) {
-			return Config.isTransmutable;
-		}
-		return false;
 	}
 }

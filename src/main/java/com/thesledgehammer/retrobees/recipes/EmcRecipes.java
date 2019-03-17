@@ -48,7 +48,7 @@ public class EmcRecipes {
 
 		//Aeternalis Fuel Bee
 		emcMutation.addRecipe(BeeSpecies.PHILOSOPHERS_STONE, BeeSpecies.MOBIUS, Config.aeternalisBeeValue);
-/*
+
 		//Coal Bee
 		emcMutation.addRecipe(BeeSpecies.PHILOSOPHERS_STONE, BeeSpecies.MOBIUS, Config.coalBeeValue);
 
@@ -68,6 +68,5 @@ public class EmcRecipes {
 
 		//Ender Pearl Bee
 		emcMutation.addRecipe(BeeSpecies.PHILOSOPHERS_STONE, BeeSpecies.IRON, Config.enderPearlBeeValue);
-		*/
 	}
 }

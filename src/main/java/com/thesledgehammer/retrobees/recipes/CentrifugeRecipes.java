@@ -46,6 +46,13 @@ public class CentrifugeRecipes {
 					ModuleApiculture.getItems().honeyDrop.getItemStack(), 0.2f,
 					ModItems.HoneyDrop.getDrop(EnumDropType.OMEGA, 1), 0.15f
 			));
+/*
+			//Philosophers comb
+			RecipeManagers.centrifugeManager.addRecipe(20, ModItems.BeeComb.getComb(EnumCombType.PHILOSOPHERS, 1), ImmutableMap.of(
+					ModuleApiculture.getItems().honeyDrop.getItemStack(), 0.2f,
+					new ItemStack(ModItems.philosophersComb.getPhilosophersCombProduct().getBlock(), 1), 0.15f
+			));
+			*/
 
 			//Alchemical Coal comb
 			RecipeManagers.centrifugeManager.addRecipe(20, ModItems.BeeComb.getComb(EnumCombType.ALCHEMICAL_COAL, 1), ImmutableMap.of(

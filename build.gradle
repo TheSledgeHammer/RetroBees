@@ -39,6 +39,8 @@ minecraft {
 	version = mcversion + "-" + forgeversion
 	runDir = "run"
 	mappings = mcp_mappings
+	replace '@VERSION@', project.version
+	replace '@BUILD_NUMBER@', getBuildNumber()
 }
 
 group= "com.thesledgehammer.retrobees"
@@ -62,4 +64,9 @@ processResources {
 	from(sourceSets.main.resources.srcDirs) {
 		exclude 'mcmod.info'
 	}
+	rename '(.+_at.cfg)', 'META-INF/$1'
+}
+
+def getBuildNumber() {
+	return "$System.env.BUILD_NUMBER" != "null" ? "$System.env.BUILD_NUMBER" : "0"
 }

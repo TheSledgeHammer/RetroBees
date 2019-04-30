@@ -17,6 +17,7 @@ import forestry.apiculture.genetics.alleles.AlleleEffects;
 import forestry.core.genetics.IBranchDefinition;
 import forestry.core.genetics.alleles.AlleleHelper;
 import forestry.core.genetics.alleles.EnumAllele;
+import net.minecraftforge.fml.common.Loader;
 
 import javax.annotation.Nullable;
 import java.util.Arrays;
@@ -40,7 +41,9 @@ public enum BeeBranches implements IBranchDefinition {
 		protected void setBranchProperties(IAllele[] alleles) {
 			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.FLOWERING, EnumAllele.Flowering.AVERAGE);
 			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.BOTH_1);
-			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.EFFECT, AlleleEffectRegister.effectPhilosophersStone);
+			if(Loader.isModLoaded("projecte")) {
+				AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.EFFECT, AlleleEffectRegister.effectPhilosophersStone);
+			}
 		}
 	},
 

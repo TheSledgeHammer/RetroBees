@@ -22,6 +22,7 @@
 /resourcepacks
 /run
 /saves
+/ClientRuntime
 .classpath
 RetroBees_Client.launch
 RetroBees_Server.launch

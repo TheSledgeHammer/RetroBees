@@ -35,3 +35,8 @@ options.txt
 .idea/gradle.xml
 sh.exe.stackdump
 src/main/java/com/thesledgehammer/retrobees/flowers/FlowerManagement.java
+ServerRuntime/server.properties
+ServerRuntime/config/teamreborn/configData.nbt
+ServerRuntime/eula.txt
+ServerRuntime/crash-reports/crash-2019-05-10_16.36.38-server.txt
+ServerRuntime/config/teamreborn/reborncore/selected_energy.json

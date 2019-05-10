@@ -17,12 +17,21 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.Logger;
 
 
-@Mod(modid = RetroBees.MOD_ID, name = "RetroBees", version = RetroBees.VERSION, acceptedMinecraftVersions = RetroBees.MCVERSION, dependencies = "required-after:forestry;", certificateFingerprint = "616437EBB587FE5A83EE547EA1D2E1C403B074CF")
+@Mod(
+		modid = RetroBees.MOD_ID,
+		name = "RetroBees",
+		version = RetroBees.VERSION,
+		acceptedMinecraftVersions = RetroBees.MCVERSION,
+		updateJSON = RetroBees.UPDATE_JSON,
+		dependencies = "required-after:forestry;",
+		certificateFingerprint = "616437EBB587FE5A83EE547EA1D2E1C403B074CF"
+)
 public class RetroBees {
 
 	public static final String MOD_ID = "retrobees";
-	public static final String VERSION = "1.1.4";
+	public static final String VERSION = "@VERSION@";
 	public static final String MCVERSION = "1.12.2";
+	public static final String UPDATE_JSON = "@UPDATE@";
 
 	@SidedProxy(clientSide = "com.thesledgehammer.retrobees.proxy.ClientProxy", serverSide = "com.thesledgehammer.retrobees.proxy.CommonProxy")
 	public static CommonProxy proxy;

@@ -24,9 +24,3 @@ steps:
 - task: DownloadSecureFile@1
   inputs:
     secureFile: 'gradle.properties'
-- task: DownloadSecureFile@2
-  inputs:
-    secureFile: 'git-maven.gradle'
-- task: DownloadSecureFile@3
-  inputs:
-    secureFile: 'mavenBintray.gradle'

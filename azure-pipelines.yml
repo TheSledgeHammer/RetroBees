@@ -25,4 +25,4 @@ steps:
   inputs:
     secureFile: 'gradle.properties'
     secureFile: 'git-maven.gradle'
-    secureFile: 'mavenBintray.gralde'
+    secureFile: 'mavenBintray.gradle'

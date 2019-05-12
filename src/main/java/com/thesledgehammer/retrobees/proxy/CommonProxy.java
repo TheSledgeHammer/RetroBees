@@ -10,7 +10,6 @@ package com.thesledgehammer.retrobees.proxy;
 
 import com.thesledgehammer.retrobees.init.ObjectBatchLoader;
 import com.thesledgehammer.retrobees.misc.Config;
-import com.thesledgehammer.retrobees.network.PacketHandler;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;
@@ -30,8 +29,8 @@ public class CommonProxy {
 		Config.readConfig();
 
 		// Initialize our packet handler. Make sure the name is 20 characters or less!
-		PacketHandler.registerMessages("retrobees");
-		// Initialization of blocks and items typically goes here:
+		//PacketHandler.registerMessages("retrobees");
+		//Initialization of blocks and items typically goes here:
 		ObjectBatchLoader.preInit();
 
 	}

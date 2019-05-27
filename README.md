@@ -4,7 +4,7 @@
 <p align="center">
     <a href="https://minecraft.curseforge.com/projects/retrobees"><img src="http://cf.way2muchnoise.eu/full_300139_downloads.svg" /></a>
     <a href="https://minecraft.curseforge.com/projects/retrobees"><img src="http://cf.way2muchnoise.eu/packs/full_300139_in_packs.svg" /></a>
-    <a href="https://depshield.github.io"><img src="https://depshield.sonatype.org/badges/TheSledgeHammer/RetroBees/depshield.svg")] /></a>
+    <a href="https://minecraft.curseforge.com/projects/retrobees"><img src="http://cf.way2muchnoise.eu/versions/300139.svg" /></a>
 </p>
 
 ### Acknowledgements

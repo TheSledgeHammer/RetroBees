@@ -15,21 +15,21 @@ import forestry.apiculture.genetics.IBeeDefinition;
 
 public class EmcRecipe  {
 	
-	private HashBasedTable<IAlleleBeeSpecies, IAlleleBeeSpecies, Double> emcMutations = HashBasedTable.create();
+	private HashBasedTable<IAlleleBeeSpecies, IAlleleBeeSpecies, Long> emcMutations = HashBasedTable.create();
 	
 	public EmcRecipe() {
 		setEmcMutations(emcMutations);
 	}
 	
-	public EmcRecipe(HashBasedTable<IAlleleBeeSpecies, IAlleleBeeSpecies, Double> emcMutations) {
+	public EmcRecipe(HashBasedTable<IAlleleBeeSpecies, IAlleleBeeSpecies, Long> emcMutations) {
 		setEmcMutations(emcMutations);
 	}
 	
-	private void setEmcMutations(HashBasedTable<IAlleleBeeSpecies, IAlleleBeeSpecies, Double> emcMutations) {
+	private void setEmcMutations(HashBasedTable<IAlleleBeeSpecies, IAlleleBeeSpecies, Long> emcMutations) {
 		this.emcMutations = emcMutations;
 	}
 	
-	public HashBasedTable<IAlleleBeeSpecies, IAlleleBeeSpecies, Double> getRecipes() {
+	public HashBasedTable<IAlleleBeeSpecies, IAlleleBeeSpecies, Long> getRecipes() {
 		return emcMutations;
 	}
 	
@@ -37,11 +37,11 @@ public class EmcRecipe  {
 		return emcMutations.get(parent0, parent1);
 	}
 	
-	public void addRecipe(IAlleleBeeSpecies parent0, IAlleleBeeSpecies parent1, double emcValue) {
+	public void addRecipe(IAlleleBeeSpecies parent0, IAlleleBeeSpecies parent1, long emcValue) {
 		emcMutations.put(parent0, parent1, emcValue);
 	}
 	
-	public void addRecipe(IBeeDefinition parent0, IBeeDefinition parent1, double emcValue) {
+	public void addRecipe(IBeeDefinition parent0, IBeeDefinition parent1, long emcValue) {
 		emcMutations.put(parent0.getGenome().getPrimary(), parent1.getGenome().getPrimary(), emcValue);
 	}
 	
@@ -49,8 +49,8 @@ public class EmcRecipe  {
 		return emcMutations.size();
 	}
 	
-	public ImmutableTable<IAlleleBeeSpecies, IAlleleBeeSpecies, Double> recipes() {
-		ImmutableTable<IAlleleBeeSpecies, IAlleleBeeSpecies, Double> immutableEmc = ImmutableTable.copyOf(emcMutations);
+	public ImmutableTable<IAlleleBeeSpecies, IAlleleBeeSpecies, Long> recipes() {
+		ImmutableTable<IAlleleBeeSpecies, IAlleleBeeSpecies, Long> immutableEmc = ImmutableTable.copyOf(emcMutations);
 		return immutableEmc;
 	}
 }

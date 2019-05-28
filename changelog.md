@@ -1,7 +1,9 @@
 #RetroBees Changelog
 
-## [Unreleased]
+## [Unreleased] - 1.1.5
 - Server Packet Handler Error
+- Updated ProjectE dependency to 1.4.1
+- Changed EMC value type to long from double to remove deprecated ProjectE API's
 
 ## [1.1.4] - 2019-04-30
 ### Added
@@ -24,7 +26,7 @@
 ### Changes
 - Bee EMC requirements changed for Alchemical Coal, Mobius and Aeternalis Bee
 - ItemCombType and ItemDropType extend ItemForestry not Item
-- Forestry HoneyComb and HoneyDrop textures used directly 
+- Forestry HoneyComb and HoneyDrop textures used directly
 ### Fixed
 ### Removed
 - HoneyComb & HoneyDrop Copied Forestry Textures

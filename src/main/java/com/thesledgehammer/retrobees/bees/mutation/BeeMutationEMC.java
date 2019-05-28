@@ -41,9 +41,9 @@ public class BeeMutationEMC extends Mutation implements IBeeMutation, IBeeMutati
 		BlockPos housingPos = housing.getCoordinates();
 
 		float chance = super.getChance(world, housingPos, allele0, allele1, genome0, genome1, housing);
-		
-		double emcStored = 0;
-		double emcRequired = 0;
+
+		long emcStored = 0;
+		long emcRequired = 0;
 		
 		for (EnumFacing face : EnumFacing.VALUES) {
 			TileEntity tile = housing.getWorldObj().getTileEntity(housingPos.offset(face.getOpposite()));
@@ -69,11 +69,10 @@ public class BeeMutationEMC extends Mutation implements IBeeMutation, IBeeMutati
 				}
 				
 				if (emcStored < emcRequired) {
-					//emc.provideEMC(face, emcStored);
 					return 0;
 				}
 				
-				if (emcStored >= emcRequired) {
+				if (emcStored > emcRequired) {
 					emc.provideEMC(face, emcRequired);
 					return 100;
 				}

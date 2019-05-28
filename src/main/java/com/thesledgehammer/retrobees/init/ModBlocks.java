@@ -37,7 +37,7 @@ public class ModBlocks {
     }
 
     private static <T extends Block> T registerBlock(T block, String name) {
-        return registerBlock(block, null, name);
+        return registerBlock(block, new ItemBlock(block), name);
     }
 
     private static void registerOreDictWildcard(String oreDictName, Block block) {

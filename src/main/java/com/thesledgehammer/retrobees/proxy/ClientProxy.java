@@ -9,11 +9,9 @@
 package com.thesledgehammer.retrobees.proxy;
 
 import com.thesledgehammer.retrobees.init.ObjectBatchLoader;
-import com.thesledgehammer.retrobees.input.InputHandler;
 import com.thesledgehammer.retrobees.misc.ObjectManager;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -30,9 +28,7 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void init(FMLInitializationEvent event) {
 		super.init(event);
-		MinecraftForge.EVENT_BUS.register(new InputHandler());
 		ObjectManager.ColorRegister();
-		//KeyBindings.init();
 	}
 
 	@Override

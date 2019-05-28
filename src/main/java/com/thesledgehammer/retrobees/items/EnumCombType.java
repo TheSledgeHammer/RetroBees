@@ -8,7 +8,6 @@
 
 package com.thesledgehammer.retrobees.items;
 
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.IStringSerializable;
 
 import java.awt.*;
@@ -114,7 +113,6 @@ public enum EnumCombType implements IStringSerializable {
 	public final int primaryColor;
 	public final int secondaryColor;
 	private final boolean secret;
-	public IBlockState philosophersComb;
 
 	EnumCombType(Color primary, Color secondary) {
 		this(primary, secondary, false);

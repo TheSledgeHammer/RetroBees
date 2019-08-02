@@ -12,16 +12,21 @@ import com.thesledgehammer.retrobees.init.ObjectBatchLoader;
 import com.thesledgehammer.retrobees.misc.Config;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
+import java.io.File;
+
 public class CommonProxy {
 	
-	//public static Configuration config;
+	public static Configuration config;
 
 	public void preInit(FMLPreInitializationEvent event) {
-		Config.preInit(event);
+		File directory = event.getModConfigurationDirectory();
+		config = new Configuration(new File(directory.getPath(), "retrobees.cfg"));
+		Config.readConfig();
 		//Initialization of blocks and items typically goes here:
 		ObjectBatchLoader.preInit();
 	}
@@ -32,7 +37,9 @@ public class CommonProxy {
 	 
 	 public void postInit(FMLPostInitializationEvent event) {
 		 ObjectBatchLoader.postInit();
-		 Config.postInit(event);
+		 if(config.hasChanged()) {
+			 config.save();
+		 }
 	 }
 
 	public void registerItem(Item item) {

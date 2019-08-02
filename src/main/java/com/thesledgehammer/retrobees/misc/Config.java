@@ -9,6 +9,7 @@
 package com.thesledgehammer.retrobees.misc;
 
 import com.thesledgehammer.retrobees.RetroBees;
+import com.thesledgehammer.retrobees.proxy.CommonProxy;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -47,22 +48,8 @@ public class Config {
 	public static long emeraldBeeValue = 1793024;
 	public static long enderPearlBeeValue = 748544;
 
-	private static Configuration config;
-
-	public static void preInit(FMLPreInitializationEvent event) {
-		File directory = event.getModConfigurationDirectory();
-		config = new Configuration(new File(directory.getPath(), "retrobees.cfg"));
-		readConfig();
-	}
-
-	public static void postInit(FMLPostInitializationEvent event) {
-		if(config.hasChanged()) {
-			config.save();
-		}
-	}
-
-	private static void readConfig() {
-		Configuration cfg = config;
+	public static void readConfig() {
+		Configuration cfg = CommonProxy.config;
 		try {
 			cfg.load();
 			initConfig(cfg);

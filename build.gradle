@@ -50,9 +50,9 @@ group= "com.thesledgehammer.retrobees"
 archivesBaseName = "RetroBees_" + mcversion
 
 dependencies {
-	compile "net.sengir.forestry:forestry_1.12.2:+"
-	compile "TechReborn:TechReborn-1.12.2:+:universal"
-	compile "RebornCore:RebornCore-1.12.2:+:universal"
+	compile "net.sengir.forestry:forestry_1.12.2:${forestry_version}"
+	compile "TechReborn:TechReborn-1.12.2:${techreborn_version}:universal"
+	//compile "RebornCore:RebornCore-1.12.2:${reborncore_version}:universal"
 	compile files("/lib/ProjectE-1.12.2-PE1.4.1.jar")
 }
 

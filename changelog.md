@@ -1,8 +1,11 @@
 #RetroBees Changelog
 
-## [Unreleased] - 1.1.5
+## [Unreleased]
+
+## [1.1.5] - 2019-08-02
 - Server Packet Handler Error
 - Updated ProjectE dependency to 1.4.1
+- Updated Tech Reborn to 2.24.1.1017
 - Changed EMC value type to long from double to remove deprecated ProjectE API's
 
 ## [1.1.4] - 2019-04-30

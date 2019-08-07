@@ -2,11 +2,17 @@
 
 ## [Unreleased]
 
+## [1.1.6] - 2019-08-07
+### Fixed
+- Game Crash
+
 ## [1.1.5] - 2019-08-02
-- Server Packet Handler Error
+### Changes
 - Updated ProjectE dependency to 1.4.1
 - Updated Tech Reborn to 2.24.1.1017
 - Changed EMC value type to long from double to remove deprecated ProjectE API's
+### Fixed
+- Server Packet Handler Error
 
 ## [1.1.4] - 2019-04-30
 ### Added

@@ -10,7 +10,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 
 import javax.annotation.Nullable;
-
+/*
 public class ModBlocks {
 
     public static void init() {
@@ -44,3 +44,4 @@ public class ModBlocks {
         OreDictionary.registerOre(oreDictName, new ItemStack(block, 1, OreDictionary.WILDCARD_VALUE));
     }
 }
+*/

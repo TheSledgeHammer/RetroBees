@@ -8,6 +8,7 @@
 
 package com.thesledgehammer.retrobees.items;
 
+import com.thesledgehammer.retrobees.init.ModItems;
 import com.thesledgehammer.retrobees.misc.IInitModel;
 import forestry.api.core.Tabs;
 import forestry.core.items.IColoredItem;
@@ -20,17 +21,19 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 public class ItemCombType extends ItemForestry implements IColoredItem, IInitModel {
 	
 	public ItemCombType() {
-		this.setMaxDamage(0);
-		this.setHasSubtypes(true);
-		this.setCreativeTab(Tabs.tabApiculture);
+		setMaxDamage(0);
+		setHasSubtypes(true);
+		setCreativeTab(Tabs.tabApiculture);
 	}
 	
 	@Override
@@ -47,11 +50,12 @@ public class ItemCombType extends ItemForestry implements IColoredItem, IInitMod
 	@SideOnly(Side.CLIENT)
 	public void initModel() {
 		for(int i = 0; i < EnumCombType.VALUES.length; i++) {
-			ModelLoader.setCustomModelResourceLocation(this, i, new ModelResourceLocation(this.getRegistryName(), "inventory"));
+			ModelLoader.setCustomModelResourceLocation(this, i, new ModelResourceLocation(Objects.requireNonNull(getRegistryName()), "inventory"));
 		}
 	}
-	
+
 	@Override
+	@Nonnull
 	public String getUnlocalizedName(ItemStack stack) {
 		EnumCombType honeyComb = EnumCombType.VALUES[stack.getItemDamage()];
 		return super.getUnlocalizedName(stack) + "." + honeyComb.name;

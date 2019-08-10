@@ -1,10 +1,10 @@
 {
   "homepage": "https://minecraft.curseforge.com/projects/retrobees",
   "1.12.2": {
-    "1.1.6": "Changelog: https://github.com/TheSledgeHammer/RetroBees/blob/master/changelog.md"
+    "1.1.7": "Changelog: https://github.com/TheSledgeHammer/RetroBees/blob/master/changelog.md"
   },
   "promos": {
-    "1.12.2-latest": "1.1.6",
-    "1.12.2-recommended": "1.1.6"
+    "1.12.2-latest": "1.1.7",
+    "1.12.2-recommended": "1.1.7"
   }
 }

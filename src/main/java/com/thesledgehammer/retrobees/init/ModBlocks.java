@@ -1,5 +1,6 @@
 package com.thesledgehammer.retrobees.init;
 
+<<<<<<< Updated upstream
 import com.thesledgehammer.retrobees.RetroBees;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
@@ -11,6 +12,9 @@ import net.minecraftforge.oredict.OreDictionary;
 
 import javax.annotation.Nullable;
 
+=======
+/*
+>>>>>>> Stashed changes
 public class ModBlocks {
 
     public static void init() {

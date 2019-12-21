@@ -8,7 +8,7 @@ buildscript {
 		}
 	}
 	dependencies {
-		classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+		classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
 	}
 }
 
@@ -16,13 +16,16 @@ plugins {
 	id 'java'
 	id 'idea'
 	id 'maven'
-	id "net.minecraftforge.gradle.forge" version "2.0.2"
 	id "com.jfrog.bintray" version "1.8.4"
 }
+apply plugin: 'net.minecraftforge.gradle'
 apply from: project.file('maven.gradle')
 
-sourceCompatibility = 1.8
-targetCompatibility= 1.8
+version = version_major + '.' + version_minor + '.' + version_patch
+group= "com.thesledgehammer.retrobees"
+archivesBaseName = "RetroBees_" + mcversion
+
+sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
 repositories {
 	maven {
@@ -35,38 +38,69 @@ repositories {
 	}
 }
 
-version = version_major + '.' + version_minor + '.' + version_patch
-
 minecraft {
-	version = mcversion + "-" + forgeversion
-	runDir = "run"
-	mappings = mcp_mappings
-	replaceIn "RetroBees.java"
-	replace '@VERSION@', project.version
-	replace '@UPDATE@', update_json
-}
+	mappings channel: 'snapshot', version: "${mcp_mappings}-${mc_mappings_version}"
+	runs {
+		client {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            property 'forge.logging.console.level', 'debug'
 
-group= "com.thesledgehammer.retrobees"
-archivesBaseName = "RetroBees_" + mcversion
+            mods {
+                retrobees {
+                    source sourceSets.main
+				}
+            }
+        }
+
+        server {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            property 'forge.logging.console.level', 'debug'
+            mods {
+                retrobees {
+                    source sourceSets.main
+                }
+            }
+        }
+
+		data {
+			workingDirectory project.file('run')
+
+			// Recommended logging data for a userdev environment
+			property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+
+			// Recommended logging level for the console
+			property 'forge.logging.console.level', 'debug'
+
+			args '--mod', 'retrobees', '--all', '--output', file('src/generated/resources/')
+
+			mods {
+				retrobees {
+					source sourceSets.main
+				}
+			}
+		}
+    }
+}
 
 dependencies {
-	compile "net.sengir.forestry:forestry_1.12.2:${forestry_version}"
-	compile "TechReborn:TechReborn-1.12.2:${techreborn_version}:universal"
-	compile "RebornCore:RebornCore-1.12.2:${reborncore_version}:universal"
-	compile files("/lib/ProjectE-1.12.2-PE1.4.1.jar")
+	minecraft "net.minecraftforge:forge:${mcversion}-${forgeversion}"
+	//compile "net.sengir.forestry:forestry_1.12.2:${forestry_version}"
+	//compile "TechReborn:TechReborn-1.12.2:${techreborn_version}:universal"
+	//compile "RebornCore:RebornCore-1.12.2:${reborncore_version}:universal"
+	//compile files("/lib/ProjectE-1.12.2-PE1.4.1.jar")
 }
 
-processResources {
-	inputs.property "version", project.version
-	inputs.property "mcversion", project.minecraft.version
-	inputs.property "updatejson", update_json
-
-	from(sourceSets.main.resources.srcDirs) {
-		include 'mcmod.info'
-		// replace version and mcversion
-		expand 'version':project.version, 'mcversion':project.minecraft.version, 'updatejson': update_json
-	}
-	from(sourceSets.main.resources.srcDirs) {
-		exclude 'mcmod.info'
+jar {
+	manifest {
+		attributes(['Specification-Title': 'retrobees',
+					'Specification-Vendor': 'TheSledgeHammer',
+					'Specification-Version': "2.0",
+					'Implementation-Title': "RetroBees",
+					'Implementation-Version': "${version}",
+					'Implementation-Vendor' :'RetroBees',
+					'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+		])
 	}
 }

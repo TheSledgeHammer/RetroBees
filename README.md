@@ -23,7 +23,7 @@ repositories {
 }
 
 dependencies {
-	compile "com.thesledgehammer.RetroBees:RetroBees_1.12.2:+:universal"
+	compile "com.thesledgehammer.RetroBees:RetroBees_1.14.x:+:universal"
 }
 ```
 

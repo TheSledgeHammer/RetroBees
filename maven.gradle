@@ -1,5 +1,6 @@
 apply plugin: 'maven'
 apply plugin: 'maven-publish'
+apply plugin: 'signing'
 
 //GITHOST: Remote hosting location e.g. GitHub.com, GitLab.com, BitBucket.org etc
 //COMPANY: Company name or User
@@ -10,23 +11,22 @@ def semVersion = version_major + '.' + version_minor + '.' + version_patch
 def artifactID = project.archivesBaseName + '_' + project.mcversion
 
 jar {
-  classifier = 'universal'
-  manifest {
-		attributes 'FMLAT': project.archivesBaseName + '_at.cfg'
+    archiveClassifier = "universal"
+    manifest {
+        attributes 'FMLAT': project.archivesBaseName + '_at.cfg'
   }
 }
 
-task signJar(type: SignJar, dependsOn: reobfJar) {
-  onlyIf{
-    keyStore = project.keyStore
-    alias = project.keyStoreAlias
-    storePass = project.keyStorePass
-    keyPass = project.keyStoreKeyPass
-    inputFile = jar.archivePath
-    outputFile = jar.archivePath
+signing {
+  if (project.hasProperty('keystore')) {
+    keyStore = System.getenv('keyStore')
+    alias = System.getenv('keyStoreAlias')
+    storePass = System.getenv('keyStorePass')
+    keyPass = System.getenv('keyStoreKeyPass')
+    inputFile = jar.getArchiveFile()
+    outputFile = jar.getArchiveFile()
   }
 }
-build.dependsOn signJar
 
 publishing {
 	publications {
@@ -59,16 +59,18 @@ publishing {
     }
   }
   repositories {
-    maven {
-      url "https://dl.bintray.com/thesledgehammer/development"
-      url "file://${local_maven}"
-    }
+      maven {
+          url "https://dl.bintray.com/thesledgehammer/development"
+      }
+      maven {
+          url "file://${local_maven}"
+      }
   }
 }
 
 bintray {
-  user = project.getProperty("bintray_user")
-  key = project.getProperty("bintray_key")
+  user = System.getenv('bintray_user')
+  key = System.getenv('bintray_key')
   publications = ['maven']
   pkg {
     repo = 'development'

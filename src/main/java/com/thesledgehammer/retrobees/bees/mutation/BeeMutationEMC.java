@@ -13,9 +13,9 @@ import forestry.api.apiculture.*;
 import forestry.api.genetics.IAllele;
 import forestry.api.genetics.IAlleleSpecies;
 import forestry.core.genetics.mutations.Mutation;
-import moze_intel.projecte.api.tile.IEmcProvider;
+import moze_intel.projecte.api.capabilities.tile.IEmcStorage;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -45,11 +45,11 @@ public class BeeMutationEMC extends Mutation implements IBeeMutation, IBeeMutati
 		long emcStored = 0;
 		long emcRequired = 0;
 		
-		for (EnumFacing face : EnumFacing.VALUES) {
+		for (Direction face : Direction.values()) {
 			TileEntity tile = housing.getWorldObj().getTileEntity(housingPos.offset(face.getOpposite()));
-			if (tile instanceof IEmcProvider) {
-				IEmcProvider emc = (IEmcProvider) tile;
-				
+			if (tile instanceof IEmcStorage) {
+				IEmcStorage emc = (IEmcStorage) tile;
+
 				emcStored = emc.getStoredEmc();
 				
 				//Get matching Recipe from EmcRecipes
@@ -71,9 +71,9 @@ public class BeeMutationEMC extends Mutation implements IBeeMutation, IBeeMutati
 				if (emcStored < emcRequired) {
 					return 0;
 				}
-				
+
 				if (emcStored > emcRequired) {
-					emc.provideEMC(face, emcRequired);
+					emc.insertEmc(emcRequired, IEmcStorage.EmcAction.EXECUTE);
 					return 100;
 				}
 			}

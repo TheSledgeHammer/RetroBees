@@ -8,41 +8,26 @@
 
 package com.thesledgehammer.retrobees.proxy;
 
-import com.thesledgehammer.retrobees.init.ObjectBatchLoader;
-import com.thesledgehammer.retrobees.misc.ObjectManager;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
-public class ClientProxy extends CommonProxy {
+public class ClientProxy {
 
-	@Override
-	public void preInit(FMLPreInitializationEvent event) {
-		super.preInit(event);
-		// Typically initialization of models and such goes here:
+	public static void ClientSetup(FMLClientSetupEvent event) {
 		ObjectBatchLoader.initModels();
 	}
-	
-	@Override
-	public void init(FMLInitializationEvent event) {
-		super.init(event);
-		ObjectManager.ColorRegister();
+
+	public static void CommonSetup(FMLCommonSetupEvent event) {
+		ObjectManager.RegisterColors();
 	}
 
-	@Override
-	public void postInit(FMLPostInitializationEvent event) {
-		super.postInit(event);
-	}
-
-	@Override
-	public void registerItem(Item item) {
+	public static void registerItem(Item item) {
 		ObjectManager.registerItemClient(item);
 	}
 
-	@Override
-	public void registerBlock(Block block) {
+	public static void registerBlock(Block block) {
 		ObjectManager.registerBlockClient(block);
 	}
 }

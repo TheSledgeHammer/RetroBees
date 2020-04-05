@@ -6,18 +6,15 @@
  * http://www.gnu.org/licenses/lgpl-3.0.txt                                                       *
  **************************************************************************************************/
 
-package com.thesledgehammer.retrobees.init;
+package com.thesledgehammer.retrobees.proxy;
 
-import com.thesledgehammer.retrobees.RetroBees;
 import com.thesledgehammer.retrobees.items.ItemCombType;
 import com.thesledgehammer.retrobees.items.ItemDropType;
-import com.thesledgehammer.retrobees.misc.OreDictUtil;
+import com.thesledgehammer.retrobees.proxy.ClientProxy;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModItems {
 
@@ -26,40 +23,22 @@ public class ModItems {
 
 	public static void init() {
 		HoneyDrop = registerItem(new ItemDropType(), "honeydrop");
-		OreDictionary.registerOre(OreDictUtil.DROP_HONEY, HoneyDrop.getWildcard());
+		//OreDictionary.registerOre(OreDictUtil.DROP_HONEY, HoneyDrop.getWildcard());
 
 		BeeComb = registerItem(new ItemCombType(), "beecomb");
-		OreDictionary.registerOre(OreDictUtil.BEE_COMB, BeeComb.getWildcard());
+		//OreDictionary.registerOre(OreDictUtil.BEE_COMB, BeeComb.getWildcard());
 	}
 
-	@SideOnly(Side.CLIENT)
+	@OnlyIn(Dist.CLIENT)
 	public static void initModels() {
 		HoneyDrop.initModel();
 		BeeComb.initModel();
 	}
 
 	private static <T extends Item> T registerItem(T item, String name) {
-		item.setUnlocalizedName(name);
 		item.setRegistryName(name);
+		ClientProxy.registerItem(item);
 		ForgeRegistries.ITEMS.register(item);
-		RetroBees.proxy.registerItem(item);
 		return item;
-	}
-
-	private static <T extends Item> T registerOreItem(T item, String oreDicName) {
-		ForgeRegistries.ITEMS.register(item);
-		RetroBees.proxy.registerItem(item);
-		OreDictionary.registerOre(oreDicName, item);
-		return item;
-	}
-
-	private static void registerOreDict(String oreDictName, ItemStack itemStack) {
-		OreDictionary.registerOre(oreDictName, itemStack);
-	}
-	
-	private static ItemStack createItemForOreName(String oreName, String registryName) {
-		ItemStack oreItem = new ItemStack(registerItem(new Item(), registryName));
-		OreDictionary.registerOre(oreName, oreItem);
-		return oreItem;
 	}
 }

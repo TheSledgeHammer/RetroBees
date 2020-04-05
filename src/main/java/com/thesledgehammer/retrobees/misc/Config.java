@@ -9,13 +9,8 @@
 package com.thesledgehammer.retrobees.misc;
 
 import com.thesledgehammer.retrobees.RetroBees;
-import com.thesledgehammer.retrobees.proxy.CommonProxy;
-import net.minecraftforge.common.config.Configuration;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import org.apache.logging.log4j.Level;
 
-import java.io.File;
+import org.apache.logging.log4j.Level;
 
 public class Config {
 

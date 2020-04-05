@@ -1,0 +1,31 @@
+modLoader="javafml"
+loaderVersion="[28,)"
+issueTrackerURL="https://github.com/TheSledgeHammer/Retrobees/issues"
+
+[[mods]]
+    modId="retrobees"
+    version="${version}"
+    displayName="RetroBees"
+    updateJSONURL="update_json"
+    displayURL="https://github.com/TheSledgeHammer/RetroBees"
+    logoFile="assets/retrobees/textures/retrobeeslogo.png"
+    credits="Forestry, Tech Reborn and ProjectE"
+    authors="TheSledgeHammer"
+    description='''
+    Adds deprecated (aka retro) bees originally in Forestry from pre-1.7
+    '''
+[[dependencies.retrobees]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[${mcversion}]"
+    side="BOTH"
+[[dependencies.retrobees]]
+    modId="forge"
+    mandatory=true
+    versionRange="[${forgeversion},)"
+    side="BOTH"
+[[dependencies.retrobees]]
+    modId="projecte"
+    mandatory=false
+    versionRange="[${projecte_version},)"
+    side="BOTH"

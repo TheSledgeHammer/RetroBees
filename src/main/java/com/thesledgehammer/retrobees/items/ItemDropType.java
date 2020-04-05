@@ -18,7 +18,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -45,7 +44,7 @@ public class ItemDropType extends ItemForestry implements IColoredItem, IInitMod
 		return false;
 	}
 
-	@SideOnly(Side.CLIENT)
+	@(Side.CLIENT)
 	@Override
 	public void initModel() {
 		for(int i = 0; i < EnumDropType.VALUES.length; i++) {

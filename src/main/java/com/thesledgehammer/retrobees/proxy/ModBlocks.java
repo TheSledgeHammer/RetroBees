@@ -1,15 +1,5 @@
-package com.thesledgehammer.retrobees.init;
+package com.thesledgehammer.retrobees.proxy;
 
-import com.thesledgehammer.retrobees.RetroBees;
-import net.minecraft.block.Block;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraftforge.oredict.OreDictionary;
-
-import javax.annotation.Nullable;
 /*
 public class ModBlocks {
 

@@ -10,7 +10,7 @@ package com.thesledgehammer.retrobees.bees;
 
 import com.thesledgehammer.retrobees.RetroBees;
 import com.thesledgehammer.retrobees.flowers.FlowerRegister;
-import com.thesledgehammer.retrobees.init.ModItems;
+import com.thesledgehammer.retrobees.proxy.ModItems;
 import com.thesledgehammer.retrobees.items.EnumCombType;
 import com.thesledgehammer.retrobees.misc.Config;
 import forestry.api.apiculture.*;

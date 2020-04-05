@@ -8,19 +8,19 @@
 
 package com.thesledgehammer.retrobees.recipes;
 
-import com.thesledgehammer.retrobees.init.ModItems;
+import com.thesledgehammer.retrobees.RetroBees;
+import com.thesledgehammer.retrobees.proxy.ModItems;
 import com.thesledgehammer.retrobees.items.EnumDropType;
-import forestry.api.recipes.RecipeManagers;
 import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fml.common.Loader;
-import techreborn.init.ModFluids;
 
 public class SqueezerRecipes {
-	
+
 	public static void registerSqueezerRecipes() {
-		if(Loader.isModLoaded("techreborn")) {
+
+		if(RetroBees.instance.isModLoaded("techreborn")) {
 
 			//Liquids
+
 			FluidStack Carbon = new FluidStack(ModFluids.CARBON, 100);
 			FluidStack Deuterium = new FluidStack(ModFluids.DEUTERIUM, 100);
 			FluidStack Helium = new FluidStack(ModFluids.HELIUM, 100);
@@ -41,6 +41,7 @@ public class SqueezerRecipes {
 			RecipeManagers.squeezerManager.addRecipe(10, ModItems.HoneyDrop.getDrop(EnumDropType.METHANE, 1), Methane);
 			RecipeManagers.squeezerManager.addRecipe(10, ModItems.HoneyDrop.getDrop(EnumDropType.TRITIUM, 1), Tritium);
 			RecipeManagers.squeezerManager.addRecipe(10, ModItems.HoneyDrop.getDrop(EnumDropType.WOLFRAMIUM, 1), Wolframium);
+
 		}
 	}
 }

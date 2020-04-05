@@ -6,7 +6,7 @@
  * http://www.gnu.org/licenses/lgpl-3.0.txt                                                       *
  **************************************************************************************************/
 
-package com.thesledgehammer.retrobees.init;
+package com.thesledgehammer.retrobees.proxy;
 
 import com.thesledgehammer.retrobees.bees.BeeManagerRetroBees;
 import com.thesledgehammer.retrobees.bees.BeeSpecies;
@@ -16,8 +16,6 @@ import com.thesledgehammer.retrobees.flowers.FlowerRegister;
 import com.thesledgehammer.retrobees.recipes.CentrifugeRecipes;
 import com.thesledgehammer.retrobees.recipes.SmeltingRecipes;
 import com.thesledgehammer.retrobees.recipes.SqueezerRecipes;
-import forestry.api.apiculture.BeeManager;
-import forestry.apiculture.genetics.BeeMutationFactory;
 
 /**
  * Initiates the loading in proxy client of all registered RetroBee Items, Blocks, Tiles, Fluids, Recipes, etc.

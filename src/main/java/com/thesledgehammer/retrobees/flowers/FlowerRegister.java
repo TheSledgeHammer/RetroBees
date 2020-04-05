@@ -10,17 +10,8 @@ package com.thesledgehammer.retrobees.flowers;
 
 import com.thesledgehammer.retrobees.RetroBees;
 import com.thesledgehammer.retrobees.misc.oredictionaryresourcetypes.Ores;
-import forestry.api.apiculture.EnumBeeChromosome;
-import forestry.api.apiculture.FlowerManager;
-import forestry.api.genetics.AlleleManager;
-import forestry.api.genetics.IAlleleFlowers;
-import forestry.apiculture.flowers.FlowerRegistry;
-import moze_intel.projecte.api.state.PEStateProps;
-import moze_intel.projecte.api.state.enums.EnumMatterType;
 import moze_intel.projecte.gameObjs.ObjHandler;
 import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
-import net.minecraftforge.fml.common.Loader;
 
 public class FlowerRegister {
 
@@ -90,6 +81,7 @@ public class FlowerRegister {
 	private static void registerFlowerAlleles() {
 		DARKMATTER = AlleleManager.alleleFactory.createFlowers(RetroBees.MOD_ID, FlowerType, FlowerDarkMatter, EnumFlowers.DARKMATTER.getValue(), false, EnumBeeChromosome.FLOWER_PROVIDER);
 		REDMATTER = AlleleManager.alleleFactory.createFlowers(RetroBees.MOD_ID, FlowerType, FlowerRedMatter, EnumFlowers.REDMATTER.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
+
 		COAL_ORE = AlleleManager.alleleFactory.createFlowers(RetroBees.MOD_ID, FlowerType, FlowerCoal, EnumFlowers.COAL.getValue(), false, EnumBeeChromosome.FLOWER_PROVIDER);
 		IRON_ORE = AlleleManager.alleleFactory.createFlowers(RetroBees.MOD_ID, FlowerType, FlowerIron, EnumFlowers.IRON.getValue(), false, EnumBeeChromosome.FLOWER_PROVIDER);
 		GOLD_ORE = AlleleManager.alleleFactory.createFlowers(RetroBees.MOD_ID, FlowerType, FlowerGold, EnumFlowers.GOLD.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
@@ -125,15 +117,17 @@ public class FlowerRegister {
 	}
 
 	private static void registerProjectEFlowers(FlowerRegistry flowerRegistry) {
-		if (Loader.isModLoaded("ProjectE")) {
-			flowerRegistry.registerAcceptableFlower(ObjHandler.matterBlock.getDefaultState().withProperty(PEStateProps.TIER_PROP, EnumMatterType.DARK_MATTER), FlowerDarkMatter);
-			flowerRegistry.registerAcceptableFlower(ObjHandler.matterBlock.getDefaultState().withProperty(PEStateProps.TIER_PROP, EnumMatterType.RED_MATTER), FlowerRedMatter);
+		if (RetroBees.instance.isModLoaded("ProjectE")) {
+			Block DarkMatterBlock = ObjHandler.dmBlock;
+			Block RedMatterBlock = ObjHandler.rmBlock;
+			flowerRegistry.registerAcceptableFlower(DarkMatterBlock, FlowerDarkMatter);
+			flowerRegistry.registerAcceptableFlower(RedMatterBlock, FlowerDarkMatter);
 		}
 	}
 
 	private static void registerTechRebornFlowers(FlowerRegistry flowerRegistry) {
 		Ores ore = new Ores();
-		if (Loader.isModLoaded("TechReborn")) {
+		if (RetroBees.instance.isModLoaded("TechReborn")) {
 			flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(0).getItem()), FlowerCopper);
 			flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(1).getItem()), FlowerSilver);
 			flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(ore.getOreUID(2).getItem()), FlowerLead);

@@ -9,7 +9,7 @@
 package com.thesledgehammer.retrobees.recipes;
 
 import com.google.common.collect.ImmutableMap;
-import com.thesledgehammer.retrobees.init.ModItems;
+import com.thesledgehammer.retrobees.proxy.ModItems;
 import com.thesledgehammer.retrobees.items.EnumCombType;
 import com.thesledgehammer.retrobees.items.EnumDropType;
 import com.thesledgehammer.retrobees.misc.oredictionaryresourcetypes.Dusts;

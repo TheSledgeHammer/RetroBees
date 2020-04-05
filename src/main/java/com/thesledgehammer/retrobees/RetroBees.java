@@ -8,51 +8,35 @@
 
 package com.thesledgehammer.retrobees;
 
-import com.thesledgehammer.retrobees.proxy.CommonProxy;
+import com.thesledgehammer.retrobees.proxy.ClientProxy;
+import net.minecraftforge.fml.ModContainer;
+import net.minecraftforge.fml.ModList;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod(
-		modid = RetroBees.MOD_ID,
-		name = "RetroBees",
-		version = RetroBees.VERSION,
-		acceptedMinecraftVersions = RetroBees.MCVERSION,
-		updateJSON = RetroBees.UPDATE_JSON,
-		dependencies = "required-after:forestry;",
-		certificateFingerprint = "616437EBB587FE5A83EE547EA1D2E1C403B074CF"
-)
+@Mod(RetroBees.MOD_ID)
 public class RetroBees {
 
 	public static final String MOD_ID = "retrobees";
-	public static final String VERSION = "@VERSION@";
-	public static final String MCVERSION = "1.12.2";
-	public static final String UPDATE_JSON = "@UPDATE@";
 
-	@SidedProxy(clientSide = "com.thesledgehammer.retrobees.proxy.ClientProxy", serverSide = "com.thesledgehammer.retrobees.proxy.CommonProxy")
-	public static CommonProxy proxy;
+	public static RetroBees instance;
+	static ModContainer MOD_CONTAINER;
 
-	@Mod.Instance("retrobees")
-	public static  RetroBees instance;
+	public static final Logger logger = LogManager.getLogger();
 
-	public static Logger logger;
+	public RetroBees() {
+		instance = this;
+		MOD_CONTAINER = ModLoadingContext.get().getActiveContainer();
 
-	@Mod.EventHandler
-	public void preInit(FMLPreInitializationEvent event) {
-		logger = event.getModLog();
-		proxy.preInit(event);
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(ClientProxy::ClientSetup);
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(ClientProxy::CommonSetup);
 	}
 
-	@Mod.EventHandler
-	public void init(FMLInitializationEvent event) {
-		proxy.init(event);
-	}
-
-	@Mod.EventHandler
-	public void postInit(FMLPostInitializationEvent event) {
-		proxy.postInit(event);
+	public boolean isModLoaded(String modTarget) {
+		ModList modList = ModList.get();
+		return modList.isLoaded(modTarget);
 	}
 }

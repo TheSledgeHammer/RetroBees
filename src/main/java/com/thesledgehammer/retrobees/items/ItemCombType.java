@@ -8,7 +8,6 @@
 
 package com.thesledgehammer.retrobees.items;
 
-import com.thesledgehammer.retrobees.init.ModItems;
 import com.thesledgehammer.retrobees.misc.IInitModel;
 import forestry.api.core.Tabs;
 import forestry.core.items.IColoredItem;

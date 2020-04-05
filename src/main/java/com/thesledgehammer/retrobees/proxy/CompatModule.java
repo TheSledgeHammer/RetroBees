@@ -6,13 +6,13 @@
  * http://www.gnu.org/licenses/lgpl-3.0.txt                                                       *
  **************************************************************************************************/
 
-package com.thesledgehammer.retrobees.init;
+package com.thesledgehammer.retrobees.proxy;
 
+import com.thesledgehammer.retrobees.RetroBees;
 import com.thesledgehammer.retrobees.bees.BeeSpecies;
 import com.thesledgehammer.retrobees.bees.mutation.EMCProxy;
 import com.thesledgehammer.retrobees.misc.Log;
 import com.thesledgehammer.retrobees.recipes.EmcRecipes;
-import net.minecraftforge.fml.common.Loader;
 
 public class CompatModule {
 
@@ -22,12 +22,12 @@ public class CompatModule {
     }
 
     private static void CompatProjectE() {
-        if(Loader.isModLoaded("projecte")) {
+        if(RetroBees.instance.isModLoaded("projecte")) {
             Log.logInfo("ProjectE is loaded");
             EmcRecipes.registerEMCRecipes();
             EMCProxy.addEMC();
         }
-        if(!Loader.isModLoaded("projecte")) {
+        if(!RetroBees.instance.isModLoaded("projecte")) {
             Log.error("ProjectE is not loaded");
             BeeSpecies.DARKENED.setInactive();
             BeeSpecies.REDDENED.setInactive();
@@ -40,10 +40,10 @@ public class CompatModule {
     }
 
     private static void CompatTechReborn() {
-        if(Loader.isModLoaded("techreborn")) {
+        if(RetroBees.instance.isModLoaded("techreborn")) {
             Log.logInfo("Tech Reborn is loaded");
         }
-        if(!Loader.isModLoaded("techreborn")) {
+        if(!RetroBees.instance.isModLoaded("techreborn")) {
             Log.error("Tech Reborn is not loaded");
             BeeSpecies.COAL.setInactive();
             BeeSpecies.IRON.setInactive();
@@ -94,7 +94,7 @@ public class CompatModule {
             BeeSpecies.HELIUM_PLASMA.setInactive();
             BeeSpecies.HELIUM.setInactive();
         }
-        if(!Loader.isModLoaded("ProjectE") || !Loader.isModLoaded("TechReborn")) {
+        if(!RetroBees.instance.isModLoaded("ProjectE") || !RetroBees.instance.isModLoaded("TechReborn")) {
             BeeSpecies.UU_MATTER.setInactive();
         }
     }

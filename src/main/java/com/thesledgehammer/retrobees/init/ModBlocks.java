@@ -1,6 +1,5 @@
 package com.thesledgehammer.retrobees.init;
 
-<<<<<<< Updated upstream
 import com.thesledgehammer.retrobees.RetroBees;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
@@ -11,14 +10,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 
 import javax.annotation.Nullable;
-<<<<<<< HEAD
 
-=======
-/*
->>>>>>> Stashed changes
-=======
-/*
->>>>>>> master
 public class ModBlocks {
 
     public static void init() {
@@ -52,4 +44,3 @@ public class ModBlocks {
         OreDictionary.registerOre(oreDictName, new ItemStack(block, 1, OreDictionary.WILDCARD_VALUE));
     }
 }
-*/

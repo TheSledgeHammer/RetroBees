@@ -22,8 +22,8 @@ import org.apache.logging.log4j.Logger;
 		version = RetroBees.VERSION,
 		acceptedMinecraftVersions = RetroBees.MCVERSION,
 		updateJSON = RetroBees.UPDATE_JSON,
-		dependencies = "required-after:forestry;",
-		certificateFingerprint = "616437EBB587FE5A83EE547EA1D2E1C403B074CF"
+		dependencies = "required-after:forestry;"
+		//certificateFingerprint = "616437EBB587FE5A83EE547EA1D2E1C403B074CF"
 )
 public class RetroBees {
 

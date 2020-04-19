@@ -1,7 +1,14 @@
 #RetroBees Changelog
 
 ## [Unreleased]
-## [1.1.7] - 2019-08-010
+## [1.1.8] - 2020-04-19
+### Added
+### Changes
+### Fixed
+- Tritium & Deuterium Bee Mutation bug fix
+### Removed
+
+## [1.1.7] - 2019-08-10
 ### Added
 ### Changes
 ### Fixed

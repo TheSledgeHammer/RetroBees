@@ -1092,7 +1092,7 @@ public enum BeeSpecies implements IBeeDefinition {
 
 		@Override
 		protected void registerMutations() {
-			registerMutation(DEUTERIUM, TRITIUM, 10);
+			registerMutation(HYDROGEN, BAUXITE, 10);
 		}
 	},
 
@@ -1109,7 +1109,7 @@ public enum BeeSpecies implements IBeeDefinition {
 
 		@Override
 		protected void registerMutations() {
-			registerMutation(DEUTERIUM, TRITIUM, 9);
+			registerMutation(DEUTERIUM, HYDROGEN, 9);
 		}
 	},
 

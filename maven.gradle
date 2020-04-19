@@ -1,6 +1,6 @@
 apply plugin: 'maven'
 apply plugin: 'maven-publish'
-apply plugin: 'signing'
+//apply plugin: 'signing'
 
 //GITHOST: Remote hosting location e.g. GitHub.com, GitLab.com, BitBucket.org etc
 //COMPANY: Company name or User
@@ -16,7 +16,7 @@ jar {
 		attributes 'FMLAT': project.archivesBaseName + '_at.cfg'
   }
 }
-
+/*
 signing {
   if (project.hasProperty('keystore')) {
     keyStore = System.getenv('keyStore')
@@ -27,7 +27,7 @@ signing {
     outputFile = jar.archivePath
   }
 }
-
+*/
 publishing {
 	publications {
     maven(MavenPublication) {
@@ -61,14 +61,14 @@ publishing {
   repositories {
     maven {
       url "https://dl.bintray.com/thesledgehammer/development"
-      url "file://${local_maven}"
+      //url "file://${local_maven}"
     }
   }
 }
 
 bintray {
-  user = System.getenv('bintray_user')
-  key = System.getenv('bintray_key')
+  user = project.hasProperty('bintray_user') ? project.property('bintray_user') : System.getenv('bintray_user')
+	key = project.hasProperty('bintray_key') ? project.property('bintray_key') : System.getenv('bintray_key')
   publications = ['maven']
   pkg {
     repo = 'development'

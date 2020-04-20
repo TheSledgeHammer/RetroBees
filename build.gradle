@@ -18,6 +18,7 @@ plugins {
 	id 'maven'
 	id "net.minecraftforge.gradle.forge" version "2.0.2"
 	id "com.jfrog.bintray" version "1.8.4"
+	id "com.wynprice.cursemaven" version "2.1.1"
 }
 apply from: project.file('maven.gradle')
 
@@ -53,7 +54,8 @@ dependencies {
 	compile "net.sengir.forestry:forestry_1.12.2:${forestry_version}"
 	compile "TechReborn:TechReborn-1.12.2:${techreborn_version}:universal"
 	compile "RebornCore:RebornCore-1.12.2:${reborncore_version}:universal"
-	compile files("/lib/ProjectE-1.12.2-PE1.4.1.jar")
+	compile "curse.maven:projecte:${projecte_fileid}"
+	//compile files("/lib/ProjectE-1.12.2-PE1.4.1.jar")
 }
 
 processResources {
